@@ -1,0 +1,151 @@
+/**
+ * Typography implementation guidelines — sitewide
+ * Body 17px/1.72, headings Serif/600, scale, 72ch, links underlined, small ≥14px
+ */
+
+/* Override shared theme: it sets html { font-size: 62.5% } (10px root), so 1rem = 10px
+   and any rem-based font ends up tiny. Use 100% so 1rem = 16px and our body size applies. */
+html {
+  font-size: 100%;
+}
+
+:root {
+  /* Base */
+  --mrc-body-size: 17px;
+  --mrc-body-line: 1.72;
+  --mrc-body-weight: 400;
+
+  /* Reading width */
+  --mrc-content-width: 72ch;
+
+  /* Type scale — fluid (clamp for mobile → desktop) */
+  --mrc-h1-size: clamp(1.85rem, 4vw + 1rem, 2.75rem);
+  --mrc-h2-size: clamp(1.65rem, 2.8vw + 0.9rem, 2.1rem);
+  --mrc-h3-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.35rem);
+  --mrc-lede-size: 1.125rem;
+  --mrc-small-size: 14px;
+
+  /* Section vertical rhythm */
+  --mrc-section-padding: 5.5rem 0;
+  --mrc-section-padding-tight: 4rem 0;
+  --mrc-section-padding-hero: 4.5rem 0 5.5rem;
+}
+
+/* Body: 17px default, never below 16px on small screens */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--mrc-body-size);
+  font-weight: var(--mrc-body-weight);
+  line-height: var(--mrc-body-line);
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: max(16px, var(--mrc-body-size));
+  }
+
+  :root {
+    --mrc-section-padding: 4rem 0;
+    --mrc-section-padding-tight: 3rem 0;
+    --mrc-section-padding-hero: 4rem 0 4.5rem;
+  }
+}
+
+/* Headings: IBM Plex Serif, weight 600, tight line-height */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 { font-size: var(--mrc-h1-size); }
+h2 { font-size: var(--mrc-h2-size); }
+h3 { font-size: var(--mrc-h3-size); }
+h4, h5, h6 { font-size: 1.1rem; }
+
+/* Paragraph spacing */
+p {
+  margin: 0 0 1.35em;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Links: underline for accessibility, not color alone */
+a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Buttons: no underline (rely on background/border) */
+a.button,
+.gh-btn a,
+a.gh-head-btn {
+  text-decoration: none;
+}
+
+a.button:hover,
+.gh-btn a:hover {
+  text-decoration: none;
+}
+
+/* Emphasis: 600 instead of 700 */
+strong, b {
+  font-weight: 600;
+}
+
+/* Content wrapper — long-form reading width, never overflow viewport */
+.gh-content,
+.mrc-content-width {
+  max-width: min(var(--mrc-content-width), 100%);
+}
+
+.gh-content p,
+.mrc-content-width p {
+  max-width: min(var(--mrc-content-width), 100%);
+}
+
+/* Lede — intro paragraph slightly larger */
+.mrc-lede {
+  font-size: var(--mrc-lede-size);
+  line-height: var(--mrc-body-line);
+}
+
+/* Section heading — consistent style */
+.mrc-section-heading {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--mrc-text);
+}
+
+/* Small / meta text — never below 14px */
+.mrc-meta,
+small,
+.gh-content figcaption {
+  font-size: var(--mrc-small-size);
+  line-height: 1.5;
+}
+
+/* Form inputs: 16px minimum to prevent mobile zoom */
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: var(--mrc-body-size);
+  }
+}

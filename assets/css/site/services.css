@@ -1,0 +1,251 @@
+/**
+ * Services page — structure and rhythm per plan
+ * Cream (Hero) → Paper (Services) → Olive (Engagement) → Cream (Process) → Maroon (CTA)
+ */
+
+/* ---------- Services hero (Cream, 72ch, no buttons) ---------- */
+.mrc-services-hero {
+  padding: var(--mrc-section-padding-hero);
+  background-color: var(--mrc-bg);
+}
+
+.mrc-services-hero-inner {
+  max-width: min(var(--mrc-content-width), 100%);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.mrc-services-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 1rem;
+  line-height: 1.25;
+}
+
+.mrc-services-hero-subtext {
+  font-size: 1.1rem;
+  color: var(--mrc-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.mrc-services-hero-divider {
+  height: 2px;
+  background-color: var(--mrc-mustard);
+  margin-top: 2.5rem;
+}
+
+/* ---------- Services overview (Paper, stacked, olive accent) ---------- */
+.mrc-services-overview {
+  padding: var(--mrc-section-padding);
+  background-color: var(--mrc-surface);
+}
+
+.mrc-services-overview-inner {
+  max-width: min(var(--mrc-content-width), 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mrc-service-section {
+  padding: var(--mrc-section-padding-tight);
+  border-bottom: 1px solid var(--light-gray-color);
+}
+
+.mrc-service-section:last-of-type {
+  border-bottom: 0;
+}
+
+.mrc-service-section-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 1rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--mrc-olive);
+}
+
+.mrc-service-section-intro {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text);
+  margin: 0 0 0.5rem;
+}
+
+.mrc-service-section-tagline {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--mrc-text-muted);
+  margin: 0 0 1.25rem;
+  font-style: italic;
+}
+
+.mrc-service-section-includes {
+  margin: 1.25rem 0 1rem;
+}
+
+.mrc-service-section-subhead {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mrc-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.5rem;
+}
+
+.mrc-service-section-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.mrc-service-section-list li {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--mrc-text);
+  margin-bottom: 0.25rem;
+}
+
+.mrc-service-section-ideal {
+  font-size: 1rem;
+  color: var(--mrc-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.mrc-service-section-ideal strong {
+  font-weight: 600;
+  color: var(--mrc-text);
+}
+
+/* Slight right alignment for visual rhythm (Service 2) */
+.mrc-service-section-right .mrc-service-section-title,
+.mrc-service-section-right .mrc-service-section-intro,
+.mrc-service-section-right .mrc-service-section-tagline,
+.mrc-service-section-right .mrc-service-section-includes,
+.mrc-service-section-right .mrc-service-section-ideal {
+  margin-left: 10%;
+}
+
+@media (max-width: 767px) {
+  .mrc-service-section-right .mrc-service-section-title,
+  .mrc-service-section-right .mrc-service-section-intro,
+  .mrc-service-section-right .mrc-service-section-tagline,
+  .mrc-service-section-right .mrc-service-section-includes,
+  .mrc-service-section-right .mrc-service-section-ideal {
+    margin-left: 0;
+  }
+}
+
+/* ---------- Engagement model (Olive, Cream, mustard dividers) ---------- */
+.mrc-engagement {
+  padding: var(--mrc-section-padding);
+  background-color: var(--mrc-olive);
+  color: var(--mrc-surface);
+}
+
+.mrc-engagement-inner {
+  max-width: min(var(--mrc-content-width), 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mrc-engagement-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  color: var(--mrc-surface);
+  margin: 0 0 1.5rem;
+}
+
+.mrc-engagement-intro {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  margin: 0 0 1rem;
+  opacity: 0.95;
+}
+
+.mrc-engagement-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.mrc-engagement-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--mrc-mustard);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mrc-engagement-list li:last-child {
+  border-bottom: 0;
+}
+
+/* ---------- Process (Cream, 4-step grid) ---------- */
+.mrc-process {
+  padding: var(--mrc-section-padding);
+  background-color: var(--mrc-bg);
+}
+
+.mrc-process-inner {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mrc-process-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 2.5rem;
+  text-align: center;
+}
+
+.mrc-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 767px) {
+  .mrc-process-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.mrc-process-step {
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--mrc-mustard);
+}
+
+.mrc-process-grid .mrc-process-step:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .mrc-process-step {
+    border-bottom: 2px solid var(--mrc-mustard);
+  }
+}
+
+.mrc-process-step-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 0.5rem;
+}
+
+.mrc-process-step-desc {
+  font-size: 1rem;
+  color: var(--mrc-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}

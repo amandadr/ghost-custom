@@ -2,6 +2,7 @@
 @import "general/fonts.css";
 @import "general/basics.css";
 @import "general/brand.css";
+@import "general/typography.css";
 @import "general/button.css";
 @import "general/form.css";
 @import "general/icons.css";
@@ -9,6 +10,7 @@
 @import "site/header.css";
 @import "site/cover.css";
 @import "site/home.css";
+@import "site/services.css";
 @import "blog/feed.css";
 @import "blog/featured.css";
 @import "blog/pagination.css";

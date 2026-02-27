@@ -1,11 +1,26 @@
 {{!< default}}
-{{! Custom homepage: Hero, Pillars, How You Work, Work preview, CTA — dev-plan-1.md }}
+{{! Homepage: colurs.md rhythm Cream → Paper → Olive → Maroon (work section deferred) }}
 
 <main class="site-main mrc-home">
-  {{> "hero"}}
+  {{! 1. Cream }}
+  <section class="mrc-hero section-light gh-outer" aria-labelledby="mrc-hero-heading">
+    <div class="mrc-hero-inner gh-inner">
+      {{#if @site.icon}}
+        <div class="mrc-hero-badge">
+          <img class="mrc-hero-badge-img" src="{{@site.icon}}" alt="" aria-hidden="true">
+        </div>
+      {{/if}}
+      <h1 id="mrc-hero-heading" class="mrc-hero-headline">{{@custom.hero_headline}}</h1>
+      <p class="mrc-hero-subtext">{{@custom.hero_subtext}}</p>
+      <div class="mrc-hero-cta">
+        <a href="/contact/" class="button mrc-btn-primary">Get in touch</a>
+        <a href="/services/" class="button mrc-btn-secondary">Services</a>
+      </div>
+    </div>
+  </section>
 
-  {{! Section 2: Capability overview (3 pillars) — brand doc service categories }}
-  <section class="mrc-section mrc-section-alt" aria-labelledby="mrc-pillars-title">
+  {{! 2. Paper — What I do }}
+  <section class="mrc-section section-surface mrc-pillars-section gh-outer" aria-labelledby="mrc-pillars-title">
     <div class="mrc-section-inner gh-inner">
       <h2 id="mrc-pillars-title" class="mrc-section-title">What I do</h2>
       <div class="mrc-pillars">
@@ -16,36 +31,19 @@
     </div>
   </section>
 
-  {{! Section 3: How you work — principles }}
-  <section class="mrc-section-tint" aria-labelledby="mrc-principles-title">
+  {{! 3. Olive — How I work }}
+  <section class="mrc-section section-dark mrc-principles-section gh-outer" aria-labelledby="mrc-principles-title">
     <div class="mrc-section-inner gh-inner">
       <h2 id="mrc-principles-title" class="mrc-section-title">How I work</h2>
       <div class="mrc-principles">
-        {{> "principle-item" title="Sustainable" body="Build it once. Maintain it well. Avoid technical debt theatrics."}}
+        {{> "principle-item" title="Sustainable" body="Build it once. Maintain it well."}}
         {{> "principle-item" title="Measurable" body="If it can't be evaluated, it can't be improved."}}
-        {{> "principle-item" title="Collaborative" body="Works seamlessly with internal teams, contractors, and stakeholders."}}
-        {{> "principle-item" title="Evidence-based" body="Decisions grounded in data, not folklore or platform marketing."}}
+        {{> "principle-item" title="Collaborative" body="Works with internal teams, contractors, and stakeholders."}}
+        {{> "principle-item" title="Evidence-based" body="Decisions grounded in data, not folklore."}}
       </div>
     </div>
   </section>
 
-  {{! Section 4: Selected work preview — posts tagged case-study }}
-  <section class="mrc-section mrc-work-preview" aria-labelledby="mrc-work-title">
-    <div class="mrc-section-inner gh-inner">
-      <h2 id="mrc-work-title" class="mrc-section-title">Selected work</h2>
-      <div class="mrc-work-grid">
-        {{#get "posts" limit="3" filter="tag:case-study" include="tags"}}
-          {{#foreach posts}}
-            {{> "project-card"}}
-          {{/foreach}}
-        {{/get}}
-      </div>
-      <p class="mrc-work-more">
-        <a href="/work/">View all work</a>
-      </p>
-    </div>
-  </section>
-
-  {{! Section 5: Contact CTA }}
+  {{! 4. Maroon — Final CTA }}
   {{> "cta-section" headline="Let's work together" subtext="Clear systems. Measurable impact." button_text="Get in touch"}}
 </main>

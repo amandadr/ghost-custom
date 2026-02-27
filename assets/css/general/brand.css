@@ -45,16 +45,10 @@
   --font-mono: Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
 }
 
-/* Base overrides for brand (docs/fonts.md: 16px+, line-height 1.6–1.7) */
+/* Base overrides for brand — color/contrast only; typography in typography.css */
 body {
   background-color: var(--mrc-bg);
   color: var(--mrc-text);
-  font-size: 16px;
-  line-height: 1.65;
-}
-
-.gh-content {
-  max-width: 70ch;
 }
 
 a {

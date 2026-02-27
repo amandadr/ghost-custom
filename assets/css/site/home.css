@@ -1,19 +1,78 @@
 /**
- * Homepage sections: hero, pillars, how you work, work preview, CTA
- * Brand: cream background, typography hierarchy, no gimmicks
+ * Homepage: colurs.md — section rhythm, header, hero, What I do, How I work, CTA
+ * Rhythm: Cream → Paper → Olive → Cream → Maroon
  */
 
-/* ---------- Hero ---------- */
+/* ---------- Section utility classes (colurs.md) ---------- */
+.section-light {
+  background-color: var(--mrc-bg);
+}
+
+.section-surface {
+  background-color: var(--mrc-surface);
+}
+
+.section-dark {
+  background-color: var(--mrc-olive);
+}
+
+.section-cta {
+  background-color: var(--mrc-maroon);
+}
+
+/* ---------- Header: Olive, Cream nav, Mustard active, compact, no search/subscribe ---------- */
+.mrc-head {
+  background-color: var(--mrc-olive);
+  border-bottom: 2px solid var(--mrc-mustard);
+}
+
+.mrc-head .gh-head-logo,
+.mrc-head .gh-head-logo img {
+  color: var(--mrc-surface);
+}
+
+.mrc-head .gh-head-menu a {
+  color: var(--mrc-surface);
+  letter-spacing: 0.02em;
+}
+
+.mrc-head .gh-head-menu a:hover {
+  color: var(--mrc-surface);
+  text-decoration: none;
+  border-bottom: 2px solid var(--mrc-mustard);
+}
+
+.mrc-head .gh-head-menu .nav-current a {
+  border-bottom: 2px solid var(--mrc-mustard);
+}
+
+.mrc-head-actions-hidden {
+  display: none;
+}
+
+.mrc-head .gh-head-inner {
+  min-height: 56px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* ---------- Hero (Cream, Ink, Maroon/Olive buttons, bigger headline) ---------- */
 .mrc-hero {
-  padding: var(--header-spacing, 60px) 0 4rem;
+  padding: var(--mrc-section-padding-hero);
   background-color: var(--mrc-bg);
 }
 
 .mrc-hero-inner {
   text-align: center;
-  max-width: 720px;
+  max-width: min(85ch, 100%);
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (max-width: 767px) {
+  .mrc-hero-inner {
+    max-width: min(var(--mrc-content-width), 100%);
+  }
 }
 
 .mrc-hero-badge {
@@ -29,18 +88,27 @@
 
 .mrc-hero-headline {
   font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 600;
   line-height: 1.2;
   color: var(--mrc-text);
   margin: 0 0 1rem;
+  white-space: nowrap;
 }
 
 .mrc-hero-subtext {
   font-size: 1.15rem;
   color: var(--mrc-text-muted);
   margin: 0 0 2rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .mrc-hero-headline,
+  .mrc-hero-subtext {
+    white-space: normal;
+  }
 }
 
 .mrc-hero-cta {
@@ -50,34 +118,29 @@
   justify-content: center;
 }
 
-.mrc-btn-primary {
+.mrc-hero .mrc-btn-primary {
   background-color: var(--mrc-maroon);
   color: var(--mrc-surface);
-  border-color: var(--mrc-maroon);
+  border: 2px solid var(--mrc-maroon);
 }
 
-.mrc-btn-primary:hover {
-  opacity: 0.9;
-  border-color: var(--mrc-maroon);
+.mrc-hero .mrc-btn-primary:hover {
+  opacity: 0.95;
 }
 
-.mrc-btn-secondary {
-  border-color: var(--mrc-olive);
+.mrc-hero .mrc-btn-secondary {
+  background-color: transparent;
   color: var(--mrc-olive);
+  border: 2px solid var(--mrc-olive);
 }
 
-/* ---------- Section blocks ---------- */
+.mrc-hero .mrc-btn-secondary:hover {
+  background-color: rgba(112, 104, 48, 0.08);
+}
+
+/* ---------- Section blocks: spacing (breathing room) ---------- */
 .mrc-section {
-  padding: 4rem 0;
-  background-color: var(--mrc-bg);
-}
-
-.mrc-section-alt {
-  background-color: var(--mrc-surface);
-}
-
-.mrc-section-tint {
-  background-color: #f5f0e8; /* very light mustard tint */
+  padding: var(--mrc-section-padding);
 }
 
 .mrc-section-inner {
@@ -87,37 +150,50 @@
 
 .mrc-section-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 3vw, 1.85rem);
-  font-weight: 700;
-  color: var(--mrc-text);
-  margin: 0 0 2rem;
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  margin: 0 0 2.5rem;
   text-align: center;
 }
 
-/* ---------- Capability pillars (3-col) ---------- */
+/* ---------- What I do: Paper, mustard divider above heading, olive accent on cards ---------- */
+.mrc-pillars-section {
+  background-color: var(--mrc-surface);
+}
+
+.mrc-pillars-section .mrc-section-title {
+  color: var(--mrc-text);
+  border-top: 2px solid var(--mrc-mustard);
+  padding-top: 2rem;
+  margin-top: 0;
+}
+
 .mrc-pillars {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  padding: 4rem 0;
+  gap: 2.5rem;
 }
 
 @media (max-width: 767px) {
   .mrc-pillars {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    padding: 3rem 0;
   }
 }
 
 .mrc-service-card {
   padding: 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--mrc-olive);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .mrc-service-card-title {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--mrc-text);
   margin: 0 0 0.5rem;
 }
@@ -125,12 +201,12 @@
 .mrc-service-card-desc {
   font-size: 1rem;
   color: var(--mrc-text-muted);
-  margin: 0 0 1rem;
-  line-height: 1.5;
+  margin: 0 0 0.75rem;
+  line-height: 1.55;
 }
 
 .mrc-service-card-link {
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 600;
   color: var(--mrc-maroon);
 }
@@ -139,52 +215,76 @@
   text-decoration: underline;
 }
 
-/* ---------- How you work (principles) ---------- */
+/* ---------- How I work: Olive, Cream text, Mustard dividers, more vertical spacing ---------- */
+.mrc-principles-section {
+  background-color: var(--mrc-olive);
+  color: var(--mrc-surface);
+}
+
+.mrc-principles-section .mrc-section-title {
+  color: var(--mrc-surface);
+  margin-bottom: 3rem;
+}
+
 .mrc-principles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  padding: 4rem 0;
-  background-color: #f5f0e8;
+  gap: 2.5rem 3rem;
 }
 
-.mrc-principle-title {
+.mrc-principles-section .mrc-principle {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--mrc-mustard);
+}
+
+.mrc-principles-section .mrc-principle-title {
   font-family: var(--font-serif);
   font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--mrc-text);
-  margin: 0 0 0.35rem;
+  font-weight: 600;
+  color: var(--mrc-surface);
+  margin: 0 0 0.5rem;
 }
 
-.mrc-principle-body {
-  font-size: 0.95rem;
-  color: var(--mrc-text-muted);
+.mrc-principles-section .mrc-principle-body {
+  font-size: 1rem;
+  color: var(--mrc-surface);
+  opacity: 0.95;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
-/* ---------- Work preview (project cards) ---------- */
+/* ---------- Selected work: Cream, no heavy cards ---------- */
 .mrc-work-preview {
-  padding: 4rem 0;
+  padding: var(--mrc-section-padding);
+  background-color: var(--mrc-bg);
+}
+
+.mrc-work-preview .mrc-section-title {
+  color: var(--mrc-text);
 }
 
 .mrc-work-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .mrc-project-card {
-  padding: 1.5rem;
-  background-color: var(--mrc-surface);
-  border-radius: 4px;
+  padding: 1.5rem 0;
+  background: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid var(--light-gray-color);
+}
+
+.mrc-project-card:last-child {
+  border-bottom: 0;
 }
 
 .mrc-project-card-title {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 600;
   margin: 0 0 0.5rem;
 }
 
@@ -197,20 +297,20 @@
 }
 
 .mrc-project-card-excerpt {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--mrc-text-muted);
-  margin: 0 0 1rem;
-  line-height: 1.5;
+  margin: 0 0 0.75rem;
+  line-height: 1.55;
 }
 
 .mrc-project-card-link {
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 600;
   color: var(--mrc-maroon);
 }
 
 .mrc-work-more {
-  margin: 2rem 0 0;
+  margin: 2.5rem 0 0;
   text-align: center;
 }
 
@@ -219,10 +319,10 @@
   color: var(--mrc-maroon);
 }
 
-/* ---------- CTA section (full-width dark) ---------- */
+/* ---------- Final CTA: Maroon, Cream text, Mustard button + Ink ---------- */
 .mrc-cta-section {
-  padding: 4rem 0;
-  background-color: var(--mrc-olive);
+  padding: var(--mrc-section-padding);
+  background-color: var(--mrc-maroon);
   color: var(--mrc-surface);
 }
 
@@ -233,14 +333,14 @@
 
 .mrc-cta-inner {
   text-align: center;
-  max-width: 560px;
+  max-width: min(var(--mrc-content-width), 100%);
   margin: 0 auto;
 }
 
 .mrc-cta-headline {
   font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 3vw, 1.85rem);
-  font-weight: 700;
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
   margin: 0 0 0.5rem;
 }
 
@@ -249,17 +349,17 @@
   opacity: 0.95;
 }
 
-.mrc-cta-btn {
-  background-color: var(--mrc-surface);
-  color: var(--mrc-olive);
-  border-color: var(--mrc-surface);
+.mrc-cta-section .mrc-cta-btn {
+  background-color: var(--mrc-mustard);
+  color: var(--mrc-text);
+  border: 2px solid var(--mrc-mustard);
 }
 
-.mrc-cta-btn:hover {
+.mrc-cta-section .mrc-cta-btn:hover {
   opacity: 0.95;
 }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (unchanged: olive) ---------- */
 .mrc-foot {
   background-color: var(--mrc-olive);
   color: var(--mrc-surface);
@@ -273,7 +373,7 @@
 
 .mrc-foot-bio {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0 0 0.5rem;
   max-width: 480px;
 }
@@ -306,8 +406,8 @@
   align-items: center;
   gap: 1rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
 }
 
 .mrc-foot-copy {
@@ -323,7 +423,7 @@
   opacity: 1;
 }
 
-/* ---------- Contact page extra (email, location) ---------- */
+/* ---------- Contact page extra ---------- */
 .mrc-contact-extra {
   padding-top: 0;
   margin-top: 1rem;

@@ -1,10 +1,10 @@
-{{! Full-width contact CTA — olive or maroon background }}
-<section class="mrc-cta-section mrc-section-olive gh-outer">
+{{! Final CTA — Maroon bg, Cream text, Mustard button + Ink (colurs.md) }}
+<section class="mrc-cta-section section-cta gh-outer">
   <div class="mrc-cta-inner gh-inner">
     <h2 class="mrc-cta-headline">{{#if headline}}{{headline}}{{else}}Let's work together{{/if}}</h2>
     {{#if subtext}}
       <p class="mrc-cta-subtext">{{subtext}}</p>
     {{/if}}
-    <a href="mailto:{{@custom.contact_email}}?subject=Consulting%20inquiry" class="button mrc-btn-primary mrc-cta-btn">{{#if button_text}}{{button_text}}{{else}}Email me{{/if}}</a>
+    <a href="mailto:{{@custom.contact_email}}?subject=Consulting%20inquiry" class="button mrc-cta-btn">{{#if button_text}}{{button_text}}{{else}}Email me{{/if}}</a>
   </div>
 </section>

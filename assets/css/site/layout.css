@@ -1,7 +1,13 @@
+/* Prevent horizontal scroll from any overflowing content */
+body {
+    overflow-x: hidden;
+}
+
 .site {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .site-content {
@@ -9,11 +15,31 @@
     padding: 6rem 0;
 }
 
+/* Homepage: no bottom padding so CTA meets footer (avoids cream strip) */
+.site-content:has(.mrc-home) {
+    padding-bottom: 0;
+}
+
 .page-template .site-content {
     padding-block: 0;
 }
 
+/* Small screens: more horizontal padding so content doesn’t bump the edges */
 @media (max-width: 767px) {
+    :root {
+        --gap: 2.5rem;
+    }
+
+    .gh-outer {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    /* Keep inners within padded container to avoid horizontal scroll */
+    .gh-inner {
+        max-width: min(var(--container-width, 1200px), 100%);
+    }
+
     .site-content {
         padding: 3rem 0;
     }

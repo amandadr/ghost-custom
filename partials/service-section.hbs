@@ -1,0 +1,19 @@
+{{! One service block: heading + olive accent, intro, "What this includes", "Ideal for" }}
+<section class="mrc-service-section{{#if align}} mrc-service-section-{{align}}{{/if}}" aria-labelledby="mrc-service-{{slug}}">
+  <h2 id="mrc-service-{{slug}}" class="mrc-service-section-title">{{title}}</h2>
+  <p class="mrc-service-section-intro">{{intro}}</p>
+  {{#if tagline}}
+    <p class="mrc-service-section-tagline">{{tagline}}</p>
+  {{/if}}
+  <div class="mrc-service-section-includes">
+    <h3 class="mrc-service-section-subhead">What this includes</h3>
+    <ul class="mrc-service-section-list">
+      {{#if include1}}<li>{{include1}}</li>{{/if}}
+      {{#if include2}}<li>{{include2}}</li>{{/if}}
+      {{#if include3}}<li>{{include3}}</li>{{/if}}
+      {{#if include4}}<li>{{include4}}</li>{{/if}}
+      {{#if include5}}<li>{{include5}}</li>{{/if}}
+    </ul>
+  </div>
+  <p class="mrc-service-section-ideal"><strong>Ideal for:</strong> {{ideal}}</p>
+</section>

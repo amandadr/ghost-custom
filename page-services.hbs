@@ -1,10 +1,55 @@
 {{!< default}}
-{{! Services page — clarity + qualification. Assign to page with slug "services". }}
+{{! Services page — slug "services" uses this; full structure, no cover. }}
 
 <main class="site-main mrc-page mrc-page-services">
-  {{#post}}
-    <article class="gh-content gh-canvas">
-      {{> "content" width="wide"}}
-    </article>
-  {{/post}}
+  {{! 1. Hero — Cream, centered, 65–75ch }}
+  <section class="mrc-services-hero section-light gh-outer">
+    <div class="mrc-services-hero-inner gh-inner">
+      <h1 class="mrc-services-hero-title">Technical systems built to last.</h1>
+      <p class="mrc-services-hero-subtext">Full-stack development, automation, and applied AI — grounded in data, collaboration, and measurable impact.</p>
+    </div>
+    <div class="mrc-services-hero-divider"></div>
+  </section>
+
+  {{! 2. Services Overview — Paper, stacked sections }}
+  <section class="mrc-services-overview section-surface gh-outer" aria-labelledby="mrc-services-overview-title">
+    <div class="mrc-services-overview-inner gh-inner">
+      {{> "service-section" slug="systems" title="Systems & Technical Strategy" intro="When systems grow faster than the structure supporting them, complexity compounds. I help teams clarify their architecture, untangle infrastructure decisions, and design systems that scale intentionally." include1="API design & integration strategy" include2="Infrastructure and tech stack evaluation" include3="Data architecture planning" include4="Performance and analytics audits" ideal="Teams preparing to scale, migrate, or reduce technical debt."}}
+
+      {{> "service-section" slug="software" align="right" title="Custom Software & Web Applications" tagline="Build once. Maintain well." intro="I design and develop custom software and web applications that prioritize stability, clarity, and long-term maintainability over quick patches." include1="Full-stack web application development" include2="Internal tooling" include3="API integrations" include4="E-commerce and system modernization" ideal="Organizations outgrowing plugin stacks or needing custom operational tools."}}
+
+      {{> "service-section" slug="automation" title="Automation & Applied AI" intro="Practical AI and automation that integrate into real workflows — not prototype theatre." include1="Workflow automation" include2="Data pipelines & reporting systems" include3="Applied AI tooling" include4="AI adoption workshops & training" ideal="Teams ready to implement AI responsibly and sustainably."}}
+    </div>
+  </section>
+
+  {{! 3. Engagement Model — Olive, Cream text }}
+  <section class="mrc-engagement section-dark gh-outer" aria-labelledby="mrc-engagement-title">
+    <div class="mrc-engagement-inner gh-inner">
+      <h2 id="mrc-engagement-title" class="mrc-engagement-title">How engagement works</h2>
+      <p class="mrc-engagement-intro">Manny Roy Consulting operates as an independent technical partner. Engagements are typically project-based, with options for ongoing advisory or implementation support.</p>
+      <p class="mrc-engagement-intro">I work collaboratively with internal teams, contractors, and stakeholders to ensure clarity, documentation, and smooth handoffs.</p>
+      <ul class="mrc-engagement-list">
+        <li>Project-based engagements</li>
+        <li>Strategic advisory</li>
+        <li>Implementation & build</li>
+        <li>Optional retainer support</li>
+      </ul>
+    </div>
+  </section>
+
+  {{! 4. Process — Cream, 4 steps }}
+  <section class="mrc-process section-light gh-outer" aria-labelledby="mrc-process-title">
+    <div class="mrc-process-inner gh-inner">
+      <h2 id="mrc-process-title" class="mrc-process-title">Process</h2>
+      <div class="mrc-process-grid">
+        {{> "process-step" title="Discovery" desc="Understand constraints, goals, and existing systems."}}
+        {{> "process-step" title="Design" desc="Architect solutions grounded in sustainability and data."}}
+        {{> "process-step" title="Build" desc="Implement with clarity and documentation."}}
+        {{> "process-step" title="Evaluate" desc="Measure impact and refine intentionally."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 5. Final CTA — Maroon }}
+  {{> "cta-section" headline="Let's build something sustainable." subtext="If you're navigating complexity or planning what's next, I'm happy to talk." button_text="Get in touch"}}
 </main>

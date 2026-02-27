@@ -98,9 +98,120 @@ Use a ring color that hits **3:1** against the adjacent background (SC 1.4.11). 
 
 ---
 
-If you want, paste one of your Ghost themes’ current colors (or a screenshot of a draft layout), and I’ll tell you **exactly which combinations are failing contrast** and what to swap—while keeping the vibe.
+## Homepage Colour & Design Instructions (Condensed)
 
-[1]: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum?utm_source=chatgpt.com "Understanding Success Criterion 1.4.3: Contrast (Minimum) | WAI | W3C"
-[2]: https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html?utm_source=chatgpt.com "Understanding Success Criterion 1.4.11: Non-text Contrast | WAI | W3C"
-[3]: https://apcaw3.myndex.com/?utm_source=chatgpt.com "APCA | This site is a live web page of the GitHub repo for the W3 ..."
-[4]: https://w3c.github.io/wcag21/understanding/non-text-contrast.html?utm_source=chatgpt.com "Understanding Success Criterion 1.4.11: Non-text Contrast"
+---
+
+# Global Rules
+
+* Cream = primary background
+* Paper = alternate light section background
+* Olive = dark anchor section background
+* Maroon = strong CTA background
+* Mustard = accent only (lines, highlights, small details)
+* Ink = primary body text
+
+Neutrals dominate.
+Brand colours punctuate.
+
+---
+
+# Header
+
+* Background: Olive
+* Nav text: Cream
+* Active link: Mustard underline (not colour change)
+* Remove: search, sign in, subscribe
+* Keep header compact and clean
+
+---
+
+# Hero Section (Light)
+
+* Background: Cream
+* Headline: Ink
+* Subtext: Muted olive/ink-2
+* Primary button: Maroon background + Cream text
+* Secondary button: Olive border + Olive text
+* Optional: 2px mustard divider below header
+
+---
+
+# “What I Do” Section
+
+* Background: Paper (slightly lighter than hero)
+* Add subtle mustard divider above heading
+* Service blocks: no heavy cards
+* Optional: 4px olive accent line on left of each service
+* Tighten service copy (shorter, punchier lines)
+
+---
+
+# “How I Work” Section (Anchor Section)
+
+* Background: Olive
+* Text: Cream
+* Headline: Cream
+* Icons/dividers: Mustard
+* Use shorter, principle-style copy
+* Increase vertical spacing for emphasis
+
+---
+
+# Final CTA Section
+
+* Background: Maroon
+* Text: Cream
+* Button: Mustard background + Ink text
+* Clear single call to action
+
+---
+
+# Section Rhythm
+
+Structure homepage as:
+
+Cream
+→ Paper
+→ Olive
+→ Cream
+→ Maroon
+
+Avoid stacking multiple cream sections in a row.
+
+---
+
+# Typography Adjustments
+
+* Increase hero headline size slightly
+* Reduce nav letter spacing
+* Increase section spacing for breathing room
+* Keep body text minimum 16px, line-height 1.6+
+
+---
+
+# CSS Structure
+
+Create section utility classes:
+
+* `.section-light` → Cream
+* `.section-surface` → Paper
+* `.section-dark` → Olive
+* `.section-cta` → Maroon
+
+Apply intentionally per section.
+
+---
+
+# Remove
+
+* Bright pink button
+* Excess UI elements
+* Heavy card borders
+* Overuse of mustard
+
+---
+
+Goal:
+Clear hierarchy, strong contrast, intentional brand colour rhythm.
+
