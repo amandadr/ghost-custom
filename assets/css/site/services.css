@@ -198,6 +198,19 @@
   --mrc-grid-min: 220px;
 }
 
+/* Force 2x2 from tablet up to desktop; avoid 3+1 layout */
+@media (min-width: 480px) and (max-width: 1100px) {
+  .mrc-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1101px) {
+  .mrc-process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .mrc-process-step {
   padding-bottom: var(--space-6);
   border-bottom: 2px solid var(--mrc-mustard);

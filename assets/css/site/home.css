@@ -40,6 +40,12 @@
   row-gap: var(--space-3);
 }
 
+.mrc-head .gh-head-brand,
+.mrc-head .gh-head-brand-wrapper {
+  display: flex;
+  align-items: center;
+}
+
 .mrc-head .gh-head-brand {
   flex-shrink: 0;
 }
@@ -135,18 +141,93 @@
   display: none;
 }
 
-/* Tablet: reduce nav gap and min-width so header doesn't overflow */
+/* Tablet/mid: use hamburger menu so Contact link stays visible (avoids overflow at ~991px) */
 @media (max-width: 991px) {
-  .mrc-head .gh-head-menu .nav,
-  .mrc-head .gh-head-menu {
-    gap: var(--space-6);
+  #gh-head.mrc-head {
+    height: 64px;
   }
-  .mrc-head .gh-head-menu {
-    min-width: min(400px, 100%);
+
+  #gh-head.mrc-head .gh-head-inner {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    display: grid;
+  }
+
+  #gh-head.mrc-head .gh-head-brand {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-column-start: 1;
+    align-items: center;
+    height: 64px;
+  }
+
+  .mrc-head .gh-burger {
+    display: block;
+  }
+
+  #gh-head.mrc-head .gh-head-menu,
+  #gh-head.mrc-head .gh-head-actions {
+    position: fixed;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  #gh-head.mrc-head .gh-head-menu .nav {
+    gap: 20px;
+    align-items: center;
+    line-height: 1.4;
+  }
+
+  #gh-head.mrc-head .nav li {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  .is-head-open #gh-head.mrc-head .nav li {
+    opacity: 1;
+    transition: transform 0.2s, opacity 0.2s;
+    transform: translateY(0);
+  }
+
+  .is-head-open #gh-head.mrc-head {
+    position: fixed;
+    inset: 0;
+    z-index: 3999999;
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .is-head-open #gh-head.mrc-head .gh-head-menu,
+  .is-head-open #gh-head.mrc-head .gh-head-actions {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .is-head-open #gh-head.mrc-head .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .is-head-open #gh-head.mrc-head {
+    background-color: var(--mrc-olive);
+  }
+
+  .is-head-open #gh-head.mrc-head .gh-head-menu .nav a {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .is-head-open #gh-main {
+    opacity: 0;
   }
 }
 
-/* Mobile: hamburger menu; logo fits; nav links right-aligned when open */
+/* Mobile: additional refinements; logo fits */
 @media (max-width: 767px) {
   .mrc-head .gh-head-inner {
     padding-left: 0;

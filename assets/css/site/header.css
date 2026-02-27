@@ -12,6 +12,18 @@
   opacity: 0.92;
 }
 
+/* Ensure logo stays vertically centered at all viewport sizes */
+.gh-head-brand-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.gh-head-logo,
+.gh-head-logo img {
+  display: block;
+  vertical-align: middle;
+}
+
 .gh-head-logo:focus-visible {
   outline: 2px solid var(--mrc-surface);
   outline-offset: 3px;

@@ -45,10 +45,15 @@ body {
 }
 
 /* Small screens: more horizontal padding so content doesn’t bump the edges */
+@media (max-width: 991px) {
+    :root {
+        --mrc-page-gutter: var(--space-6);
+    }
+}
+
 @media (max-width: 767px) {
     :root {
         --gap: var(--space-6);
-        --mrc-page-gutter: var(--space-5);
     }
 
     .site-content {
