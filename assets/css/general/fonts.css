@@ -1,62 +1,49 @@
+/* IBM Plex Sans — body (docs/fonts.md) */
 @font-face {
-    font-family: Mulish;
+    font-family: "IBM Plex Sans";
     font-style: normal;
     font-weight: 400;
-    src: local(""), url("../fonts/mulish-v10-latin-regular.woff2") format("woff2"), url("../fonts/mulish-v10-latin-regular.woff") format("woff");
+    font-display: swap;
+    src: local("IBM Plex Sans"), url("../fonts/ibm-plex-sans/IBMPlexSans-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: Mulish;
+    font-family: "IBM Plex Sans";
     font-style: normal;
-    font-weight: 700;
-    src: local(""), url("../fonts/mulish-v10-latin-700.woff2") format("woff2"), url("../fonts/mulish-v10-latin-700.woff") format("woff");
+    font-weight: 600;
+    font-display: swap;
+    src: local("IBM Plex Sans SemiBold"), url("../fonts/ibm-plex-sans/IBMPlexSans-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: Mulish;
-    font-style: normal;
-    font-weight: 800;
-    src: local(""), url("../fonts/mulish-v10-latin-800.woff2") format("woff2"), url("../fonts/mulish-v10-latin-800.woff") format("woff");
-}
-
-@font-face {
-    font-family: Mulish;
+    font-family: "IBM Plex Sans";
     font-style: italic;
     font-weight: 400;
-    src: local(""), url("../fonts/mulish-v10-latin-italic.woff2") format("woff2"), url("../fonts/mulish-v10-latin-italic.woff") format("woff");
+    font-display: swap;
+    src: local("IBM Plex Sans Italic"), url("../fonts/ibm-plex-sans/IBMPlexSans-Italic.ttf") format("truetype");
 }
 
+/* IBM Plex Serif — headings (docs/fonts.md) */
 @font-face {
-    font-family: Mulish;
-    font-style: italic;
-    font-weight: 700;
-    src: local(""), url("../fonts/mulish-v10-latin-700italic.woff2") format("woff2"), url("../fonts/mulish-v10-latin-700italic.woff") format("woff");
-}
-
-@font-face {
-    font-family: Lora;
+    font-family: "IBM Plex Serif";
     font-style: normal;
     font-weight: 400;
-    src: local(""), url("../fonts/lora-v23-latin-regular.woff2") format("woff2"), url("../fonts/lora-v23-latin-regular.woff") format("woff");
+    font-display: swap;
+    src: local("IBM Plex Serif"), url("../fonts/ibm-plex-serif/IBMPlexSerif-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: Lora;
+    font-family: "IBM Plex Serif";
     font-style: normal;
-    font-weight: 700;
-    src: local(""), url("../fonts/lora-v23-latin-700.woff2") format("woff2"), url("../fonts/lora-v23-latin-700.woff") format("woff");
+    font-weight: 600;
+    font-display: swap;
+    src: local("IBM Plex Serif SemiBold"), url("../fonts/ibm-plex-serif/IBMPlexSerif-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: Lora;
+    font-family: "IBM Plex Serif";
     font-style: italic;
     font-weight: 400;
-    src: local(""), url("../fonts/lora-v23-latin-italic.woff2") format("woff2"), url("../fonts/lora-v23-latin-italic.woff") format("woff");
-}
-
-@font-face {
-    font-family: Lora;
-    font-style: italic;
-    font-weight: 700;
-    src: local(""), url("../fonts/lora-v23-latin-700italic.woff2") format("woff2"), url("../fonts/lora-v23-latin-700italic.woff") format("woff");
+    font-display: swap;
+    src: local("IBM Plex Serif Italic"), url("../fonts/ibm-plex-serif/IBMPlexSerif-Italic.ttf") format("truetype");
 }

@@ -38,17 +38,23 @@
   --mrc-focus: var(--mrc-surface);
 }
 
-/* Typography: editorial serif headlines, clean sans body (already in basics) */
+/* Typography: IBM Plex Serif headlines, IBM Plex Sans body (docs/fonts.md) */
 :root {
-  --font-sans: Mulish, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-serif: Lora, Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
   --font-mono: Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
 }
 
-/* Base overrides for brand */
+/* Base overrides for brand (docs/fonts.md: 16px+, line-height 1.6–1.7) */
 body {
   background-color: var(--mrc-bg);
   color: var(--mrc-text);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.gh-content {
+  max-width: 70ch;
 }
 
 a {
