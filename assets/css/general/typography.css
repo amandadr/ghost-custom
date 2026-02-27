@@ -62,10 +62,10 @@ html {
   --z-sticky: 200;
   --z-modal: 300;
 
-  /* Containers & gutters */
+  /* Containers & gutters (SOP: fluid, generous) */
   --mrc-container-width: 72ch;
   --mrc-container-wide: 1100px;
-  --mrc-page-gutter: clamp(1.5rem, 4vw, 3rem);
+  --mrc-page-gutter: clamp(1.5rem, 4vw, 2.5rem);
 
   /* Section vertical rhythm */
   --mrc-section-padding: var(--space-12) 0;

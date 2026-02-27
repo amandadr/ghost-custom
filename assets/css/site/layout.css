@@ -1,4 +1,8 @@
 /* Prevent horizontal scroll from any overflowing content */
+html {
+    overflow-x: hidden;
+}
+
 body {
     overflow-x: hidden;
 }
@@ -19,13 +23,16 @@ body {
 .gh-outer {
     padding-left: var(--mrc-page-gutter);
     padding-right: var(--mrc-page-gutter);
+    box-sizing: border-box;
 }
 
-/* Inner container: center content and cap width */
+/* Inner container: center content and cap width; prevent overflow */
 .gh-inner {
+    width: 100%;
     max-width: min(var(--mrc-container-wide, 1100px), 100%);
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 }
 
 /* Homepage: no bottom padding so CTA meets footer (avoids cream strip) */

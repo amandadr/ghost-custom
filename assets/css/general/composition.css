@@ -56,6 +56,11 @@
   );
 }
 
+/* Prevent grid children from overflowing (allow text wrap) */
+.mrc-grid > * {
+  min-width: 0;
+}
+
 .mrc-grid--2 { --mrc-grid-cols: 2; }
 .mrc-grid--3 { --mrc-grid-cols: 3; }
 .mrc-grid--4 { --mrc-grid-cols: 4; }
