@@ -141,6 +141,13 @@
   display: none;
 }
 
+/* Nav bar: extra padding below on 992px and under for breathing room */
+@media (max-width: 992px) {
+  #gh-head.mrc-head {
+    padding-bottom: var(--space-4);
+  }
+}
+
 /* Tablet/mid: use hamburger menu so Contact link stays visible (avoids overflow at ~991px) */
 @media (max-width: 991px) {
   #gh-head.mrc-head {
