@@ -44,9 +44,10 @@ fi
 
 echo "Running ghost install local (follow the prompts)..."
 cd "$GHOST_DIR"
+echo "22" > .nvmrc
 ghost install local
 
 echo ""
-echo "Done. To start Ghost: cd $GHOST_DIR && ghost start"
+echo "Done. To start Ghost: cd $GHOST_DIR && nvm use && ghost start"
 echo "To link this theme: ./ghost-custom/scripts/link-theme-to-ghost.sh $GHOST_DIR"
 echo "  (or from theme repo: ./scripts/link-theme-to-ghost.sh $GHOST_DIR)"

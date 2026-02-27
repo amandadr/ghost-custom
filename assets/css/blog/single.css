@@ -1,5 +1,5 @@
 .single-header {
-    margin-bottom: 4.5rem;
+    margin-bottom: var(--space-8);
     text-align: center;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .single-meta {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
     font-size: 1.2rem;
     font-weight: 800;
     color: var(--secondary-text-color);
@@ -16,7 +16,7 @@
 }
 
 .single-meta-item + .single-meta-item::before {
-    padding: 0 0.3rem;
+    padding: 0 var(--space-1);
     font-family: serif;
     content: "\02022";
 }
@@ -38,7 +38,7 @@
 }
 
 .single-excerpt {
-    margin-top: 2rem;
+    margin-top: var(--space-6);
     font-size: 1.8rem;
     word-break: break-word;
 }
@@ -48,23 +48,23 @@
 }
 
 .single-media {
-    margin-top: 4.5rem;
+    margin-top: var(--space-8);
 }
 
 .single-cta {
-    padding: 3rem;
-    margin-top: 4rem !important;
+    padding: var(--space-7);
+    margin-top: var(--space-8) !important;
     text-align: center;
     border-top: 5px solid var(--brand-color);
     border-bottom: 1px solid var(--light-gray-color);
 }
 
 .single-cta-title {
-    margin: 0 0 3rem !important;
+    margin: 0 0 var(--space-7) !important;
 }
 
 .single-cta-button {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
     font-weight: 800 !important;
 }
 
@@ -77,7 +77,7 @@
 .single-footer {
     display: flex;
     align-items: center;
-    margin-top: 4.5rem;
+    margin-top: var(--space-8);
 }
 
 .single-footer-left,
@@ -102,17 +102,17 @@
 }
 
 .single-footer-title {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
     font-size: 1.8rem;
 }
 
 .single-footer-bottom {
-    margin-top: 2rem;
+    margin-top: var(--space-6);
 }
 
 @media (max-width: 767px) {
     .single-header {
-        margin-bottom: 3rem;
+        margin-bottom: var(--space-7);
     }
 
     .single-title {
@@ -124,6 +124,6 @@
     }
 
     .single-media {
-        margin-top: 3rem;
+        margin-top: var(--space-7);
     }
 }

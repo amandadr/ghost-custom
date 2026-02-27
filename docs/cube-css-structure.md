@@ -13,7 +13,9 @@ This theme follows the CUBE CSS methodology and the responsiveness SOP. Quick re
 ## Design Tokens (`typography.css`)
 
 - **Breakpoints:** `--bp-sm` 480, `--bp-md` 768, `--bp-lg` 1024, `--bp-xl` 1280
-- **Spacing:** `--space-1` through `--space-16` (4–8–12–16–24–32–48–64…)
+- **Spacing:** `--space-1` through `--space-9` (SOP scale: 4, 8, 12, 16, 24, 32, 48, 64, 96px)
+- **Section padding:** `--mrc-section-padding` (64px), `--mrc-section-padding-tight` (48px), `--mrc-section-padding-hero` (96px)
+- **Typography spacing:** `--mrc-heading-margin-below`, `--mrc-paragraph-margin`
 - **Borders:** `--radius-s/m/l`, `--border-width`, `--border-width-thick`
 - **Z-index:** `--z-base`, `--z-dropdown`, `--z-sticky`, `--z-modal`
 - **Containers:** `--mrc-container-wide`, `--mrc-page-gutter` (fluid clamp)

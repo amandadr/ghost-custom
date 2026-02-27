@@ -139,22 +139,40 @@ With the sibling layout above, Ghost lives outside this repo, so nothing to igno
 
 ### "Cannot read properties of undefined (reading 'members')" on restart/start
 
-This is a known Ghost boot error, usually due to members-related settings in the database being missing or in a bad state (e.g. after an incomplete first run or a bad shutdown).
+This error usually has one of two causes. Try them in order:
 
-**1. Get the full error (from your Ghost directory):**
+**1. Node version mismatch (most common with Ghost 6.19+):** Ghost 6.19.x requires **Node 22**. If you're on Node 20 or 18, you'll see this error (often with an underlying `ERR_REQUIRE_ESM` from `parse-email-address`).
+
+```bash
+cd ghost-local
+nvm use 22          # or: nvm use 22.13.1
+ghost start
+```
+
+To make this automatic, add an `.nvmrc` file to `ghost-local` with `22`, so `nvm use` runs when you `cd` there (if you have nvm's shell integration enabled).
+
+**2. Get the full error (for debugging):** From your Ghost directory:
 ```bash
 ghost stop
 ghost run
 ```
 Reproduce the error; the console will show the full stack trace. Then Ctrl+C to stop.
 
-**2. Try a clean stop/start (sometimes helps):**
+**3. Try a clean stop/start (sometimes helps):**
 ```bash
 ghost stop
 ghost start
 ```
 
-**3. Full fresh reinstall (easiest):** From `My Projects` run the script, then start Ghost and re-link the theme:
+**4. Reset only the database (keep Ghost install):** If the above didn't help, the DB may be in a bad state:
+```bash
+ghost stop
+rm -rf content/data
+ghost start
+```
+Re-run the setup wizard if prompted.
+
+**5. Full fresh reinstall (last resort):** From `My Projects` run the script, then start Ghost and re-link the theme:
 ```bash
 ./ghost-custom/scripts/fresh-ghost-local.sh
 cd ghost-local && ghost start
@@ -162,12 +180,4 @@ cd ghost-local && ghost start
 ```
 Re-run the setup wizard at http://localhost:2368/ghost if prompted, then activate the theme again in Design.
 
-**3b. Reset only the database (keep Ghost in same folder):** From your Ghost install directory (e.g. `ghost-local/`):
-```bash
-ghost stop
-rm -rf content/data
-ghost start
-```
-Re-run the setup wizard if prompted. This does not run `ghost install local` (that requires an empty directory).
-
-**4. Check logs:** `~/.ghost/logs/` and `content/logs/` (inside your Ghost directory) for more detail.
+**6. Check logs:** `~/.ghost/logs/` and `content/logs/` (inside your Ghost directory) for more detail.

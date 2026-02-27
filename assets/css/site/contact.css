@@ -3,14 +3,16 @@
  * Rhythm: Cream (Hero) → Paper (Options) → Cream (Form) → Olive (Expect) → Cream (Reassurance)
  */
 
+/* SOP: section padding from scale (64, 96) */
 :root {
-  --mrc-contact-section-padding: 6rem 0;
-  --mrc-contact-section-padding-mobile: 4.5rem 0;
+  --mrc-contact-section-padding: var(--space-9) 0;
+  --mrc-contact-section-padding-mobile: var(--space-8) 0;
 }
 
 /* ---------- Hero (Cream, 65–75ch); padding from typography.css for consistency ---------- */
 .mrc-contact-hero {
   background-color: var(--mrc-bg);
+  padding-bottom: var(--space-7);
 }
 
 .mrc-contact-hero-inner {
@@ -23,7 +25,7 @@
 .mrc-contact-hero-divider {
   height: 3px;
   background-color: #E8C868;
-  margin: 0 auto;
+  margin: var(--space-7) auto 0;
   max-width: min(72ch, 100%);
   border: 0;
 }
@@ -46,14 +48,14 @@
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 0 0 1.25rem;
+  margin: 0 0 var(--mrc-heading-margin-below);
 }
 
 .mrc-contact-p {
   font-size: 1rem;
   line-height: var(--mrc-body-line);
   color: var(--mrc-text);
-  margin: 0 0 1.25em;
+  margin: 0 0 var(--mrc-paragraph-margin);
 }
 
 .mrc-contact-p:last-child {
@@ -66,11 +68,11 @@
   color: var(--mrc-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin: 0 0 0.35rem;
+  margin: 0 0 var(--space-1);
 }
 
 .mrc-contact-details .mrc-contact-detail-label:not(:first-child) {
-  margin-top: 1.5rem;
+  margin-top: var(--space-5);
 }
 
 .mrc-contact-detail-value {
@@ -101,11 +103,11 @@
 }
 
 .mrc-contact-form-section .mrc-contact-section-title {
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-6);
 }
 
 .mrc-contact-form .mrc-form-field {
-  margin-bottom: 1.75rem;
+  margin-bottom: var(--space-5);
 }
 
 .mrc-contact-form label {
@@ -113,7 +115,7 @@
   font-size: 1rem;
   font-weight: 600;
   color: var(--mrc-text);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .mrc-form-optional {
@@ -126,7 +128,7 @@
 .mrc-contact-form textarea {
   width: 100%;
   min-height: 44px;
-  padding: 0.6rem 1rem;
+  padding: var(--space-3) var(--space-4);
   font-size: 16px;
   font-family: var(--font-sans);
   color: var(--mrc-text);
@@ -164,19 +166,19 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234A4322' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
-  padding-right: 2.5rem;
+  padding-right: var(--space-6);
 }
 
 .mrc-contact-form textarea {
   min-height: 140px;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
   resize: vertical;
 }
 
 .mrc-contact-submit {
-  margin-top: 0.5rem;
-  padding: 0.65rem 1.5rem;
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-5);
   font-size: 1rem;
   font-weight: 600;
   color: var(--mrc-surface);
@@ -214,8 +216,8 @@
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   color: var(--mrc-surface);
-  margin: 0 0 1.5rem;
-  padding-bottom: 1rem;
+  margin: 0 0 var(--space-5);
+  padding-bottom: var(--space-4);
   border-bottom: 2px solid var(--mrc-mustard);
 }
 
@@ -224,7 +226,7 @@
   line-height: var(--mrc-body-line);
   color: var(--mrc-surface);
   opacity: 0.95;
-  margin: 0 0 1rem;
+  margin: 0 0 var(--space-4);
 }
 
 .mrc-contact-expect-p:last-child {
@@ -234,7 +236,7 @@
 .mrc-contact-expect-accent {
   font-weight: 600;
   opacity: 1;
-  margin-top: 0.5rem;
+  margin-top: var(--space-2);
 }
 
 /* ---------- Reassurance (Cream) ---------- */
@@ -269,7 +271,7 @@
 }
 
 .mrc-thanks {
-  padding: 7rem 0;
+  padding: var(--space-9) 0;
   background-color: var(--mrc-bg);
 }
 
@@ -285,7 +287,7 @@
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 0 0 1rem;
+  margin: 0 0 var(--space-4);
   line-height: 1.25;
 }
 
@@ -293,7 +295,7 @@
   font-size: 1.1rem;
   color: var(--mrc-text-muted);
   line-height: 1.6;
-  margin: 0 0 2rem;
+  margin: 0 0 var(--space-6);
 }
 
 .mrc-thanks-back {

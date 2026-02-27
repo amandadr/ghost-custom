@@ -4,11 +4,12 @@
  * Increased vertical spacing; clear H2 separation; grid where specified.
  */
 
+/* SOP: section padding from scale (48, 64, 96); hero/CTA 96px+ */
 :root {
-  --mrc-about-section-padding: 7.5rem 0;
-  --mrc-about-section-padding-mobile: 5rem 0;
-  --mrc-about-cta-padding: 7.5rem 0;
-  --mrc-about-cta-padding-mobile: 5rem 0;
+  --mrc-about-section-padding: var(--space-9) 0;
+  --mrc-about-section-padding-mobile: var(--space-8) 0;
+  --mrc-about-cta-padding: var(--space-9) 0;
+  --mrc-about-cta-padding-mobile: var(--space-8) 0;
 }
 
 /* ---------- Section spacing (design correction: more space between sections) ---------- */
@@ -31,6 +32,7 @@
 /* ---------- Hero (Cream, 70ch, large vertical padding) ---------- */
 .mrc-about-hero {
   background-color: var(--mrc-bg);
+  padding-bottom: var(--space-7);
 }
 
 .mrc-about-hero-inner {
@@ -53,7 +55,7 @@
 .mrc-about-hero-divider {
   height: 3px;
   background-color: #E8C868;
-  margin: 0 auto;
+  margin: var(--space-7) auto 0;
   max-width: min(70ch, 100%);
   border: 0;
 }
@@ -61,7 +63,7 @@
 .mrc-about-hero .mrc-about-hero-subtext-below {
   text-align: center;
   max-width: 55ch;
-  margin: 2rem auto 0;
+  margin: var(--space-6) auto 0;
   display: block;
 }
 
@@ -106,14 +108,14 @@
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 0 0 1.25rem;
+  margin: 0 0 var(--mrc-heading-margin-below);
 }
 
 .mrc-page-about .mrc-two-col-p {
   font-size: 1rem;
   line-height: var(--mrc-body-line);
   color: var(--mrc-text);
-  margin: 0 0 1.25em;
+  margin: 0 0 var(--mrc-paragraph-margin);
 }
 
 .mrc-page-about .mrc-two-col-p:last-child {
@@ -145,7 +147,7 @@
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   color: var(--mrc-surface);
-  margin: 0 0 2.5rem;
+  margin: 0 0 var(--space-7);
 }
 
 .mrc-about-statement {
@@ -153,20 +155,20 @@
   line-height: 1.65;
   color: var(--mrc-surface);
   opacity: 0.95;
-  margin: 0 0 1.15rem;
+  margin: 0 0 var(--space-4);
 }
 
 .mrc-about-statement-accent {
   font-weight: 600;
   opacity: 1;
-  margin-top: 0.25rem;
-  margin-bottom: 1.15rem;
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-4);
 }
 
 .mrc-about-why-list {
   list-style: none;
   padding: 0;
-  margin: 1.25rem 0 1.5rem;
+  margin: var(--space-5) 0 var(--space-5);
 }
 
 .mrc-about-why-list li {
@@ -174,8 +176,8 @@
   line-height: 1.65;
   color: var(--mrc-surface);
   opacity: 0.95;
-  margin-bottom: 0.6rem;
-  padding-left: 1.25rem;
+  margin-bottom: var(--space-3);
+  padding-left: var(--space-5);
   position: relative;
 }
 
@@ -191,7 +193,7 @@
   height: 2px;
   background-color: var(--mrc-mustard);
   opacity: 0.7;
-  margin: 2.5rem 0 2rem;
+  margin: var(--space-7) 0 var(--space-6);
   max-width: 5rem;
   border: 0;
 }
@@ -212,7 +214,7 @@
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 0 0 2.5rem;
+  margin: 0 0 var(--space-7);
 }
 
 /* .mrc-about-cards uses .mrc-grid .mrc-grid--auto (composition) */
@@ -221,7 +223,7 @@
 }
 
 .mrc-about-card {
-  padding: 2rem;
+  padding: var(--space-6);
   background-color: var(--mrc-surface);
   border-radius: 4px;
   border-left: 4px solid var(--mrc-olive);
@@ -232,21 +234,21 @@
   font-size: var(--mrc-h3-size);
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 0 0 1rem;
+  margin: 0 0 var(--space-4);
 }
 
 .mrc-about-card-intro {
   font-size: 1rem;
   line-height: var(--mrc-body-line);
   color: var(--mrc-text);
-  margin: 0 0 0.75rem;
+  margin: 0 0 var(--space-3);
 }
 
 .mrc-about-card-subhead {
   font-size: 1rem;
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 1.25rem 0 0.5rem;
+  margin: var(--space-5) 0 var(--space-2);
 }
 
 .mrc-about-card-outro {
@@ -254,12 +256,12 @@
   line-height: var(--mrc-body-line);
   color: var(--mrc-text-muted);
   font-style: italic;
-  margin: 1.25rem 0 0;
+  margin: var(--space-5) 0 0;
 }
 
 .mrc-about-card-list {
   list-style: disc;
-  padding-left: 1.25rem;
+  padding-left: var(--space-5);
   margin: 0;
 }
 
@@ -267,7 +269,7 @@
   font-size: 1rem;
   line-height: 1.6;
   color: var(--mrc-text);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .mrc-about-card-list li:last-child {
@@ -287,14 +289,14 @@
 }
 
 .mrc-about-beyond .mrc-about-section-title {
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--space-5);
 }
 
 .mrc-about-prose-p {
   font-size: 1rem;
   line-height: var(--mrc-body-line);
   color: var(--mrc-text);
-  margin: 0 0 1.35em;
+  margin: 0 0 var(--mrc-paragraph-margin);
 }
 
 .mrc-about-prose-p:last-child {

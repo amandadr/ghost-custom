@@ -1,5 +1,5 @@
 .cover {
-    margin-top: 48px;
+    margin-top: var(--space-7);
 }
 
 .cover-content {
@@ -13,7 +13,7 @@
 
 .cover-icon {
     position: relative;
-    margin-bottom: 32px;
+    margin-bottom: var(--space-6);
 }
 
 .cover-icon-image {
@@ -26,9 +26,9 @@
 
 .cover-cta {
     display: flex;
-    margin-top: 2rem;
+    margin-top: var(--space-6);
 }
 
 .cover-cta .button {
-    margin: 0 0.5rem;
+    margin: 0 var(--space-2);
 }

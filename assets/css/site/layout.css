@@ -16,7 +16,7 @@ body {
 
 .site-content {
     flex-grow: 1;
-    padding: 6rem 0;
+    padding: var(--space-9) 0;
 }
 
 /* Global container + gutters: keep content inset from viewport edges */
@@ -47,12 +47,11 @@ body {
 /* Small screens: more horizontal padding so content doesn’t bump the edges */
 @media (max-width: 767px) {
     :root {
-        --gap: 2.5rem;
-        /* Slightly smaller gutter on very small screens; clamp handles larger viewports */
-        --mrc-page-gutter: 1.75rem;
+        --gap: var(--space-6);
+        --mrc-page-gutter: var(--space-5);
     }
 
     .site-content {
-        padding: 3rem 0;
+        padding: var(--space-7) 0;
     }
 }

@@ -6,6 +6,7 @@
 /* ---------- Services hero (Cream, 72ch, no buttons) ---------- */
 .mrc-services-hero {
   background-color: var(--mrc-bg);
+  padding-bottom: var(--space-7);
 }
 
 .mrc-services-hero-inner {
@@ -18,7 +19,7 @@
 .mrc-services-hero-divider {
   height: 3px;
   background-color: #E8C868;
-  margin: 0 auto;
+  margin: var(--space-7) auto 0;
   max-width: min(70ch, 100%);
   border: 0;
 }
@@ -49,8 +50,8 @@
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 0 0 1rem;
-  padding-left: 1rem;
+  margin: 0 0 var(--space-4);
+  padding-left: var(--space-4);
   border-left: 4px solid var(--mrc-olive);
 }
 
@@ -58,19 +59,19 @@
   font-size: 1rem;
   line-height: var(--mrc-body-line);
   color: var(--mrc-text);
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--space-2);
 }
 
 .mrc-service-section-tagline {
   font-size: 1rem;
   font-weight: 600;
   color: var(--mrc-text-muted);
-  margin: 0 0 1.25rem;
+  margin: 0 0 var(--mrc-heading-margin-below);
   font-style: italic;
 }
 
 .mrc-service-section-includes {
-  margin: 1.25rem 0 1rem;
+  margin: var(--space-5) 0 var(--space-4);
 }
 
 .mrc-service-section-subhead {
@@ -79,20 +80,20 @@
   color: var(--mrc-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--space-2);
 }
 
 .mrc-service-section-list {
   list-style: disc;
-  padding-left: 1.25rem;
-  margin: 0 0 1rem;
+  padding-left: var(--space-5);
+  margin: 0 0 var(--space-4);
 }
 
 .mrc-service-section-list li {
   font-size: 1rem;
   line-height: 1.55;
   color: var(--mrc-text);
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--space-1);
 }
 
 .mrc-service-section-ideal {
@@ -144,24 +145,24 @@
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   color: var(--mrc-surface);
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--space-5);
 }
 
 .mrc-engagement-intro {
   font-size: 1rem;
   line-height: var(--mrc-body-line);
-  margin: 0 0 1rem;
+  margin: 0 0 var(--space-4);
   opacity: 0.95;
 }
 
 .mrc-engagement-list {
   list-style: none;
   padding: 0;
-  margin: 2rem 0 0;
+  margin: var(--space-6) 0 0;
 }
 
 .mrc-engagement-list li {
-  padding: 0.75rem 0;
+  padding: var(--space-3) 0;
   border-bottom: 1px solid var(--mrc-mustard);
   font-size: 1rem;
   line-height: 1.5;
@@ -188,7 +189,7 @@
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 0 0 2.5rem;
+  margin: 0 0 var(--space-7);
   text-align: center;
 }
 
@@ -198,7 +199,7 @@
 }
 
 .mrc-process-step {
-  padding-bottom: 2rem;
+  padding-bottom: var(--space-6);
   border-bottom: 2px solid var(--mrc-mustard);
 }
 
@@ -217,7 +218,7 @@
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--space-2);
 }
 
 .mrc-process-step-desc {

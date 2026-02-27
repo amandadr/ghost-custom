@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: var(--space-5) 0;
     overflow: hidden;
     line-height: 1;
 }
@@ -12,7 +12,7 @@
 }
 
 .feed:hover .feed-right {
-    margin-right: 1.6rem;
+    margin-right: var(--space-5);
 }
 
 .feed:hover .feed-icon {
@@ -24,7 +24,7 @@
 }
 
 .feed + .feed.feed-paged {
-    margin-top: 3rem;
+    margin-top: var(--space-7);
     border-top: 0;
 }
 
@@ -32,7 +32,7 @@
     display: flex;
     gap: 0.4rem;
     min-width: 45px;
-    margin-right: 1.5rem;
+    margin-right: var(--space-5);
     font-size: 1.1rem;
     font-weight: 800;
     color: var(--brand-color);
@@ -45,7 +45,7 @@
 
 .feed-title {
     flex-grow: 1;
-    padding-right: 1rem;
+    padding-right: var(--space-4);
     margin-bottom: 0;
     overflow: hidden;
     font-family: var(--gh-font-body, var(--font-sans));
@@ -66,7 +66,7 @@
 .icon-star {
     width: 16px;
     height: 16px;
-    margin-right: 1rem;
+    margin-right: var(--space-4);
     color: var(--orange-color);
 }
 

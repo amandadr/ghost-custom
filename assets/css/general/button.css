@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     height: 36px;
-    padding: 0 15px;
+    padding: 0 var(--space-4);
     font-size: 14px;
     font-weight: 800;
     color: var(--brand-color);

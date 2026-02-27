@@ -28,6 +28,7 @@
 .mrc-stack--m { --mrc-stack-gap: var(--space-4); }
 .mrc-stack--l { --mrc-stack-gap: var(--space-6); }
 .mrc-stack--xl { --mrc-stack-gap: var(--space-8); }
+.mrc-stack--section { --mrc-stack-gap: var(--space-9); }
 
 /* ---- Cluster: horizontal wrapping row (nav, CTAs), gap-controlled ---- */
 .mrc-cluster {
@@ -74,7 +75,9 @@
 }
 
 .mrc-grid--gap-s { --mrc-grid-gap: var(--space-4); }
+.mrc-grid--gap-m { --mrc-grid-gap: var(--space-6); }
 .mrc-grid--gap-l { --mrc-grid-gap: var(--space-8); }
+.mrc-grid--gap-xl { --mrc-grid-gap: var(--space-9); }
 
 /* ---- Split: two-column layout, collapses at breakpoint ---- */
 .mrc-split {

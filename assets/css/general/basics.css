@@ -28,12 +28,12 @@
     --font-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
     --navbar-height: 80px;
     --content-font-size: 1.7rem;
-    --header-spacing: 60px;
+    --header-spacing: var(--space-7);
 }
 
 @media (max-width: 767px) {
     :root {
-        --header-spacing: 30px;
+        --header-spacing: var(--space-6);
     }
 }
 
