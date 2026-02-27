@@ -15,6 +15,19 @@ body {
     padding: 6rem 0;
 }
 
+/* Global container + gutters: keep content inset from viewport edges */
+.gh-outer {
+    padding-left: var(--mrc-page-gutter);
+    padding-right: var(--mrc-page-gutter);
+}
+
+/* Inner container: center content and cap width */
+.gh-inner {
+    max-width: min(var(--mrc-container-wide, 1100px), 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Homepage: no bottom padding so CTA meets footer (avoids cream strip) */
 .site-content:has(.mrc-home) {
     padding-bottom: 0;
@@ -28,23 +41,8 @@ body {
 @media (max-width: 767px) {
     :root {
         --gap: 2.5rem;
-    }
-
-    .gh-outer {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-    }
-
-    /* Ensure header and main content keep horizontal inset */
-    .site #gh-head.gh-outer,
-    .site .site-content .gh-outer {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-    }
-
-    /* Keep inners within padded container to avoid horizontal scroll */
-    .gh-inner {
-        max-width: min(var(--container-width, 1200px), 100%);
+        /* Slightly smaller gutter on very small screens; clamp handles larger viewports */
+        --mrc-page-gutter: 1.75rem;
     }
 
     .site-content {

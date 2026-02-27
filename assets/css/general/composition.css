@@ -1,0 +1,109 @@
+/**
+ * CUBE Composition Layer — Layout Primitives
+ * SOP: Container, Stack, Cluster, Grid, Split, Switcher
+ * Layout only; no colors/typography. Use everywhere.
+ */
+
+/* ---- Container: centers content, max-width, gutters ---- */
+.mrc-container {
+  width: 100%;
+  max-width: min(var(--mrc-container-wide, 1100px), 100%);
+  margin-inline: auto;
+  padding-inline: var(--mrc-page-gutter);
+  box-sizing: border-box;
+}
+
+.mrc-container--narrow {
+  max-width: min(var(--mrc-content-width), 100%);
+}
+
+/* ---- Stack: vertical rhythm, consistent spacing between children ---- */
+.mrc-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mrc-stack-gap, var(--space-4));
+}
+
+.mrc-stack--s { --mrc-stack-gap: var(--space-2); }
+.mrc-stack--m { --mrc-stack-gap: var(--space-4); }
+.mrc-stack--l { --mrc-stack-gap: var(--space-6); }
+.mrc-stack--xl { --mrc-stack-gap: var(--space-8); }
+
+/* ---- Cluster: horizontal wrapping row (nav, CTAs), gap-controlled ---- */
+.mrc-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mrc-cluster-gap, var(--space-4));
+  align-items: center;
+}
+
+.mrc-cluster--s { --mrc-cluster-gap: var(--space-2); }
+.mrc-cluster--m { --mrc-cluster-gap: var(--space-4); }
+.mrc-cluster--l { --mrc-cluster-gap: var(--space-6); }
+.mrc-cluster--xl { --mrc-cluster-gap: var(--space-8); }
+
+.mrc-cluster--between { justify-content: space-between; }
+.mrc-cluster--end { justify-content: flex-end; }
+.mrc-cluster--center { justify-content: center; }
+
+/* ---- Grid: responsive columns, minmax/auto-fit ---- */
+.mrc-grid {
+  display: grid;
+  gap: var(--mrc-grid-gap, var(--space-6));
+  grid-template-columns: repeat(
+    var(--mrc-grid-cols, 1),
+    minmax(min(var(--mrc-grid-min, 250px), 100%), 1fr)
+  );
+}
+
+.mrc-grid--2 { --mrc-grid-cols: 2; }
+.mrc-grid--3 { --mrc-grid-cols: 3; }
+.mrc-grid--4 { --mrc-grid-cols: 4; }
+
+/* Auto-fit: as many columns as fit */
+.mrc-grid--auto {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--mrc-grid-min, 250px), 100%), 1fr)
+  );
+}
+
+.mrc-grid--gap-s { --mrc-grid-gap: var(--space-4); }
+.mrc-grid--gap-l { --mrc-grid-gap: var(--space-8); }
+
+/* ---- Split: two-column layout, collapses at breakpoint ---- */
+.mrc-split {
+  display: grid;
+  gap: var(--mrc-split-gap, var(--space-6));
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .mrc-split--60-40 {
+    grid-template-columns: 60fr 40fr;
+  }
+  .mrc-split--50-50 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .mrc-split--40-60 {
+    grid-template-columns: 40fr 60fr;
+  }
+}
+
+/* ---- Switcher: multi-column → single based on space ---- */
+.mrc-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mrc-switcher-gap, var(--space-4));
+}
+
+.mrc-switcher > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--mrc-switcher-threshold, 30rem) - 100%) * 999);
+  min-width: 0;
+}
+
+.mrc-switcher--2 { --mrc-switcher-threshold: 25rem; }
+.mrc-switcher--3 { --mrc-switcher-threshold: 40rem; }
+.mrc-switcher--4 { --mrc-switcher-threshold: 55rem; }

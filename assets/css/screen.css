@@ -3,6 +3,7 @@
 @import "general/basics.css";
 @import "general/brand.css";
 @import "general/typography.css";
+@import "general/composition.css";
 @import "general/button.css";
 @import "general/form.css";
 @import "general/icons.css";

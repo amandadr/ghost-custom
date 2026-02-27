@@ -4,7 +4,7 @@
 <main class="site-main mrc-home">
   {{! 1. Cream }}
   <section class="mrc-hero section-light gh-outer" aria-labelledby="mrc-hero-heading">
-    <div class="mrc-hero-inner gh-inner">
+    <div class="mrc-hero-inner gh-inner mrc-stack mrc-stack--l">
       {{#if @site.icon}}
         <div class="mrc-hero-badge">
           <img class="mrc-hero-badge-img" src="{{@site.icon}}" alt="" aria-hidden="true">
@@ -12,7 +12,7 @@
       {{/if}}
       <h1 id="mrc-hero-heading" class="mrc-hero-headline">{{@custom.hero_headline}}</h1>
       <p class="mrc-hero-subtext">{{@custom.hero_subtext}}</p>
-      <div class="mrc-hero-cta">
+      <div class="mrc-hero-cta mrc-cluster mrc-cluster--center">
         <a href="/contact/" class="button mrc-btn-primary">Get in touch</a>
         <a href="/services/" class="button mrc-btn-secondary">Services</a>
       </div>
@@ -23,7 +23,7 @@
   <section class="mrc-section section-surface mrc-pillars-section gh-outer" aria-labelledby="mrc-pillars-title">
     <div class="mrc-section-inner gh-inner">
       <h2 id="mrc-pillars-title" class="mrc-section-title">What I do</h2>
-      <div class="mrc-pillars">
+      <div class="mrc-pillars mrc-grid mrc-grid--auto mrc-grid--gap-l">
         {{> "service-card" title="Systems & Technical Strategy" description="APIs, analytics, infrastructure — connected systems, not isolated features." url="/services/#systems"}}
         {{> "service-card" title="Custom Software & Web Applications" description="Build it once. Maintain it well. Sustainable, measurable outcomes." url="/services/#software"}}
         {{> "service-card" title="Automation & Applied AI" description="Data workflows and AI that integrate into real operations — not prototype theatre." url="/services/#automation"}}
@@ -35,7 +35,7 @@
   <section class="mrc-section section-dark mrc-principles-section gh-outer" aria-labelledby="mrc-principles-title">
     <div class="mrc-section-inner gh-inner">
       <h2 id="mrc-principles-title" class="mrc-section-title">How I work</h2>
-      <div class="mrc-principles">
+      <div class="mrc-principles mrc-grid mrc-grid--auto mrc-grid--gap-l">
         {{> "principle-item" title="Sustainable" body="Build it once. Maintain it well."}}
         {{> "principle-item" title="Measurable" body="If it can't be evaluated, it can't be improved."}}
         {{> "principle-item" title="Collaborative" body="Works with internal teams, contractors, and stakeholders."}}

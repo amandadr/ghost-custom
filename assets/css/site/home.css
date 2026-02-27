@@ -257,11 +257,9 @@
   }
 }
 
+/* .mrc-hero-cta uses .mrc-cluster .mrc-cluster--center (composition) */
 .mrc-hero-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+  --mrc-cluster-gap: var(--space-4);
 }
 
 .mrc-hero .mrc-btn-primary {
@@ -314,18 +312,7 @@
   margin-top: 0;
 }
 
-.mrc-pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-}
-
-@media (max-width: 767px) {
-  .mrc-pillars {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-}
+/* .mrc-pillars uses .mrc-grid .mrc-grid--auto (composition) */
 
 .mrc-service-card {
   padding: 0;
@@ -372,11 +359,7 @@
   margin-bottom: 3rem;
 }
 
-.mrc-principles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.5rem 3rem;
-}
+/* .mrc-principles uses .mrc-grid .mrc-grid--auto (composition) */
 
 .mrc-principles-section .mrc-principle {
   padding-bottom: 2rem;

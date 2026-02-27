@@ -25,11 +25,53 @@ html {
   --mrc-lede-size: 1.125rem;
   --mrc-small-size: 14px;
 
+  /* Spacing scale (4–8–12–16–24–32–48–64) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 5rem;
+  --space-16: 6rem;
+  --mrc-space-xs: var(--space-1);
+  --mrc-space-s: var(--space-2);
+  --mrc-space-m: var(--space-4);
+  --mrc-space-l: var(--space-5);
+  --mrc-space-xl: var(--space-6);
+  --mrc-space-2xl: var(--space-8);
+
+  /* Breakpoints (content-driven; sm 480, md 768, lg 1024, xl 1280) */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+
+  /* Borders */
+  --radius-s: 3px;
+  --radius-m: 5px;
+  --radius-l: 8px;
+  --border-width: 1px;
+  --border-width-thick: 2px;
+
+  /* Z-index layers */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+
+  /* Containers & gutters */
+  --mrc-container-width: 72ch;
+  --mrc-container-wide: 1100px;
+  --mrc-page-gutter: clamp(1.5rem, 4vw, 3rem);
+
   /* Section vertical rhythm */
-  --mrc-section-padding: 5.5rem 0;
-  --mrc-section-padding-tight: 4rem 0;
+  --mrc-section-padding: var(--space-12) 0;
+  --mrc-section-padding-tight: var(--space-10) 0;
   /* Hero: equal top/bottom so content doesn’t sit low; shared across all pages */
-  --mrc-section-padding-hero: 5.5rem 0;
+  --mrc-section-padding-hero: var(--space-10) 0;
 }
 
 /* Standard hero block: same min height and padding across Home, About, Services, Contact */
@@ -56,9 +98,9 @@ body {
   }
 
   :root {
-    --mrc-section-padding: 4rem 0;
-    --mrc-section-padding-tight: 3rem 0;
-    --mrc-section-padding-hero: 4.5rem 0;
+    --mrc-section-padding: var(--space-10) 0;
+    --mrc-section-padding-tight: var(--space-8) 0;
+    --mrc-section-padding-hero: var(--space-8) 0;
   }
 }
 

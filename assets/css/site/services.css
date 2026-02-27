@@ -192,17 +192,9 @@
   text-align: center;
 }
 
+/* .mrc-process-grid uses .mrc-grid .mrc-grid--auto (composition) */
 .mrc-process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
-@media (max-width: 767px) {
-  .mrc-process-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
+  --mrc-grid-min: 220px;
 }
 
 .mrc-process-step {

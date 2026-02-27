@@ -3,6 +3,15 @@
     animation-fill-mode: both;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .animate__animated,
+    .animate__bounceIn,
+    .animate__zoomOut {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
 @keyframes bounceIn {
     from,
     20%,
