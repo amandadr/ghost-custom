@@ -8,9 +8,8 @@
   --mrc-contact-section-padding-mobile: 4.5rem 0;
 }
 
-/* ---------- Hero (Cream, 65–75ch) ---------- */
+/* ---------- Hero (Cream, 65–75ch); padding from typography.css for consistency ---------- */
 .mrc-contact-hero {
-  padding: var(--mrc-contact-section-padding);
   background-color: var(--mrc-bg);
 }
 
@@ -19,23 +18,6 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding-bottom: 2rem;
-}
-
-.mrc-contact-hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.85rem, 4vw, 2.5rem);
-  font-weight: 600;
-  color: var(--mrc-text);
-  margin: 0 0 1rem;
-  line-height: 1.25;
-}
-
-.mrc-contact-hero-subtext {
-  font-size: 1.1rem;
-  color: var(--mrc-text-muted);
-  line-height: 1.6;
-  margin: 0;
 }
 
 .mrc-contact-hero-divider {
@@ -279,7 +261,6 @@
 }
 
 @media (max-width: 767px) {
-  .mrc-contact-hero,
   .mrc-contact-options,
   .mrc-contact-form-section,
   .mrc-contact-expect,

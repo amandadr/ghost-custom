@@ -29,7 +29,15 @@ The theme is **symlinked** into Ghost’s `content/themes/` so edits here are se
 
 ### 1. Install Ghost in a sibling directory
 
-From a directory **above** this repo (e.g. `My Projects`), create an empty folder and install Ghost:
+**Option A — script (fresh install anytime):** From `My Projects` (or from anywhere), run:
+
+```bash
+./ghost-custom/scripts/fresh-ghost-local.sh
+```
+
+This removes `ghost-local` if it exists, creates it, and runs `ghost install local` there. Then run `ghost start` from `ghost-local` and link the theme (step 2).
+
+**Option B — manual:** From a directory **above** this repo (e.g. `My Projects`), create an empty folder and install Ghost:
 
 ```bash
 cd "/Users/amandaroy/Documents/My Stuff/My Projects"
@@ -146,13 +154,20 @@ ghost stop
 ghost start
 ```
 
-**3. Reset the database and reinstall (fresh slate):**
-From your Ghost install directory (e.g. `ghost-local/`):
+**3. Full fresh reinstall (easiest):** From `My Projects` run the script, then start Ghost and re-link the theme:
+```bash
+./ghost-custom/scripts/fresh-ghost-local.sh
+cd ghost-local && ghost start
+./ghost-custom/scripts/link-theme-to-ghost.sh ./ghost-local
+```
+Re-run the setup wizard at http://localhost:2368/ghost if prompted, then activate the theme again in Design.
+
+**3b. Reset only the database (keep Ghost in same folder):** From your Ghost install directory (e.g. `ghost-local/`):
 ```bash
 ghost stop
 rm -rf content/data
-ghost install local
+ghost start
 ```
-Re-run the setup wizard at http://localhost:2368/ghost if prompted. Re-create the theme symlink if you had one (e.g. `./scripts/link-theme-to-ghost.sh ../ghost-local` from the theme repo), then activate the theme again in Design.
+Re-run the setup wizard if prompted. This does not run `ghost install local` (that requires an empty directory).
 
 **4. Check logs:** `~/.ghost/logs/` and `content/logs/` (inside your Ghost directory) for more detail.

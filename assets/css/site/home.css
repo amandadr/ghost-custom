@@ -47,6 +47,7 @@
 .mrc-head .gh-head-menu {
   flex-shrink: 0;
   margin-left: auto;
+  margin-right: 0;
   justify-content: flex-end;
   /* Keep nav as inline links: reserve space so theme dropdown script doesn’t collapse to “More” */
   min-width: 520px;
@@ -142,11 +143,36 @@
   }
 }
 
-/* Mobile: hamburger menu; nav links right-aligned when open (not centred) */
+/* Mobile: hamburger menu; logo fits; nav links right-aligned when open */
 @media (max-width: 767px) {
   .mrc-head .gh-head-inner {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  /* Allow header row to share space so logo + burger both visible (override desktop min-width) */
+  .mrc-head .gh-head-menu {
+    min-width: 0;
+  }
+
+  /* Logo: ensure it doesn’t overflow; theme sets 2.2rem at 767px — keep smaller so “Manny Roy Consulting” fits */
+  .mrc-head .gh-head-brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .mrc-head .gh-head-brand-wrapper {
+    min-width: 0;
+    overflow: hidden;
+  }
+  #gh-head.mrc-head .gh-head-logo {
+    font-size: min(1.35rem, 4.5vw + 1rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  #gh-head.mrc-head .gh-head-logo img {
+    max-height: 32px;
   }
 
   /* Open menu: align nav to the right to match desktop intent */
@@ -173,7 +199,6 @@
 
 /* ---------- Hero (Cream, Ink, Maroon/Olive buttons, bigger headline) ---------- */
 .mrc-hero {
-  padding: var(--mrc-section-padding-hero);
   background-color: var(--mrc-bg);
 }
 
@@ -201,17 +226,23 @@
   object-fit: cover;
 }
 
-.mrc-hero-headline {
+.mrc-hero-headline,
+.mrc-about-hero-title,
+.mrc-services-hero-title,
+.mrc-contact-hero-title {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 5vw, 2.75rem);
   font-weight: 600;
   line-height: 1.2;
   color: var(--mrc-text);
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   white-space: nowrap;
 }
 
-.mrc-hero-subtext {
+.mrc-hero-subtext,
+.mrc-about-hero-subtext,
+.mrc-services-hero-subtext,
+.mrc-contact-hero-subtext {
   font-size: 1.15rem;
   color: var(--mrc-text-muted);
   margin: 0 0 2rem;
@@ -532,6 +563,37 @@
 
 .mrc-foot-copy {
   opacity: 0.9;
+}
+
+/* Footer: responsive on small screens; hide bio to reduce clutter */
+@media (max-width: 767px) {
+  .mrc-foot {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .mrc-foot-inner {
+    padding: 0;
+  }
+
+  .mrc-foot-bio {
+    display: none;
+  }
+
+  .mrc-foot-nav {
+    margin-bottom: 1.25rem;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .mrc-foot-nav a {
+    font-size: 0.95rem;
+  }
+
+  .mrc-foot-bottom {
+    padding-top: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }
 
 .mrc-foot-ghost {

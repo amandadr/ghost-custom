@@ -1,6 +1,6 @@
-/* Wordmark: ~10–15% smaller, hierarchy, tighter tracking on name */
+/* Wordmark: ~10–15% smaller, hierarchy, tighter tracking on name; responsive on small screens */
 .gh-head-logo {
-  font-size: 1.9rem;
+  font-size: clamp(1.15rem, 3.5vw + 0.8rem, 1.9rem);
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.02em;

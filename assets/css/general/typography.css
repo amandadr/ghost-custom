@@ -28,7 +28,18 @@ html {
   /* Section vertical rhythm */
   --mrc-section-padding: 5.5rem 0;
   --mrc-section-padding-tight: 4rem 0;
-  --mrc-section-padding-hero: 4.5rem 0 5.5rem;
+  /* Hero: equal top/bottom so content doesn’t sit low; shared across all pages */
+  --mrc-section-padding-hero: 5.5rem 0;
+}
+
+/* Standard hero block: same min height and padding across Home, About, Services, Contact */
+.mrc-hero,
+.mrc-about-hero,
+.mrc-services-hero,
+.mrc-contact-hero {
+  padding: var(--mrc-section-padding-hero);
+  min-height: 18rem;
+  box-sizing: border-box;
 }
 
 /* Body: 17px default, never below 16px on small screens */
@@ -47,7 +58,7 @@ body {
   :root {
     --mrc-section-padding: 4rem 0;
     --mrc-section-padding-tight: 3rem 0;
-    --mrc-section-padding-hero: 4rem 0 4.5rem;
+    --mrc-section-padding-hero: 4.5rem 0;
   }
 }
 

@@ -5,7 +5,6 @@
 
 /* ---------- Services hero (Cream, 72ch, no buttons) ---------- */
 .mrc-services-hero {
-  padding: var(--mrc-section-padding-hero);
   background-color: var(--mrc-bg);
 }
 
@@ -14,23 +13,6 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding-bottom: 2rem;
-}
-
-.mrc-services-hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.85rem, 4vw, 2.5rem);
-  font-weight: 600;
-  color: var(--mrc-text);
-  margin: 0 0 1rem;
-  line-height: 1.25;
-}
-
-.mrc-services-hero-subtext {
-  font-size: 1.1rem;
-  color: var(--mrc-text-muted);
-  line-height: 1.6;
-  margin: 0;
 }
 
 .mrc-services-hero-divider {

@@ -7,23 +7,11 @@
 :root {
   --mrc-about-section-padding: 7.5rem 0;
   --mrc-about-section-padding-mobile: 5rem 0;
-  --mrc-about-hero-padding: 8rem 0 6rem;
-  --mrc-about-hero-padding-mobile: 6rem 0 4.5rem;
   --mrc-about-cta-padding: 7.5rem 0;
   --mrc-about-cta-padding-mobile: 5rem 0;
 }
 
 /* ---------- Section spacing (design correction: more space between sections) ---------- */
-.mrc-page-about .mrc-about-hero {
-  padding: var(--mrc-about-hero-padding);
-}
-
-@media (max-width: 767px) {
-  .mrc-page-about .mrc-about-hero {
-    padding: var(--mrc-about-hero-padding-mobile);
-  }
-}
-
 .mrc-page-about .mrc-two-col,
 .mrc-page-about .mrc-about-why-anchor,
 .mrc-page-about .mrc-about-experience,
@@ -50,23 +38,9 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding-bottom: 2rem;
-}
-
-.mrc-about-hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.85rem, 4vw, 2.5rem);
-  font-weight: 600;
-  color: var(--mrc-text);
-  margin: 0 0 1rem;
-  line-height: 1.25;
 }
 
 .mrc-about-hero-subtext {
-  font-size: 1.1rem;
-  color: var(--mrc-text-muted);
-  line-height: 1.6;
-  margin: 0 0 0.5em;
   max-width: 55ch;
   margin-left: auto;
   margin-right: auto;
