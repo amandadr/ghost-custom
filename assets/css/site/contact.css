@@ -3,10 +3,10 @@
  * Rhythm: Cream (Hero) → Paper (Options) → Cream (Form) → Olive (Expect) → Cream (Reassurance)
  */
 
-/* SOP: section padding from scale (64, 96) */
+/* SOP: section padding (block only — horizontal from .gh-outer) */
 :root {
-  --mrc-contact-section-padding: var(--space-9) 0;
-  --mrc-contact-section-padding-mobile: var(--space-8) 0;
+  --mrc-contact-section-padding-block: var(--space-9);
+  --mrc-contact-section-padding-block-mobile: var(--space-8);
 }
 
 /* ---------- Hero (Cream, 65–75ch); padding from typography.css for consistency ---------- */
@@ -32,7 +32,7 @@
 
 /* ---------- Contact options (Paper, two-column) ---------- */
 .mrc-contact-options {
-  padding: var(--mrc-contact-section-padding);
+  padding-block: var(--mrc-contact-section-padding-block);
   background-color: var(--mrc-surface);
   border-top: 1px solid rgba(42, 38, 26, 0.06);
 }
@@ -92,7 +92,7 @@
 
 /* ---------- Form section (Cream, moderate width) ---------- */
 .mrc-contact-form-section {
-  padding: var(--mrc-contact-section-padding);
+  padding-block: var(--mrc-contact-section-padding-block);
   background-color: var(--mrc-bg);
 }
 
@@ -200,7 +200,7 @@
 
 /* ---------- What to expect (Olive anchor) ---------- */
 .mrc-contact-expect {
-  padding: var(--mrc-contact-section-padding);
+  padding-block: var(--mrc-contact-section-padding-block);
   background-color: var(--mrc-olive);
   color: var(--mrc-surface);
 }
@@ -241,7 +241,7 @@
 
 /* ---------- Reassurance (Cream) ---------- */
 .mrc-contact-reassurance {
-  padding: var(--mrc-contact-section-padding);
+  padding-block: var(--mrc-contact-section-padding-block);
   background-color: var(--mrc-bg);
 }
 
@@ -256,7 +256,7 @@
   .mrc-contact-form-section,
   .mrc-contact-expect,
   .mrc-contact-reassurance {
-    padding: var(--mrc-contact-section-padding-mobile);
+    padding-block: var(--mrc-contact-section-padding-block-mobile);
   }
 }
 
@@ -271,7 +271,7 @@
 }
 
 .mrc-thanks {
-  padding: var(--space-9) 0;
+  padding-block: var(--space-9);
   background-color: var(--mrc-bg);
 }
 

@@ -4,12 +4,12 @@
  * Increased vertical spacing; clear H2 separation; grid where specified.
  */
 
-/* SOP: section padding from scale (48, 64, 96); hero/CTA 96px+ */
+/* SOP: section padding (block only — horizontal from .gh-outer) */
 :root {
-  --mrc-about-section-padding: var(--space-9) 0;
-  --mrc-about-section-padding-mobile: var(--space-8) 0;
-  --mrc-about-cta-padding: var(--space-9) 0;
-  --mrc-about-cta-padding-mobile: var(--space-8) 0;
+  --mrc-about-section-padding-block: var(--space-9);
+  --mrc-about-section-padding-block-mobile: var(--space-8);
+  --mrc-about-cta-padding-block: var(--space-9);
+  --mrc-about-cta-padding-block-mobile: var(--space-8);
 }
 
 /* ---------- Section spacing (design correction: more space between sections) ---------- */
@@ -17,7 +17,7 @@
 .mrc-page-about .mrc-about-why-anchor,
 .mrc-page-about .mrc-about-experience,
 .mrc-page-about .mrc-about-beyond {
-  padding: var(--mrc-about-section-padding);
+  padding-block: var(--mrc-about-section-padding-block);
 }
 
 @media (max-width: 767px) {
@@ -25,7 +25,7 @@
   .mrc-page-about .mrc-about-why-anchor,
   .mrc-page-about .mrc-about-experience,
   .mrc-page-about .mrc-about-beyond {
-    padding: var(--mrc-about-section-padding-mobile);
+    padding-block: var(--mrc-about-section-padding-block-mobile);
   }
 }
 
@@ -305,12 +305,12 @@
 
 /* ---------- Final CTA (Maroon, large vertical padding) ---------- */
 .mrc-page-about .mrc-cta-section {
-  padding: var(--mrc-about-cta-padding);
+  padding-block: var(--mrc-about-cta-padding-block);
 }
 
 @media (max-width: 767px) {
   .mrc-page-about .mrc-cta-section {
-    padding: var(--mrc-about-cta-padding-mobile);
+    padding-block: var(--mrc-about-cta-padding-block-mobile);
   }
 }
 

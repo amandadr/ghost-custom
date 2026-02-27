@@ -60,3 +60,10 @@ body {
         padding: var(--space-7) 0;
     }
 }
+
+/* Very narrow screens (e.g. 430px): generous gutter so content never feels cramped */
+@media (max-width: 480px) {
+    :root {
+        --mrc-page-gutter: var(--space-7);
+    }
+}

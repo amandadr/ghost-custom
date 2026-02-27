@@ -362,7 +362,7 @@
 
 /* ---------- Section blocks: spacing (breathing room) ---------- */
 .mrc-section {
-  padding: var(--mrc-section-padding);
+  padding-block: var(--mrc-section-padding-block);
 }
 
 .mrc-section-inner {
@@ -476,7 +476,7 @@
 
 /* ---------- Selected work: Cream, no heavy cards ---------- */
 .mrc-work-preview {
-  padding: var(--mrc-section-padding);
+  padding-block: var(--mrc-section-padding-block);
   background-color: var(--mrc-bg);
 }
 
@@ -542,7 +542,7 @@
 
 /* ---------- Final CTA: Maroon, Cream text, Mustard button + Ink ---------- */
 .mrc-cta-section {
-  padding: var(--mrc-section-padding);
+  padding-block: var(--mrc-section-padding-block);
   background-color: var(--mrc-maroon);
   color: var(--mrc-surface);
 }
@@ -589,7 +589,7 @@
 .mrc-foot {
   background-color: var(--mrc-olive);
   color: var(--mrc-surface);
-  padding: var(--space-7) 0 var(--space-6);
+  padding-block: var(--space-7) var(--space-6);
 }
 
 .mrc-foot-inner {
@@ -643,7 +643,7 @@
 /* Footer: responsive on small screens; hide bio, shorten height */
 @media (max-width: 767px) {
   .mrc-foot {
-    padding: var(--space-5) 0 var(--space-4);
+    padding-block: var(--space-5) var(--space-4);
   }
 
   .mrc-foot-inner {

@@ -42,10 +42,10 @@ html {
   --mrc-space-xl: var(--space-6);
   --mrc-space-2xl: var(--space-8);
 
-  /* Section padding — SOP: small 48px, standard 64–80px, hero 96px+ */
-  --mrc-section-padding: var(--space-8) 0;
-  --mrc-section-padding-tight: var(--space-7) 0;
-  --mrc-section-padding-hero: var(--space-9) 0;
+  /* Section padding (block only — horizontal from .gh-outer) — SOP: small 48px, standard 64px, hero 96px */
+  --mrc-section-padding-block: var(--space-8);
+  --mrc-section-padding-tight-block: var(--space-7);
+  --mrc-section-padding-hero-block: var(--space-9);
 
   /* Typography spacing — SOP: space above H2 > space below; paragraph rhythm predictable */
   --mrc-heading-margin-below: var(--space-4);
@@ -82,7 +82,7 @@ html {
 .mrc-about-hero,
 .mrc-services-hero,
 .mrc-contact-hero {
-  padding: var(--mrc-section-padding-hero);
+  padding-block: var(--mrc-section-padding-hero-block);
   min-height: 18rem;
   box-sizing: border-box;
 }
@@ -102,9 +102,9 @@ body {
 
   /* SOP 7.1: scale down section padding moderately on mobile */
   :root {
-    --mrc-section-padding: var(--space-7) 0;
-    --mrc-section-padding-tight: var(--space-6) 0;
-    --mrc-section-padding-hero: var(--space-7) 0;
+    --mrc-section-padding-block: var(--space-7);
+    --mrc-section-padding-tight-block: var(--space-6);
+    --mrc-section-padding-hero-block: var(--space-7);
   }
 }
 

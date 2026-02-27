@@ -26,7 +26,7 @@
 
 /* ---------- Services overview (Paper, stacked, olive accent) ---------- */
 .mrc-services-overview {
-  padding: var(--mrc-section-padding);
+  padding-block: var(--mrc-section-padding-block);
   background-color: var(--mrc-surface);
 }
 
@@ -37,7 +37,7 @@
 }
 
 .mrc-service-section {
-  padding: var(--mrc-section-padding-tight);
+  padding-block: var(--mrc-section-padding-tight-block);
   border-bottom: 1px solid var(--light-gray-color);
 }
 
@@ -129,7 +129,7 @@
 
 /* ---------- Engagement model (Olive, Cream, mustard dividers) ---------- */
 .mrc-engagement {
-  padding: var(--mrc-section-padding);
+  padding-block: var(--mrc-section-padding-block);
   background-color: var(--mrc-olive);
   color: var(--mrc-surface);
 }
@@ -174,7 +174,7 @@
 
 /* ---------- Process (Cream, 4-step grid) ---------- */
 .mrc-process {
-  padding: var(--mrc-section-padding);
+  padding-block: var(--mrc-section-padding-block);
   background-color: var(--mrc-bg);
 }
 
