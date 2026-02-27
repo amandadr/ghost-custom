@@ -21,8 +21,8 @@ body {
 
 /* Global container + gutters: keep content inset from viewport edges */
 .gh-outer {
-    padding-left: var(--mrc-page-gutter);
-    padding-right: var(--mrc-page-gutter);
+    padding-left: max(var(--mrc-page-gutter), var(--space-4));
+    padding-right: max(var(--mrc-page-gutter), var(--space-4));
     box-sizing: border-box;
 }
 
