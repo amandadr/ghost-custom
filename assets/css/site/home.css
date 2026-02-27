@@ -20,40 +20,155 @@
   background-color: var(--mrc-maroon);
 }
 
-/* ---------- Header: Olive, Cream nav, Mustard active, compact, no search/subscribe ---------- */
+/* ---------- Header: 2-zone grid, Olive, mustard divider, refined states ---------- */
 .mrc-head {
   background-color: var(--mrc-olive);
-  border-bottom: 2px solid var(--mrc-mustard);
+  border-bottom: 1px solid var(--mrc-mustard);
 }
 
+/* 2-zone layout: left = wordmark, right = nav; constrained width, vertical center */
+.mrc-head .gh-head-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 56px;
+  padding: 0.75rem 0;
+  column-gap: 2rem;
+  row-gap: 0.75rem;
+}
+
+.mrc-head .gh-head-brand {
+  flex-shrink: 0;
+}
+
+.mrc-head .gh-head-menu {
+  flex-shrink: 0;
+  margin-left: auto;
+  justify-content: flex-end;
+  /* Keep nav as inline links: reserve space so theme dropdown script doesn’t collapse to “More” */
+  min-width: 520px;
+}
+
+/* Always show nav links (theme hides until is-dropdown-loaded); no dropdown in header */
+.mrc-head .gh-head-menu .nav > li {
+  opacity: 1;
+}
+.mrc-head .nav-more-toggle,
+.mrc-head .gh-dropdown {
+  display: none !important;
+}
+
+/* Wordmark color */
 .mrc-head .gh-head-logo,
-.mrc-head .gh-head-logo img {
+.mrc-head .gh-head-logo img,
+.mrc-head .gh-head-logo .mrc-logo-serif,
+.mrc-head .gh-head-logo .mrc-logo-sans {
   color: var(--mrc-surface);
 }
 
+.mrc-head .gh-head-logo {
+  margin-right: 0;
+}
+
+/* Nav links: no underline default; lighter weight; AA contrast */
 .mrc-head .gh-head-menu a {
   color: var(--mrc-surface);
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease, letter-spacing 0.15s ease, transform 0.15s ease;
 }
 
 .mrc-head .gh-head-menu a:hover {
   color: var(--mrc-surface);
   text-decoration: none;
-  border-bottom: 2px solid var(--mrc-mustard);
+  border-bottom-color: var(--mrc-mustard);
+  letter-spacing: 0.045em;
+  transform: translateY(-1px);
 }
 
+/* Active: persistent mustard bar (no weight change to avoid jitter) */
 .mrc-head .gh-head-menu .nav-current a {
-  border-bottom: 2px solid var(--mrc-mustard);
+  border-bottom-color: var(--mrc-mustard);
+  border-bottom-width: 2px;
+  text-decoration: none;
+}
+
+/* Right-justified nav: comfortable gap so it doesn’t feel cramped */
+.mrc-head .gh-head-menu .nav,
+.mrc-head .gh-head-menu {
+  gap: 3.25rem;
+}
+
+/* Contact CTA: outlined, calmer padding, hover fill mustard + ink, focus ring */
+.mrc-head .gh-head-menu a[href*="/contact/"] {
+  padding: 0.28rem 0.7rem;
+  border: 1.5px solid var(--mrc-mustard);
+  border-radius: 3px;
+  margin-bottom: 0;
+}
+
+.mrc-head .gh-head-menu a[href*="/contact/"]:hover {
+  background-color: var(--mrc-mustard);
+  color: var(--mrc-text);
+  border-color: var(--mrc-mustard);
+  transform: translateY(-1px);
+}
+
+.mrc-head .gh-head-menu a[href*="/contact/"]:focus-visible {
+  outline: 2px solid var(--mrc-mustard);
+  outline-offset: 2px;
+}
+
+.mrc-head .gh-head-menu .nav-current a[href*="/contact/"] {
+  border: 1.5px solid var(--mrc-mustard);
+  background-color: rgba(232, 200, 104, 0.12);
 }
 
 .mrc-head-actions-hidden {
   display: none;
 }
 
-.mrc-head .gh-head-inner {
-  min-height: 56px;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+/* Tablet: reduce nav gap before collapse */
+@media (max-width: 991px) {
+  .mrc-head .gh-head-menu .nav,
+  .mrc-head .gh-head-menu {
+    gap: 2.5rem;
+  }
+}
+
+/* Mobile: hamburger menu; nav links right-aligned when open (not centred) */
+@media (max-width: 767px) {
+  .mrc-head .gh-head-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Open menu: align nav to the right to match desktop intent */
+  .is-head-open #gh-head .gh-head-menu,
+  .is-head-open #gh-head .gh-head-menu .nav {
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .is-head-open #gh-head .nav {
+    gap: 1.25rem;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  /* Contact stays prominent in mobile menu */
+  .is-head-open #gh-head .nav a[href*="/contact/"] {
+    padding: 0.4rem 0.75rem;
+    border: 1.5px solid var(--mrc-mustard);
+    border-radius: 3px;
+  }
 }
 
 /* ---------- Hero (Cream, Ink, Maroon/Olive buttons, bigger headline) ---------- */
@@ -341,7 +456,12 @@
   font-family: var(--font-serif);
   font-size: var(--mrc-h2-size);
   font-weight: 600;
-  margin: 0 0 0.5rem;
+  margin: 0 0 1.75rem;
+}
+
+/* When subtext is present (Services, Home), use smaller headline margin; subtext provides the gap to the button */
+.mrc-cta-inner:has(.mrc-cta-subtext) .mrc-cta-headline {
+  margin-bottom: 0.5rem;
 }
 
 .mrc-cta-subtext {

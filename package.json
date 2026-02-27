@@ -117,6 +117,11 @@
       "contact_email": {
         "type": "text",
         "default": "manny@mannyroy.com"
+      },
+      "contact_form_action": {
+        "type": "text",
+        "default": "https://formspree.io/f/YOUR_FORM_ID",
+        "description": "Form submission URL (e.g. Formspree, Basin). Replace YOUR_FORM_ID with your form ID."
       }
     }
   },

@@ -1,14 +1,87 @@
 {{!< default}}
-{{! Contact page — email, optional form, location. Assign to page with slug "contact". }}
+{{! Contact page — URL slug "contact". Rhythm: Cream → Paper → Cream → Olive → Cream. Calm, clear, low friction. }}
 
 <main class="site-main mrc-page mrc-page-contact">
-  {{#post}}
-    <article class="gh-content gh-canvas">
-      {{> "content" width="wide"}}
-    </article>
-  {{/post}}
-  <div class="gh-canvas mrc-contact-extra">
-    <p><a href="mailto:{{@custom.contact_email}}?subject=Consulting%20inquiry">{{@custom.contact_email}}</a></p>
-    <p>Souris, Prince Edward Island, Canada</p>
-  </div>
+  {{! 1. Hero — Cream, 65–75ch, mustard divider }}
+  <section class="mrc-contact-hero section-light gh-outer" aria-labelledby="mrc-contact-hero-title">
+    <div class="mrc-contact-hero-inner gh-inner">
+      <h1 id="mrc-contact-hero-title" class="mrc-contact-hero-title">Let's talk.</h1>
+      <p class="mrc-contact-hero-subtext">If you're navigating complexity, planning a system redesign, or exploring applied AI, I'm happy to start the conversation.</p>
+    </div>
+    <div class="mrc-contact-hero-divider"></div>
+  </section>
+
+  {{! 2. Contact options — Paper, two-column: intro left, details right }}
+  <section class="mrc-contact-options section-surface gh-outer" aria-labelledby="mrc-contact-intro-title">
+    <div class="mrc-contact-options-inner gh-inner">
+      <div class="mrc-contact-intro">
+        <h2 id="mrc-contact-intro-title" class="mrc-contact-section-title">Start with context.</h2>
+        <p class="mrc-contact-p">Every engagement begins with a conversation. A short call helps clarify goals, constraints, and whether we're the right fit to work together.</p>
+        <p class="mrc-contact-p">You don't need a fully defined brief — just a sense of what's not working or what needs to evolve.</p>
+      </div>
+      <div class="mrc-contact-details">
+        <p class="mrc-contact-detail-label">Email</p>
+        <p class="mrc-contact-detail-value"><a href="mailto:{{@custom.contact_email}}?subject=Consulting%20inquiry">{{@custom.contact_email}}</a></p>
+        <p class="mrc-contact-detail-label">Location</p>
+        <p class="mrc-contact-detail-value">Souris, Prince Edward Island<br>Working with teams across Canada and the U.S.</p>
+      </div>
+    </div>
+  </section>
+
+  {{! 3. Contact form — Cream }}
+  <section class="mrc-contact-form-section section-light gh-outer" aria-labelledby="mrc-contact-form-title">
+    <div class="mrc-contact-form-inner gh-inner">
+      <h2 id="mrc-contact-form-title" class="mrc-contact-section-title">Send a message</h2>
+      {{! Form action: set contact_form_action in Ghost Settings → Design → Theme (e.g. https://formspree.io/f/yourid) }}
+      <form class="mrc-contact-form" action="{{#if @custom.contact_form_action}}{{@custom.contact_form_action}}{{else}}https://formspree.io/f/YOUR_FORM_ID{{/if}}" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Contact form submission from mannyroy.com">
+        <input type="hidden" name="_next" value="{{@site.url}}/thanks/">
+        <div class="mrc-form-field">
+          <label for="mrc-contact-name">Name</label>
+          <input type="text" id="mrc-contact-name" name="name" required autocomplete="name" minlength="1">
+        </div>
+        <div class="mrc-form-field">
+          <label for="mrc-contact-email">Email</label>
+          <input type="email" id="mrc-contact-email" name="email" required autocomplete="email">
+        </div>
+        <div class="mrc-form-field">
+          <label for="mrc-contact-org">Organization <span class="mrc-form-optional">(optional)</span></label>
+          <input type="text" id="mrc-contact-org" name="organization" autocomplete="organization">
+        </div>
+        <div class="mrc-form-field">
+          <label for="mrc-contact-help">How can I help? <span class="mrc-form-optional">(optional)</span></label>
+          <select id="mrc-contact-help" name="how_can_i_help" aria-label="How can I help?">
+            <option value="">—</option>
+            <option value="Systems & Strategy">Systems & Strategy</option>
+            <option value="Custom Software">Custom Software</option>
+            <option value="Automation & AI">Automation & AI</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+        </div>
+        <div class="mrc-form-field">
+          <label for="mrc-contact-message">Message</label>
+          <textarea id="mrc-contact-message" name="message" rows="5" required minlength="1"></textarea>
+        </div>
+        <button type="submit" class="button mrc-contact-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  {{! 4. What to expect — Olive anchor }}
+  <section class="mrc-contact-expect section-dark gh-outer" aria-labelledby="mrc-contact-expect-title">
+    <div class="mrc-contact-expect-inner gh-inner">
+      <h2 id="mrc-contact-expect-title" class="mrc-contact-expect-title">What to expect</h2>
+      <p class="mrc-contact-expect-p">You can expect a response within 1–2 business days.</p>
+      <p class="mrc-contact-expect-p">If it feels like a strong fit, we'll schedule a short discovery call to clarify scope and next steps.</p>
+      <p class="mrc-contact-expect-p mrc-contact-expect-accent">Clarity first. No pressure.</p>
+    </div>
+  </section>
+
+  {{! 5. Final reassurance — Cream (optional) }}
+  <section class="mrc-contact-reassurance section-light gh-outer" aria-labelledby="mrc-contact-reassurance-title">
+    <div class="mrc-contact-reassurance-inner gh-inner">
+      <h2 id="mrc-contact-reassurance-title" class="mrc-contact-section-title">Not sure if it's the right time?</h2>
+      <p class="mrc-contact-p">If you're still exploring options or early in planning, that's fine. A brief conversation can help clarify direction — even if we don't work together.</p>
+    </div>
+  </section>
 </main>

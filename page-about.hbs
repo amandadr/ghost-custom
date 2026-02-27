@@ -1,10 +1,84 @@
 {{!< default}}
-{{! About page — narrative, technical background, philosophy. Assign to page with slug "about". }}
+{{! About page — URL slug "about". Rhythm: Cream → Paper → Olive → Cream → Paper → Maroon. }}
 
 <main class="site-main mrc-page mrc-page-about">
-  {{#post}}
-    <article class="gh-content gh-canvas">
-      {{> "content" width="wide"}}
-    </article>
-  {{/post}}
+  {{! 1. Hero — Cream, 70ch }}
+  <section class="mrc-about-hero section-light gh-outer" aria-labelledby="mrc-about-hero-title">
+    <div class="mrc-about-hero-inner gh-inner">
+      <h1 id="mrc-about-hero-title" class="mrc-about-hero-title">About Manny Roy Consulting</h1>
+      <p class="mrc-about-hero-subtext">Technical systems are rarely <i>just</i> technical. They're operational, financial, human, and often quietly political.</p>
+    </div>
+    <div class="mrc-about-hero-divider"></div>
+  </section>
+
+  {{! 2. Intro — Paper, 60/40 split }}
+  {{> "two-column-section" section_class="surface" heading_id="mrc-about-intro-title" heading="Hi, I'm Manny." right_placeholder="true" p1="I'm Amanda \"Manny\" Roy (they/them), a full-stack developer and independent technical consultant based in Souris, PEI." p2="Over the years, my work has moved across data engineering, ecommerce systems, web platforms, analytics infrastructure, internal tooling, and applied AI. The common thread isn't the stack, it's the systems thinking behind it." p3="I'm most comfortable in the in-between spaces: Where marketing meets data. Where operations meet software. Where automation meets real-world constraints." p4="That's usually where complexity hides."}}
+
+  {{! 3. Why This Work Exists — Olive anchor }}
+  <section class="mrc-about-why-anchor section-dark gh-outer" aria-labelledby="mrc-about-why-title">
+    <div class="mrc-about-why-inner gh-inner">
+      <h2 id="mrc-about-why-title" class="mrc-about-why-title">Why This Work Exists</h2>
+      <p class="mrc-about-statement">I've seen what happens when tools are added faster than they're understood.</p>
+      <ul class="mrc-about-why-list">
+        <li>Plugin stacks that conflict with each other.</li>
+        <li>Analytics pipelines no one trusts.</li>
+        <li>AI features that sound impressive but don't integrate into daily work.</li>
+        <li>Ecommerce platforms held together by patches and hope.</li>
+      </ul>
+      <p class="mrc-about-statement">None of that happens because teams are careless.</p>
+      <p class="mrc-about-statement">It happens because growth outpaces structure.</p>
+      <div class="mrc-about-why-divider" aria-hidden="true"></div>
+      <p class="mrc-about-statement mrc-about-statement-accent">Manny Roy Consulting exists to slow that moment down —</p>
+      <p class="mrc-about-statement">to untangle before rebuilding,</p>
+      <p class="mrc-about-statement">to design architecture before adding features,</p>
+      <p class="mrc-about-statement">to make systems legible to the people who rely on them.</p>
+    </div>
+  </section>
+
+  {{! 4. Experience — Cream, two cards with intro/outro copy }}
+  <section class="mrc-about-experience section-light gh-outer" aria-labelledby="mrc-about-experience-title">
+    <div class="mrc-about-experience-inner gh-inner">
+      <h2 id="mrc-about-experience-title" class="mrc-about-section-title">Experience</h2>
+      <div class="mrc-about-cards">
+        <div class="mrc-about-card">
+          <h3 class="mrc-about-card-title">Technical Focus</h3>
+          <p class="mrc-about-card-intro">I work across:</p>
+          <ul class="mrc-about-card-list">
+            <li>Data architecture and analytics systems that inform actual decisions</li>
+            <li>Ecommerce infrastructure and performance optimization</li>
+            <li>API design and integration strategy</li>
+            <li>Custom internal tools that replace fragile manual workflows</li>
+            <li>Web platform modernization and framework migrations</li>
+            <li>Applied AI systems built into operations, not layered on top</li>
+          </ul>
+          <p class="mrc-about-card-outro">The stack varies. The thinking doesn't.</p>
+        </div>
+        <div class="mrc-about-card">
+          <h3 class="mrc-about-card-title">Industry Experience</h3>
+          <p class="mrc-about-card-intro">My clients range from small community organizations to multi-location enterprise environments — often teams navigating growth, migration, or operational complexity.</p>
+          <p class="mrc-about-card-subhead">I frequently work alongside:</p>
+          <ul class="mrc-about-card-list">
+            <li>Internal development teams</li>
+            <li>Marketing and analytics teams</li>
+            <li>Operations leadership</li>
+            <li>Contractors and agencies</li>
+          </ul>
+          <p class="mrc-about-card-outro">Clarity across disciplines matters more than code alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{! 5. Outside of Work — Paper }}
+  <section class="mrc-about-beyond section-surface gh-outer" aria-labelledby="mrc-about-beyond-title">
+    <div class="mrc-about-prose-inner gh-inner">
+      <h2 id="mrc-about-beyond-title" class="mrc-about-section-title">Outside of Work</h2>
+      <p class="mrc-about-prose-p">Home is a 150-year-old farmhouse in Souris, PEI, where the seasons are obvious and long-term thinking feels natural.</p>
+      <p class="mrc-about-prose-p">Before tech, I worked in food trucks, kitchens, and taprooms. That environment taught me something useful: systems break under pressure if they aren't built thoughtfully.</p>
+      <p class="mrc-about-prose-p">Good service is invisible when it works well.<br>So are good systems.</p>
+    </div>
+  </section>
+
+  {{! 6. Final CTA — Maroon }}
+  {{> "cta-section" headline="If you're building something that needs to hold up over time, let's talk." button_text="Get in Touch"}}
 </main>

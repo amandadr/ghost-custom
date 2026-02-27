@@ -1,0 +1,21 @@
+{{! Anchor section: dark background (Olive/Maroon), Cream text. Heading + body paragraphs or list. }}
+<section class="mrc-anchor section-{{section_class}} gh-outer" {{#if section_id}}id="{{section_id}}"{{/if}} aria-labelledby="{{heading_id}}">
+  <div class="mrc-anchor-inner gh-inner">
+    <h2 id="{{heading_id}}" class="mrc-anchor-title">{{heading}}</h2>
+    {{#if p1}}<p class="mrc-anchor-p">{{p1}}</p>{{/if}}
+    {{#if p2}}<p class="mrc-anchor-p">{{p2}}</p>{{/if}}
+    {{#if p3}}<p class="mrc-anchor-p">{{p3}}</p>{{/if}}
+    {{#if p4}}<p class="mrc-anchor-p">{{p4}}</p>{{/if}}
+    {{#if p5}}<p class="mrc-anchor-p">{{p5}}</p>{{/if}}
+    {{#if list}}
+    <ul class="mrc-anchor-list">
+      {{#if item_1}}<li>{{item_1}}</li>{{/if}}
+      {{#if item_2}}<li>{{item_2}}</li>{{/if}}
+      {{#if item_3}}<li>{{item_3}}</li>{{/if}}
+      {{#if item_4}}<li>{{item_4}}</li>{{/if}}
+      {{#if item_5}}<li>{{item_5}}</li>{{/if}}
+    </ul>
+    {{/if}}
+    {{#if p_after_1}}<p class="mrc-anchor-p">{{p_after_1}}</p>{{/if}}
+  </div>
+</section>

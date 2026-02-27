@@ -1,0 +1,21 @@
+{{! Two-column section: left = heading + body (max 60ch); right = optional portrait/badge or placeholder for 60/40. }}
+<section class="mrc-two-col section-{{section_class}} gh-outer" {{#if section_id}}id="{{section_id}}"{{/if}} aria-labelledby="{{heading_id}}">
+  <div class="mrc-two-col-inner gh-inner{{#if right_img}} mrc-two-col-has-right{{/if}}{{#unless right_img}}{{#if right_placeholder}} mrc-two-col-has-right{{/if}}{{/unless}}">
+    <div class="mrc-two-col-left">
+      <h2 id="{{heading_id}}" class="mrc-two-col-title">{{heading}}</h2>
+      {{#if p1}}<p class="mrc-two-col-p">{{p1}}</p>{{/if}}
+      {{#if p2}}<p class="mrc-two-col-p">{{p2}}</p>{{/if}}
+      {{#if p3}}<p class="mrc-two-col-p">{{p3}}</p>{{/if}}
+      {{#if p4}}<p class="mrc-two-col-p">{{p4}}</p>{{/if}}
+    </div>
+    {{#if right_img}}
+    <div class="mrc-two-col-right">
+      <img class="mrc-two-col-img" src="{{right_img}}" alt="" aria-hidden="true">
+    </div>
+    {{else}}
+    {{#if right_placeholder}}
+    <div class="mrc-two-col-right mrc-two-col-placeholder" aria-hidden="true"></div>
+    {{/if}}
+    {{/if}}
+  </div>
+</section>

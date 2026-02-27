@@ -1,0 +1,336 @@
+/**
+ * Contact page — calm, clear, low friction
+ * Rhythm: Cream (Hero) → Paper (Options) → Cream (Form) → Olive (Expect) → Cream (Reassurance)
+ */
+
+:root {
+  --mrc-contact-section-padding: 6rem 0;
+  --mrc-contact-section-padding-mobile: 4.5rem 0;
+}
+
+/* ---------- Hero (Cream, 65–75ch) ---------- */
+.mrc-contact-hero {
+  padding: var(--mrc-contact-section-padding);
+  background-color: var(--mrc-bg);
+}
+
+.mrc-contact-hero-inner {
+  max-width: min(72ch, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.mrc-contact-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 1rem;
+  line-height: 1.25;
+}
+
+.mrc-contact-hero-subtext {
+  font-size: 1.1rem;
+  color: var(--mrc-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.mrc-contact-hero-divider {
+  height: 3px;
+  background-color: #E8C868;
+  margin: 0 auto;
+  max-width: min(72ch, 100%);
+  border: 0;
+}
+
+/* ---------- Contact options (Paper, two-column) ---------- */
+.mrc-contact-options {
+  padding: var(--mrc-contact-section-padding);
+  background-color: var(--mrc-surface);
+  border-top: 1px solid rgba(42, 38, 26, 0.06);
+}
+
+.mrc-contact-options-inner {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 767px) {
+  .mrc-contact-options-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.mrc-contact-section-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 1.25rem;
+}
+
+.mrc-contact-p {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text);
+  margin: 0 0 1.25em;
+}
+
+.mrc-contact-p:last-child {
+  margin-bottom: 0;
+}
+
+.mrc-contact-detail-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--mrc-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.35rem;
+}
+
+.mrc-contact-details .mrc-contact-detail-label:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.mrc-contact-detail-value {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--mrc-text);
+  margin: 0 0 0;
+}
+
+.mrc-contact-detail-value a {
+  color: var(--mrc-maroon);
+}
+
+.mrc-contact-detail-value a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Form section (Cream, moderate width) ---------- */
+.mrc-contact-form-section {
+  padding: var(--mrc-contact-section-padding);
+  background-color: var(--mrc-bg);
+}
+
+.mrc-contact-form-inner {
+  max-width: min(560px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mrc-contact-form-section .mrc-contact-section-title {
+  margin-bottom: 2rem;
+}
+
+.mrc-contact-form .mrc-form-field {
+  margin-bottom: 1.75rem;
+}
+
+.mrc-contact-form label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin-bottom: 0.5rem;
+}
+
+.mrc-form-optional {
+  font-weight: 400;
+  color: var(--mrc-text-muted);
+}
+
+.mrc-contact-form input,
+.mrc-contact-form select,
+.mrc-contact-form textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  font-size: 16px;
+  font-family: var(--font-sans);
+  color: var(--mrc-text);
+  background-color: var(--mrc-surface);
+  border: 1px solid var(--light-gray-color);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+@media (min-width: 768px) {
+  .mrc-contact-form input,
+  .mrc-contact-form select,
+  .mrc-contact-form textarea {
+    font-size: 1rem;
+  }
+}
+
+.mrc-contact-form input:focus,
+.mrc-contact-form select:focus,
+.mrc-contact-form textarea:focus {
+  border-color: var(--mrc-maroon);
+  box-shadow: 0 0 0 2px rgba(128, 64, 80, 0.25);
+}
+
+.mrc-contact-form input::placeholder,
+.mrc-contact-form textarea::placeholder {
+  color: var(--mrc-text-muted);
+  opacity: 0.8;
+}
+
+.mrc-contact-form select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234A4322' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.mrc-contact-form textarea {
+  min-height: 140px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  resize: vertical;
+}
+
+.mrc-contact-submit {
+  margin-top: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--mrc-surface);
+  background-color: var(--mrc-maroon);
+  border: 2px solid var(--mrc-maroon);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.mrc-contact-submit:hover {
+  opacity: 0.92;
+}
+
+.mrc-contact-submit:focus-visible {
+  outline: 2px solid var(--mrc-maroon);
+  outline-offset: 2px;
+}
+
+/* ---------- What to expect (Olive anchor) ---------- */
+.mrc-contact-expect {
+  padding: var(--mrc-contact-section-padding);
+  background-color: var(--mrc-olive);
+  color: var(--mrc-surface);
+}
+
+.mrc-contact-expect-inner {
+  max-width: min(65ch, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mrc-contact-expect-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  color: var(--mrc-surface);
+  margin: 0 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--mrc-mustard);
+}
+
+.mrc-contact-expect-p {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-surface);
+  opacity: 0.95;
+  margin: 0 0 1rem;
+}
+
+.mrc-contact-expect-p:last-child {
+  margin-bottom: 0;
+}
+
+.mrc-contact-expect-accent {
+  font-weight: 600;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Reassurance (Cream) ---------- */
+.mrc-contact-reassurance {
+  padding: var(--mrc-contact-section-padding);
+  background-color: var(--mrc-bg);
+}
+
+.mrc-contact-reassurance-inner {
+  max-width: min(65ch, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 767px) {
+  .mrc-contact-hero,
+  .mrc-contact-options,
+  .mrc-contact-form-section,
+  .mrc-contact-expect,
+  .mrc-contact-reassurance {
+    padding: var(--mrc-contact-section-padding-mobile);
+  }
+}
+
+/* ---------- Page wrapper ---------- */
+.site-content:has(.mrc-page-contact) {
+  padding-bottom: 0;
+}
+
+/* ---------- Thanks page (after form submit) ---------- */
+.site-content:has(.mrc-page-thanks) {
+  padding-bottom: 0;
+}
+
+.mrc-thanks {
+  padding: 7rem 0;
+  background-color: var(--mrc-bg);
+}
+
+.mrc-thanks-inner {
+  max-width: min(65ch, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.mrc-thanks-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 1rem;
+  line-height: 1.25;
+}
+
+.mrc-thanks-p {
+  font-size: 1.1rem;
+  color: var(--mrc-text-muted);
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+
+.mrc-thanks-back {
+  margin: 0;
+}
+
+.mrc-thanks-back a {
+  font-weight: 600;
+  color: var(--mrc-maroon);
+}

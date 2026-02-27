@@ -11,6 +11,8 @@
 @import "site/cover.css";
 @import "site/home.css";
 @import "site/services.css";
+@import "site/about.css";
+@import "site/contact.css";
 @import "blog/feed.css";
 @import "blog/featured.css";
 @import "blog/pagination.css";

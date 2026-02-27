@@ -35,6 +35,13 @@ body {
         padding-right: 2.5rem;
     }
 
+    /* Ensure header and main content keep horizontal inset */
+    .site #gh-head.gh-outer,
+    .site .site-content .gh-outer {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
     /* Keep inners within padded container to avoid horizontal scroll */
     .gh-inner {
         max-width: min(var(--container-width, 1200px), 100%);

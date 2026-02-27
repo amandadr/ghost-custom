@@ -83,10 +83,12 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
-/* Buttons: no underline (rely on background/border) */
+/* Buttons and header nav: no underline (rely on background/border / hover state) */
 a.button,
 .gh-btn a,
-a.gh-head-btn {
+a.gh-head-btn,
+.gh-head-logo,
+.gh-head-menu a {
   text-decoration: none;
 }
 
