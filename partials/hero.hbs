@@ -1,0 +1,16 @@
+{{! Homepage hero: positioning clarity, small badge optional, CTAs }}
+<section class="mrc-hero gh-outer">
+  <div class="mrc-hero-inner gh-inner">
+    {{#if @site.icon}}
+      <div class="mrc-hero-badge">
+        <img class="mrc-hero-badge-img" src="{{@site.icon}}" alt="" aria-hidden="true">
+      </div>
+    {{/if}}
+    <h1 class="mrc-hero-headline">{{@custom.hero_headline}}</h1>
+    <p class="mrc-hero-subtext">{{@custom.hero_subtext}}</p>
+    <div class="mrc-hero-cta">
+      <a href="/contact/" class="button mrc-btn-primary">Get in touch</a>
+      <a href="/services/" class="button button-secondary mrc-btn-secondary">Services</a>
+    </div>
+  </div>
+</section>

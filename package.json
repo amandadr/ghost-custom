@@ -9,53 +9,115 @@
   "license": "MIT",
   "author": {
     "name": "Amanda Roy",
-    "email": "hello@mannyroyconsulting.com",
-    "url": "https://mannyroyconsulting.com"
+    "email": "manny@mannyroy.com",
+    "url": "https://mannyroy.com"
   },
   "keywords": [
     "ghost-theme",
     "manny-roy-consulting",
-    "consulting",
+    "technical",
     "systems",
     "accessible"
   ],
   "config": {
     "posts_per_page": 5,
     "image_sizes": {
-      "xs": {"width": 150},
-      "s": {"width": 400},
-      "m": {"width": 750},
-      "l": {"width": 960},
-      "xl": {"width": 1140},
-      "xxl": {"width": 1920}
+      "xs": {
+        "width": 150
+      },
+      "s": {
+        "width": 400
+      },
+      "m": {
+        "width": 750
+      },
+      "l": {
+        "width": 960
+      },
+      "xl": {
+        "width": 1140
+      },
+      "xxl": {
+        "width": 1920
+      }
     },
     "card_assets": true,
     "custom": {
       "navigation_layout": {
         "type": "select",
-        "options": ["Logo on the left", "Logo in the middle", "Stacked"],
+        "options": [
+          "Logo on the left",
+          "Logo in the middle",
+          "Stacked"
+        ],
         "default": "Logo on the left"
       },
       "title_font": {
         "type": "select",
-        "options": ["Modern sans-serif", "Elegant serif"],
+        "options": [
+          "Modern sans-serif",
+          "Elegant serif"
+        ],
         "default": "Modern sans-serif"
       },
       "body_font": {
         "type": "select",
-        "options": ["Modern sans-serif", "Elegant serif"],
+        "options": [
+          "Modern sans-serif",
+          "Elegant serif"
+        ],
         "default": "Modern sans-serif"
       },
       "color_scheme": {
         "type": "select",
-        "options": ["Auto", "Light", "Dark"],
+        "options": [
+          "Auto",
+          "Light",
+          "Dark"
+        ],
         "default": "Auto"
       },
-      "white_logo_for_dark_mode": {"type": "image"},
-      "show_featured_posts": {"type": "boolean", "default": true, "group": "homepage"},
-      "featured_title": {"type": "text", "default": "Featured articles", "group": "homepage"},
-      "show_author": {"type": "boolean", "default": true, "group": "post"},
-      "show_related_posts": {"type": "boolean", "default": true, "group": "post"}
+      "white_logo_for_dark_mode": {
+        "type": "image"
+      },
+      "hero_headline": {
+        "type": "text",
+        "default": "Untangle complex technical and operational problems.",
+        "group": "homepage"
+      },
+      "hero_subtext": {
+        "type": "text",
+        "default": "Sustainable systems rooted in data, collaboration, and measurable impact.",
+        "group": "homepage"
+      },
+      "show_featured_posts": {
+        "type": "boolean",
+        "default": true,
+        "group": "homepage"
+      },
+      "featured_title": {
+        "type": "text",
+        "default": "Featured articles",
+        "group": "homepage"
+      },
+      "show_author": {
+        "type": "boolean",
+        "default": true,
+        "group": "post"
+      },
+      "show_related_posts": {
+        "type": "boolean",
+        "default": true,
+        "group": "post"
+      },
+      "footer_bio": {
+        "type": "text",
+        "default": "Independent technical consultant. Systems, automation, applied AI. Souris, PEI."
+      },
+      "contact_email": {
+        "type": "text",
+        "default": "manny@mannyroy.com"
+      }
     }
   },
   "scripts": {

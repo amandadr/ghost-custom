@@ -1,0 +1,51 @@
+{{!< default}}
+{{! Custom homepage: Hero, Pillars, How You Work, Work preview, CTA — dev-plan-1.md }}
+
+<main class="site-main mrc-home">
+  {{> "hero"}}
+
+  {{! Section 2: Capability overview (3 pillars) — brand doc service categories }}
+  <section class="mrc-section mrc-section-alt" aria-labelledby="mrc-pillars-title">
+    <div class="mrc-section-inner gh-inner">
+      <h2 id="mrc-pillars-title" class="mrc-section-title">What I do</h2>
+      <div class="mrc-pillars">
+        {{> "service-card" title="Systems & Technical Strategy" description="APIs, analytics, infrastructure — connected systems, not isolated features." url="/services/#systems"}}
+        {{> "service-card" title="Custom Software & Web Applications" description="Build it once. Maintain it well. Sustainable, measurable outcomes." url="/services/#software"}}
+        {{> "service-card" title="Automation & Applied AI" description="Data workflows and AI that integrate into real operations — not prototype theatre." url="/services/#automation"}}
+      </div>
+    </div>
+  </section>
+
+  {{! Section 3: How you work — principles }}
+  <section class="mrc-section-tint" aria-labelledby="mrc-principles-title">
+    <div class="mrc-section-inner gh-inner">
+      <h2 id="mrc-principles-title" class="mrc-section-title">How I work</h2>
+      <div class="mrc-principles">
+        {{> "principle-item" title="Sustainable" body="Build it once. Maintain it well. Avoid technical debt theatrics."}}
+        {{> "principle-item" title="Measurable" body="If it can't be evaluated, it can't be improved."}}
+        {{> "principle-item" title="Collaborative" body="Works seamlessly with internal teams, contractors, and stakeholders."}}
+        {{> "principle-item" title="Evidence-based" body="Decisions grounded in data, not folklore or platform marketing."}}
+      </div>
+    </div>
+  </section>
+
+  {{! Section 4: Selected work preview — posts tagged case-study }}
+  <section class="mrc-section mrc-work-preview" aria-labelledby="mrc-work-title">
+    <div class="mrc-section-inner gh-inner">
+      <h2 id="mrc-work-title" class="mrc-section-title">Selected work</h2>
+      <div class="mrc-work-grid">
+        {{#get "posts" limit="3" filter="tag:case-study" include="tags"}}
+          {{#foreach posts}}
+            {{> "project-card"}}
+          {{/foreach}}
+        {{/get}}
+      </div>
+      <p class="mrc-work-more">
+        <a href="/work/">View all work</a>
+      </p>
+    </div>
+  </section>
+
+  {{! Section 5: Contact CTA }}
+  {{> "cta-section" headline="Let's work together" subtext="Clear systems. Measurable impact." button_text="Get in touch"}}
+</main>

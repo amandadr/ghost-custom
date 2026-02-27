@@ -1,0 +1,12 @@
+{{! Single capability pillar — used in homepage and services page }}
+<article class="mrc-service-card">
+  {{#if title}}
+    <h3 class="mrc-service-card-title">{{title}}</h3>
+  {{/if}}
+  {{#if description}}
+    <p class="mrc-service-card-desc">{{description}}</p>
+  {{/if}}
+  {{#if url}}
+    <a href="{{url}}" class="mrc-service-card-link">Learn more</a>
+  {{/if}}
+</article>

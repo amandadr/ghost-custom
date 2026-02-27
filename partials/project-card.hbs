@@ -1,0 +1,10 @@
+{{! Work preview card — title, short description, link }}
+<article class="mrc-project-card">
+  <h3 class="mrc-project-card-title">
+    <a href="{{url}}">{{title}}</a>
+  </h3>
+  {{#if custom_excerpt}}
+    <p class="mrc-project-card-excerpt">{{custom_excerpt}}</p>
+  {{/if}}
+  <a href="{{url}}" class="mrc-project-card-link">View project</a>
+</article>

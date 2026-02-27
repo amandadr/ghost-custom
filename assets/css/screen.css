@@ -1,12 +1,14 @@
 @import "@tryghost/shared-theme-assets/assets/css/v1/screen.css";
 @import "general/fonts.css";
 @import "general/basics.css";
+@import "general/brand.css";
 @import "general/button.css";
 @import "general/form.css";
 @import "general/icons.css";
 @import "site/layout.css";
 @import "site/header.css";
 @import "site/cover.css";
+@import "site/home.css";
 @import "blog/feed.css";
 @import "blog/featured.css";
 @import "blog/pagination.css";

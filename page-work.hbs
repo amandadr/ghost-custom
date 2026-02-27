@@ -1,0 +1,11 @@
+{{!< default}}
+{{! Work page — proof, case studies. Assign to page with slug "work". }}
+
+<main class="site-main mrc-page mrc-page-work">
+  {{#post}}
+    <article class="gh-content gh-canvas">
+      {{> "content" width="wide"}}
+    </article>
+  {{/post}}
+  {{! Optional: loop of case-study posts could go here; for now use page content + tag "case-study" posts elsewhere }}
+</main>

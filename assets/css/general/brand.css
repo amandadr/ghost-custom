@@ -1,0 +1,65 @@
+/**
+ * Manny Roy Consulting — brand design system
+ * From docs/colurs.md: WCAG AA–aligned palette and tokens
+ */
+
+:root {
+  /* Neutrals */
+  --mrc-bg: #F0E8E0;
+  --mrc-surface: #FAF6F0;
+  --mrc-text: #2A261A;
+  --mrc-text-muted: #4A4322;
+
+  /* Brand accents */
+  --mrc-mustard: #E8C868;
+  --mrc-olive: #706830;
+  --mrc-maroon: #804050;
+
+  /* Map to theme vars used elsewhere (so existing components pick up brand) */
+  --brand-color: var(--mrc-maroon);
+  --primary-text-color: var(--mrc-text);
+  --secondary-text-color: var(--mrc-text-muted);
+  --white-color: var(--mrc-surface);
+  --lighter-gray-color: var(--mrc-bg);
+  --light-gray-color: #e8e0d8;
+  --mid-gray-color: #8a8578;
+  --dark-gray-color: var(--mrc-text-muted);
+  --darker-gray-color: var(--mrc-text);
+  --black-color: var(--mrc-text);
+
+  /* Interactive */
+  --mrc-link: var(--mrc-maroon);
+  --mrc-focus: var(--mrc-maroon);
+}
+
+/* Strong sections (footer, CTA): dark backgrounds */
+.theme-light .mrc-section-olive,
+.theme-light .mrc-section-maroon {
+  --mrc-focus: var(--mrc-surface);
+}
+
+/* Typography: editorial serif headlines, clean sans body (already in basics) */
+:root {
+  --font-sans: Mulish, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: Lora, Georgia, "Times New Roman", serif;
+  --font-mono: Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
+}
+
+/* Base overrides for brand */
+body {
+  background-color: var(--mrc-bg);
+  color: var(--mrc-text);
+}
+
+a {
+  color: var(--mrc-link);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--mrc-focus);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--mrc-text);
+}
