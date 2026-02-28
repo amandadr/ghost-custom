@@ -26,14 +26,15 @@
   border-bottom: 1px solid var(--mrc-mustard);
 }
 
-/* 2-zone layout: left = wordmark, right = nav; constrained width, vertical center */
+/* 2-zone layout: logo left edge, nav right; full width inner so logo justified left */
 .mrc-head .gh-head-inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: none;
+  width: 100%;
+  margin: 0;
   min-height: 56px;
   padding: var(--space-3) 0;
   column-gap: var(--space-6);
@@ -106,10 +107,14 @@
   text-decoration: none;
 }
 
-/* Right-justified nav: comfortable gap so it doesn’t feel cramped */
+/* Nav links: tighter gaps; Contact pushed to far right */
 .mrc-head .gh-head-menu .nav,
 .mrc-head .gh-head-menu {
-  gap: var(--space-8);
+  gap: var(--space-6);
+}
+
+.mrc-head .gh-head-menu .nav li:has(a[href*="/contact/"]) {
+  margin-left: auto;
 }
 
 /* Contact CTA: outlined, calmer padding, hover fill mustard + ink, focus ring */
