@@ -458,6 +458,19 @@
   --mrc-grid-gap: var(--space-8);
 }
 
+/* Force 2x2 from tablet up to desktop; avoid 3+1 or misaligned stacking */
+@media (min-width: 480px) and (max-width: 1100px) {
+  .mrc-principles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1101px) {
+  .mrc-principles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .mrc-principles-section .mrc-principle {
   padding-bottom: var(--space-6);
   border-bottom: 1px solid var(--mrc-mustard);
