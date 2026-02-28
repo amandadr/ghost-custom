@@ -1,9 +1,9 @@
 {{! Homepage hero: positioning clarity, small badge optional, CTAs }}
 <section class="mrc-hero gh-outer">
   <div class="mrc-hero-inner gh-inner">
-    {{#if @site.icon}}
+    {{#if @custom.header_logo}}
       <div class="mrc-hero-badge">
-        <img class="mrc-hero-badge-img" src="{{@site.icon}}" alt="" aria-hidden="true">
+        <img class="mrc-hero-badge-img" src="{{@custom.header_logo}}" alt="" aria-hidden="true">
       </div>
     {{/if}}
     <h1 class="mrc-hero-headline">{{@custom.hero_headline}}</h1>

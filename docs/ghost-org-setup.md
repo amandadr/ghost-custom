@@ -26,7 +26,6 @@ Create the following pages in Ghost Admin (**Pages** → **New page**). For each
 
 | Page title | URL (slug) | Template |
 |------------|------------|----------|
-| Home       | *(leave empty)* | **Home** |
 | About      | `about`    | **About** |
 | Services   | `services` | **Services** |
 | Contact    | `contact`  | **Contact** |
@@ -34,7 +33,6 @@ Create the following pages in Ghost Admin (**Pages** → **New page**). For each
 
 ### Page details
 
-- **Home**: Use the **Home** template. This becomes your homepage when you set it in **Settings → General** (see step 3).
 - **About**: Uses the About template with two-column layout. Add your content via the page editor; the template handles structure.
 - **Services**: Pre-built structure (hero, service sections, engagement model, process). Little to no content editing needed.
 - **Contact**: Contact form and details. Requires Formspree setup (step 5).
@@ -49,15 +47,7 @@ If you want a portfolio page, create a page with:
 
 ---
 
-## 3. Set the homepage
-
-1. Go to **Settings** → **General**
-2. Under **Homepage**, select the **Home** page you created
-3. Save
-
----
-
-## 4. Configure navigation
+## 3. Configure navigation
 
 1. Go to **Settings** → **Navigation**
 2. Add links in this order:
@@ -70,11 +60,11 @@ The header and footer both use this navigation.
 
 ---
 
-## 5. Formspree setup (Contact form)
+## 4. Formspree setup (Contact form)
 
 The contact form submits to Formspree. Set it up once, then add your form URL to the theme settings.
 
-### 5.1 Create a Formspree account and form
+### 4.1 Create a Formspree account and form
 
 1. Go to [formspree.io](https://formspree.io) and create a free account
 2. In the dashboard, click **New form**
@@ -82,7 +72,7 @@ The contact form submits to Formspree. Set it up once, then add your form URL to
 4. Formspree assigns a **form ID** (hashid), e.g. `abc123xy`
 5. Your form URL will be: `https://formspree.io/f/abc123xy`
 
-### 5.2 Add the form URL to the theme
+### 4.2 Add the form URL to the theme
 
 1. In Ghost Admin, go to **Settings** → **Design**
 2. Scroll to **Theme settings** (or click **Change theme** → **Customize** for the active theme)
@@ -90,7 +80,7 @@ The contact form submits to Formspree. Set it up once, then add your form URL to
 4. Paste your Formspree URL: `https://formspree.io/f/YOUR_FORM_ID`
 5. Save
 
-### 5.3 Form fields (already configured in the theme)
+### 4.3 Form fields (already configured in the theme)
 
 The theme form sends these fields to Formspree:
 
@@ -111,7 +101,7 @@ You can customize these in the Formspree dashboard (notifications, integrations,
 
 ---
 
-## 6. Theme custom settings
+## 5. Theme custom settings
 
 In **Settings** → **Design** → **Theme settings**, configure:
 
@@ -126,15 +116,21 @@ In **Settings** → **Design** → **Theme settings**, configure:
 | **Show featured posts**| Toggle featured posts on the blog index |
 | **Featured title**     | Title for the featured posts section |
 
-### Optional
+### Branding (manual — do not use Ghost Publication logo/icon)
+
+**Do not set** Publication logo or Publication icon in **Settings** → **General** → **Branding**. The theme uses its own assets and settings to avoid Ghost overrides.
+
+- **Header logo** (theme setting): Upload your logo here. It appears in the header, hero badge, favicon, and social sharing (og:image, twitter:image). Leave empty to use the default theme asset (`assets/images/logo7.png`).
+- **Replace the default logo**: Edit or replace `assets/images/logo7.png` in the theme, then rebuild (`npm run zip`).
+- **White logo for dark mode**: Upload a light logo for dark theme (header only)
+
+### Other optional settings
 
 - **Color scheme**: Auto, Light, or Dark
-- **White logo for dark mode**: Upload a light logo for dark theme
-- **Site logo**: Upload in **Settings** → **General** → **Branding**; the theme uses it in the header
 
 ---
 
-## 7. Checklist before launch
+## 6. Checklist before launch
 
 - [ ] All 5 pages created with correct slugs and templates
 - [ ] Homepage set in **Settings** → **General**
@@ -142,7 +138,7 @@ In **Settings** → **Design** → **Theme settings**, configure:
 - [ ] Formspree form created and URL added to **Contact form action**
 - [ ] **Contact email** set in theme settings
 - [ ] **Footer bio** and **Hero headline/subtext** filled in
-- [ ] Logo uploaded (if desired)
+- [ ] Logo set via **Header logo** (theme setting) or `assets/images/logo7.png` replaced
 
 ---
 

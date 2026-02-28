@@ -80,6 +80,10 @@
       "white_logo_for_dark_mode": {
         "type": "image"
       },
+      "header_logo": {
+        "type": "image",
+        "description": "Logo for header, hero badge, favicon, and social sharing. Leave empty to use theme asset (assets/images/logo7.png). Do NOT set Publication logo/icon in Ghost — theme branding is manual."
+      },
       "hero_headline": {
         "type": "text",
         "default": "Untangle complex technical and operational problems.",
