@@ -141,24 +141,24 @@
   display: none;
 }
 
-/* Nav bar: extra padding below on 992px and under for breathing room */
-@media (max-width: 992px) {
-  #gh-head.mrc-head {
-    padding-bottom: var(--space-4);
-  }
-}
-
 /* Tablet/mid: use hamburger menu so Contact link stays visible (avoids overflow at ~991px) */
 @media (max-width: 991px) {
   #gh-head.mrc-head {
-    height: 64px;
+    min-height: 64px;
+    height: auto;
+    padding-bottom: var(--space-2);
   }
 
   #gh-head.mrc-head .gh-head-inner {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: var(--space-7);
     display: grid;
+  }
+
+  /* Menu closed: no grid gap so we only show logo row + modest padding (SOP 6: header must not overpower hero) */
+  #gh-head.mrc-head:not(.is-head-open) .gh-head-inner {
+    gap: 0;
   }
 
   #gh-head.mrc-head .gh-head-brand {
