@@ -1,30 +1,359 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Manny Roy Consulting — docs site theme
+ * Aligned with docs/colurs.md, docs/fonts.md, docs/sop-design.md, docs/cube-css-structure.md
+ * WCAG AA contrast; spacing scale; IBM Plex Sans (body) + Serif (headings); max 2 type families.
  */
 
-/* You can override the default Infima variables here. */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@400;600&display=swap');
+
+/* ---------------------------------------------------------------------------
+   MRC design tokens (docs/colurs.md, typography.css, brand.css)
+   --------------------------------------------------------------------------- */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Neutrals */
+  --mrc-bg: #f0e8e0;
+  --mrc-surface: #faf6f0;
+  --mrc-text: #2a261a;
+  --mrc-text-muted: #4a4322;
+
+  /* Brand */
+  --mrc-mustard: #e8c868;
+  --mrc-olive: #706830;
+  --mrc-maroon: #804050;
+
+  /* Typography (docs/fonts.md: min 16px, line-height 1.6–1.7, 65–75ch) */
+  --mrc-font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --mrc-font-serif: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+  --mrc-body-size: 17px;
+  --mrc-body-line: 1.72;
+  --mrc-content-width: 72ch;
+
+  /* Spacing scale — SOP: 4, 8, 12, 16, 24, 32, 48, 64 (no arbitrary values) */
+  --mrc-space-1: 0.25rem;
+  --mrc-space-2: 0.5rem;
+  --mrc-space-3: 0.75rem;
+  --mrc-space-4: 1rem;
+  --mrc-space-5: 1.5rem;
+  --mrc-space-6: 2rem;
+  --mrc-space-7: 3rem;
+  --mrc-space-8: 4rem;
+
+  /* Map Infima to MRC so Docusaurus uses our palette */
+  --ifm-color-primary: var(--mrc-maroon);
+  --ifm-color-primary-dark: #6a3644;
+  --ifm-color-primary-darker: #5e2f3c;
+  --ifm-color-primary-darkest: #4d2731;
+  --ifm-color-primary-light: #8a4a5c;
+  --ifm-color-primary-lighter: #965464;
+  --ifm-color-primary-lightest: #a86b7a;
+  --ifm-link-color: var(--mrc-maroon);
+  --ifm-link-hover-color: var(--mrc-maroon);
+  --ifm-link-decoration: underline;
+  --ifm-font-family-base: var(--mrc-font-sans);
+  --ifm-font-family-monospace: Menlo, Consolas, Monaco, 'Liberation Mono', 'Lucida Console', monospace;
+  --ifm-font-size-base: var(--mrc-body-size);
+  --ifm-line-height-base: var(--mrc-body-line);
+  --ifm-heading-font-weight: 600;
+  --ifm-heading-font-family: var(--mrc-font-serif);
+  --ifm-background-color: var(--mrc-bg);
+  --ifm-font-color-base: var(--mrc-text);
+  --ifm-font-color-secondary: var(--mrc-text-muted);
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(42, 38, 26, 0.08);
+  --ifm-hr-background-color: var(--mrc-mustard);
+  --ifm-hr-height: 2px;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Focus: visible ring per colurs.md (3:1 contrast) */
+:root {
+  --ifm-focus-ring-color: var(--mrc-maroon);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--mrc-maroon);
+  outline-offset: 2px;
+}
+
+/* Reduced motion (SOP: accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Navbar — Olive background, Cream text, active = Mustard underline (colurs.md)
+   --------------------------------------------------------------------------- */
+.navbar {
+  --ifm-navbar-background-color: var(--mrc-olive);
+  --ifm-navbar-link-color: var(--mrc-surface);
+  --ifm-navbar-link-hover-color: var(--mrc-mustard);
+  --ifm-navbar-link-active-color: var(--mrc-surface);
+  background-color: var(--mrc-olive) !important;
+  box-shadow: none;
+  border-bottom: 2px solid var(--mrc-mustard);
+}
+
+.navbar__link {
+  text-decoration: none !important;
+  font-weight: 400;
+}
+
+.navbar__link--active {
+  text-decoration: underline !important;
+  text-decoration-color: var(--mrc-mustard) !important;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 2px;
+}
+
+.navbar__link:hover {
+  color: var(--mrc-mustard) !important;
+}
+
+.navbar__title {
+  color: var(--mrc-surface) !important;
+}
+
+.navbar__brand:hover {
+  color: var(--mrc-surface) !important;
+}
+
+/* Dark mode navbar stays olive/cream */
+[data-theme='dark'] .navbar {
+  background-color: var(--mrc-olive) !important;
+}
+
+[data-theme='dark'] .navbar__link {
+  color: var(--mrc-surface) !important;
+}
+
+[data-theme='dark'] .navbar__link--active {
+  text-decoration-color: var(--mrc-mustard) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Main content — Cream background, readable width (65–75ch), spacing
+   --------------------------------------------------------------------------- */
+.main-wrapper {
+  background-color: var(--mrc-bg);
+}
+
+/* Container: fluid with max-width (SOP: content-driven) */
+.main-wrapper .container {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--mrc-space-5);
+  padding-right: var(--mrc-space-5);
+}
+
+@media (min-width: 997px) {
+  .main-wrapper .container {
+    padding-left: var(--mrc-space-6);
+    padding-right: var(--mrc-space-6);
+  }
+}
+
+
+/* Doc content area: paper surface for contrast */
+.markdown {
+  --ifm-h1-font-size: clamp(1.85rem, 4vw + 1rem, 2.75rem);
+  --ifm-h2-font-size: clamp(1.65rem, 2.8vw + 0.9rem, 2.1rem);
+  --ifm-h3-font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.35rem);
+  max-width: var(--mrc-content-width);
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-family: var(--mrc-font-serif);
+  font-weight: 600;
+  color: var(--mrc-text);
+}
+
+.markdown a {
+  color: var(--mrc-maroon);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+.markdown a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Emphasis: 600 not 700 (docs/fonts.md) */
+.markdown strong,
+.markdown b {
+  font-weight: 600;
+}
+
+/* Body minimum 16px on small viewports (SOP) */
+@media (max-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Sidebar — Paper surface, ink text
+   --------------------------------------------------------------------------- */
+.theme-doc-sidebar-container {
+  background-color: var(--mrc-surface);
+  border-right: 1px solid rgba(42, 38, 26, 0.08);
+}
+
+.menu__link {
+  color: var(--mrc-text) !important;
+  font-weight: 400;
+}
+
+.menu__link--active {
+  color: var(--mrc-maroon) !important;
+  font-weight: 600;
+}
+
+.menu__link:hover {
+  color: var(--mrc-maroon) !important;
+}
+
+.menu__list-item-collapsible .menu__link {
+  color: var(--mrc-text) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Buttons — Maroon primary, Olive secondary (colurs.md)
+   --------------------------------------------------------------------------- */
+.button--primary {
+  background-color: var(--mrc-maroon) !important;
+  border-color: var(--mrc-maroon) !important;
+  color: var(--mrc-surface) !important;
+}
+
+.button--primary:hover {
+  background-color: #6a3644 !important;
+  border-color: #6a3644 !important;
+  color: var(--mrc-surface) !important;
+}
+
+.button--secondary {
+  color: var(--mrc-olive) !important;
+  border-color: var(--mrc-olive) !important;
+  background-color: transparent !important;
+}
+
+.button--secondary:hover {
+  background-color: rgba(112, 104, 48, 0.1) !important;
+  color: var(--mrc-olive) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Footer — Olive dark section, Cream text (colurs.md)
+   --------------------------------------------------------------------------- */
+.footer {
+  --ifm-footer-background-color: var(--mrc-olive);
+  --ifm-footer-color: var(--mrc-surface);
+  --ifm-footer-link-color: var(--mrc-surface);
+  --ifm-footer-link-hover-color: var(--mrc-mustard);
+  --ifm-footer-title-color: var(--mrc-surface);
+  background-color: var(--mrc-olive) !important;
+  color: var(--mrc-surface) !important;
+  border-top: 2px solid var(--mrc-mustard);
+}
+
+.footer a {
+  color: var(--mrc-surface) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.footer a:hover {
+  color: var(--mrc-mustard) !important;
+}
+
+/* Focus on dark sections: use surface/cream ring */
+.footer *:focus-visible {
+  outline-color: var(--mrc-surface);
+}
+
+/* ---------------------------------------------------------------------------
+   Hero (homepage) — Cream bg, Ink headline, Maroon CTA (colurs.md)
+   --------------------------------------------------------------------------- */
+.hero--primary {
+  background-color: var(--mrc-bg) !important;
+  color: var(--mrc-text) !important;
+}
+
+.hero__title {
+  font-family: var(--mrc-font-serif) !important;
+  font-weight: 600 !important;
+  color: var(--mrc-text) !important;
+}
+
+.hero__subtitle {
+  color: var(--mrc-text-muted) !important;
+}
+
+/* Homepage features — Paper section + mustard divider (colurs: "What I Do") */
+.mrc-section-surface {
+  background-color: var(--mrc-surface);
+  padding-top: var(--mrc-space-8);
+  padding-bottom: var(--mrc-space-8);
+  border-top: 2px solid var(--mrc-mustard);
+}
+
+[data-theme='dark'] .mrc-section-surface {
+  background-color: #1f1b14;
+  border-top-color: var(--mrc-mustard);
+}
+
+/* ---------------------------------------------------------------------------
+   Dark mode — Olive/maroon base, cream text; restraint
+   --------------------------------------------------------------------------- */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: #2a261a;
+  --ifm-font-color-base: var(--mrc-surface);
+  --ifm-font-color-secondary: #e8e0d8;
+  --ifm-color-primary: var(--mrc-mustard);
+  --ifm-link-color: var(--mrc-mustard);
+  --ifm-link-hover-color: var(--mrc-surface);
+  --docusaurus-highlighted-code-line-bg: rgba(250, 246, 240, 0.1);
+}
+
+[data-theme='dark'] .main-wrapper {
+  background-color: #2a261a;
+}
+
+[data-theme='dark'] .markdown h1,
+[data-theme='dark'] .markdown h2,
+[data-theme='dark'] .markdown h3,
+[data-theme='dark'] .markdown h4,
+[data-theme='dark'] .markdown h5,
+[data-theme='dark'] .markdown h6 {
+  color: var(--mrc-surface);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background-color: #1f1b14;
+  border-right-color: rgba(250, 246, 240, 0.1);
+}
+
+[data-theme='dark'] .menu__link {
+  color: var(--mrc-surface) !important;
+}
+
+[data-theme='dark'] .menu__link--active {
+  color: var(--mrc-mustard) !important;
+}
+
+[data-theme='dark'] *:focus-visible {
+  outline-color: var(--mrc-surface);
 }
