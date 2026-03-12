@@ -1,0 +1,185 @@
+/**
+ * Ghost Application Landing Page — page-ghost.hbs
+ * Rhythm: Cream (hero) → Paper (matrix) → Olive (highlights) → Paper (links + posts) → Maroon (CTA)
+ * See docs/plan-ghost-application-page.md
+ */
+
+/* ---------- Section padding ---------- */
+.mrc-page-ghost .mrc-ghost-matrix,
+.mrc-page-ghost .mrc-ghost-highlights,
+.mrc-page-ghost .mrc-ghost-links-section {
+  padding-block: var(--mrc-section-padding-block);
+}
+
+@media (min-width: 768px) {
+  .mrc-page-ghost .mrc-ghost-matrix,
+  .mrc-page-ghost .mrc-ghost-highlights,
+  .mrc-page-ghost .mrc-ghost-links-section {
+    padding-block: var(--space-9);
+  }
+}
+
+/* ---------- Hero (Cream) ---------- */
+.mrc-ghost-hero {
+  padding-block: var(--space-8) var(--space-7);
+}
+
+.mrc-ghost-hero-inner {
+  max-width: min(65ch, 100%);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.mrc-ghost-hero-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h1-size, clamp(1.75rem, 4vw, 2.25rem));
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 var(--space-3);
+}
+
+.mrc-ghost-hero-subtext {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line, 1.6);
+  color: var(--mrc-text-muted);
+  margin: 0;
+}
+
+/* ---------- Section titles ---------- */
+.mrc-ghost-section-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size, 1.5rem);
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 var(--space-6);
+  text-align: center;
+}
+
+.mrc-ghost-highlights .mrc-ghost-section-title,
+.section-dark .mrc-ghost-section-title {
+  color: var(--mrc-surface);
+}
+
+/* ---------- Responsibility matrix (Paper) ---------- */
+.mrc-ghost-matrix-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: min(75ch, 100%);
+  margin-inline: auto;
+}
+
+.mrc-ghost-matrix-row {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--light-gray-color);
+}
+
+.mrc-ghost-matrix-row:last-child {
+  border-bottom: 0;
+}
+
+.mrc-ghost-matrix-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-ghost-matrix-proof {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--mrc-text-muted);
+  margin: 0;
+}
+
+/* ---------- Implementation highlights (Olive) — cards ---------- */
+.mrc-ghost-highlights-grid {
+  margin-top: var(--space-4);
+}
+
+.mrc-ghost-highlight {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-m, 6px);
+  padding: var(--space-5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mrc-ghost-highlight-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--mrc-surface);
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-ghost-highlight-desc {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 var(--space-3);
+}
+
+.mrc-ghost-highlight-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--mrc-mustard);
+}
+
+.mrc-ghost-highlight-link:hover {
+  text-decoration: underline;
+}
+
+.mrc-ghost-highlight-link:focus-visible {
+  outline: 2px solid var(--mrc-surface);
+  outline-offset: 2px;
+}
+
+/* ---------- Explore links + related posts (Paper) ---------- */
+.mrc-ghost-links {
+  margin-bottom: var(--space-8);
+}
+
+.mrc-ghost-posts {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--light-gray-color);
+}
+
+.mrc-ghost-posts-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 var(--space-3);
+}
+
+.mrc-ghost-posts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mrc-ghost-posts-list a {
+  color: var(--mrc-link);
+}
+
+.mrc-ghost-posts-list a:hover {
+  text-decoration: underline;
+}
+
+.mrc-ghost-posts-empty {
+  font-size: 0.9375rem;
+  color: var(--mrc-text-muted);
+  margin: 0;
+  font-style: italic;
+}
+
+.mrc-ghost-posts-list .mrc-ghost-posts-empty-wrap {
+  list-style: none;
+  padding: 0;
+}
+
+.mrc-ghost-posts-list .mrc-ghost-posts-empty-wrap::marker {
+  content: none;
+}

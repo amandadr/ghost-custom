@@ -1,0 +1,68 @@
+{{!< default}}
+{{! Ghost Application Landing Page — slug "ghost-application" (avoid /ghost/ admin path). See docs/plan-ghost-application-page.md }}
+
+<main class="site-main mrc-page mrc-page-ghost">
+  {{! 1. Hero — Cream }}
+  <section class="mrc-ghost-hero section-light gh-outer" aria-labelledby="mrc-ghost-hero-title">
+    <div class="mrc-ghost-hero-inner gh-inner mrc-stack mrc-stack--m">
+      <h1 id="mrc-ghost-hero-title" class="mrc-ghost-hero-title">{{@custom.ghost_hero_title}}</h1>
+      <p class="mrc-ghost-hero-subtext">{{@custom.ghost_hero_subtext}}</p>
+    </div>
+  </section>
+
+  {{! 2. Responsibility-to-proof matrix — Paper (hardcoded; theme settings limit) }}
+  <section class="mrc-ghost-matrix section-surface gh-outer" aria-labelledby="mrc-ghost-matrix-title">
+    <div class="mrc-ghost-matrix-inner gh-inner">
+      <h2 id="mrc-ghost-matrix-title" class="mrc-ghost-section-title">Role → proof</h2>
+      <div class="mrc-ghost-matrix-rows">
+        {{> "ghost-responsibility-row" heading="Build and improve platform systems" proof="Custom Ghost theme architecture, Structured docs capability, Reusable components and content patterns, AI assistant integrated into site exploration"}}
+        {{> "ghost-responsibility-row" heading="Improve performance and reliability" proof="Measurable performance improvements, Asset and rendering optimization, Monitoring and error tracking basics, Deployment and rollback thinking"}}
+        {{> "ghost-responsibility-row" heading="Enable internal users / improve DX" proof="Public documentation system, Architecture guides and implementation notes, Process transparency, Clear conventions and maintainability"}}
+        {{> "ghost-responsibility-row" heading="Operational excellence" proof="Build and release workflow, Validation and QA discipline, Observability layer, Structured backlog and execution model"}}
+        {{> "ghost-responsibility-row" heading="Communication and technical leadership" proof="Public architecture writing, Tradeoff documentation, Build log transparency, Concise role-to-feature mapping"}}
+      </div>
+    </div>
+  </section>
+
+  {{! 3. Implementation highlights — Olive (hardcoded) }}
+  <section class="mrc-ghost-highlights section-dark gh-outer" aria-labelledby="mrc-ghost-highlights-title">
+    <div class="mrc-ghost-highlights-inner gh-inner">
+      <h2 id="mrc-ghost-highlights-title" class="mrc-ghost-section-title">Implementation highlights</h2>
+      <div class="mrc-ghost-highlights-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "ghost-highlight-card" title="Custom theme & design system" description="CUBE CSS, design tokens, accessible palette, and reusable partials." url=""}}
+        {{> "ghost-highlight-card" title="Documentation system" description="Docs hub, architecture notes, and technical writing conventions." url=""}}
+        {{> "ghost-highlight-card" title="Performance and reliability" description="Core Web Vitals focus, asset strategy, and measurement." url=""}}
+        {{> "ghost-highlight-card" title="AI-assisted delivery" description="Site-native assistant and transparent build process." url=""}}
+      </div>
+    </div>
+  </section>
+
+  {{! 4. Links + related posts — Paper }}
+  <section class="mrc-ghost-links-section section-surface gh-outer" aria-labelledby="mrc-ghost-links-title">
+    <div class="mrc-ghost-links-inner gh-inner">
+      <h2 id="mrc-ghost-links-title" class="mrc-ghost-section-title">Explore</h2>
+      <nav class="mrc-ghost-links mrc-cluster mrc-cluster--center" aria-label="Application links">
+        <a href="{{@site.url}}/docs/" class="button mrc-btn-secondary">Documentation</a>
+        <a href="{{@site.url}}/" class="button mrc-btn-secondary">Blog</a>
+        <a href="{{@site.url}}/contact/" class="button mrc-btn-primary">Contact</a>
+      </nav>
+
+      {{! Related posts: tag ghost-application }}
+      <div class="mrc-ghost-posts">
+        <h3 class="mrc-ghost-posts-heading">{{@custom.ghost_posts_heading}}</h3>
+        {{#get "posts" filter="tag:ghost-application" limit="5"}}
+          <ul class="mrc-ghost-posts-list">
+            {{#foreach posts}}
+              <li><a href="{{url}}">{{title}}</a></li>
+            {{else}}
+              <li class="mrc-ghost-posts-empty-wrap"><p class="mrc-ghost-posts-empty">Posts tagged Ghost Application will appear here.</p></li>
+            {{/foreach}}
+          </ul>
+        {{/get}}
+      </div>
+    </div>
+  </section>
+
+  {{! 5. CTA — Maroon }}
+  {{> "cta-section" headline=@custom.ghost_cta_headline button_text=@custom.ghost_cta_button}}
+</main>

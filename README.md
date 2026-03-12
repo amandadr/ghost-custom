@@ -56,12 +56,26 @@ Then in Ghost Admin → Design, activate the theme **manny-roy**.
 
 ---
 
+## Ghost Application landing page
+
+The theme includes a dedicated **Ghost Application** landing page at `/ghost-application/` for the Senior Platform Engineer application. (Slug is `ghost-application` because `/ghost/` is the Ghost admin portal.) To use it:
+
+1. In Ghost Admin, create a **Page** with URL slug **ghost-application** and choose the **Ghost application** template in the page settings.
+2. Add a nav item **Ghost** (or “Application”) pointing to `/ghost-application/` in **Settings → Design → Navigation**.
+3. Create a tag **Ghost Application** (slug `ghost-application`) and add it to any post you want listed on that page.
+4. Edit hero, CTA, and posts heading under **Settings → Design → Theme** in the **ghost** group.
+
+Full plan and content model: **[docs/plan-ghost-application-page.md](docs/plan-ghost-application-page.md)**.
+
+---
+
 ## Project docs
 
 - [Brand foundation & positioning](docs/brand-brainstorming.md)
 - [Development plan (site architecture, layout)](docs/dev-plan-1.md)
 - [Accessible color palette](docs/colurs.md)
 - [Local Ghost setup](docs/local-ghost-setup.md)
+- [Ghost Application page plan](docs/plan-ghost-application-page.md)
 
 ---
 

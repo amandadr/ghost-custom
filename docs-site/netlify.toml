@@ -1,0 +1,14 @@
+# Netlify build config for Docusaurus docs site.
+# In Netlify: set "Base directory" to docs-site (or run from repo root with build command below).
+
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# If Netlify base directory is set to "docs-site", the above is enough.
+# If building from repo root instead, use:
+#   command = "cd docs-site && npm run build"
+#   publish = "docs-site/build"

@@ -2,10 +2,10 @@
 
 **Goal:** Make page text editable in the Ghost admin (web app) so that body content in Ghost controls what appears on the site, without redeploying the theme.
 
-**Status:** Implemented (theme custom settings)  
+**Status:** Section-based templates (copy in theme files)  
 **Last updated:** 2025-03-12
 
-**Implementation note:** To keep the same styles and layout while making text editable, all About, Services, Contact, and Thanks copy is driven by **theme custom settings** (not the page body). Edit in **Ghost Admin → Settings → Design → scroll to theme settings**; fields are grouped as **About**, **Services**, **Contact**, and **Thanks**. Page bodies are no longer used for these templates.
+**Implementation note:** The **section-based** approach is in use: About, Services, Contact, and Thanks use fixed section layout (hero, two-column, cards, Olive block, CTA) with copy **in the template files** (`.hbs`). Editing = edit the theme. We cannot use **theme custom settings** for every section because Ghost allows only **20** custom settings total; those are used for logo, nav, homepage, contact, Ghost application page. See [page-copy-for-editor.md](page-copy-for-editor.md).
 
 ---
 
@@ -16,12 +16,12 @@
 | **page.hbs** | `{{> "content"}}` → `{{content}}` | ✅ Yes (generic pages) |
 | **page-work.hbs** | `{{> "content"}}` | ✅ Yes |
 | **home.hbs** | Hero: `@custom.hero_headline` / `hero_subtext`; rest hard-coded | Hero only via Settings; sections no |
-| **page-about.hbs** | All copy hard-coded in template | ❌ No |
-| **page-services.hbs** | All copy hard-coded in template | ❌ No |
-| **page-contact.hbs** | Copy hard-coded; only `@custom.contact_email` and form action dynamic | ❌ No |
-| **page-thanks.hbs** | Short thank-you copy hard-coded | ❌ No |
+| **page-about.hbs** | Section layout; copy in template | Edit `page-about.hbs` |
+| **page-services.hbs** | Section layout; copy in template | Edit `page-services.hbs` |
+| **page-contact.hbs** | Section layout; copy in template; email/form from Settings | Edit `page-contact.hbs` |
+| **page-thanks.hbs** | Copy in template | Edit `page-thanks.hbs` |
 
-**Summary:** Generic pages and the Work page already use the page body. The homepage, About, Services, Contact, and Thanks pages use static template copy and do not use the Ghost page body.
+**Summary:** Section-based editing = **theme custom settings** (one field per section). We had that; Ghost’s 20-setting limit forced us to remove those fields. Copy now lives in the templates; to change it, edit the `.hbs` file and redeploy/refresh the theme.
 
 ---
 

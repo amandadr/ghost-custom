@@ -328,3 +328,23 @@
 .site-content:has(.mrc-page-about) {
   padding-bottom: 0;
 }
+
+/* ---------- Editable page body (About, Services): content from Ghost editor ---------- */
+.mrc-page-editable {
+  padding-block: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .mrc-page-editable {
+    padding-block: var(--space-9);
+  }
+}
+
+.mrc-page-editable-inner {
+  max-width: min(72ch, 100%);
+  margin-inline: auto;
+}
+
+.mrc-page-editable .gh-content {
+  max-width: 100%;
+}

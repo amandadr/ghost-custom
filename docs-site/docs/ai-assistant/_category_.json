@@ -1,0 +1,8 @@
+{
+  "label": "AI assistant",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Design, scope, and safeguards for the site-native assistant."
+  }
+}

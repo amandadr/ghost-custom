@@ -9,7 +9,7 @@
   --mrc-contact-section-padding-block-mobile: var(--space-8);
 }
 
-/* ---------- Hero (Cream, 65–75ch); padding from typography.css for consistency ---------- */
+/* ---------- Hero (Cream, 65–75ch) ---------- */
 .mrc-contact-hero {
   background-color: var(--mrc-bg);
   padding-bottom: var(--space-7);
