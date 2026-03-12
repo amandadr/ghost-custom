@@ -1,12 +1,12 @@
 {{!< default}}
-{{! Services page — slug "services" uses this; full structure, no cover. }}
+{{! Services page — slug "services". All copy editable via Settings → Design → Theme (Services). }}
 
 <main class="site-main mrc-page mrc-page-services">
   {{! 1. Hero — Cream, centered, 65–75ch }}
   <section class="mrc-services-hero section-light gh-outer">
     <div class="mrc-services-hero-inner gh-inner mrc-stack mrc-stack--m">
-      <h1 class="mrc-services-hero-title">Technical systems built to last.</h1>
-      <p class="mrc-services-hero-subtext">Full-stack development, automation, and applied AI — grounded in data, collaboration, and measurable impact.</p>
+      <h1 class="mrc-services-hero-title">{{@custom.services_hero_title}}</h1>
+      <p class="mrc-services-hero-subtext">{{@custom.services_hero_subtext}}</p>
     </div>
     <div class="mrc-services-hero-divider"></div>
   </section>
@@ -14,25 +14,25 @@
   {{! 2. Services Overview — Paper, stacked sections }}
   <section class="mrc-services-overview section-surface gh-outer" aria-labelledby="mrc-services-overview-title">
     <div class="mrc-services-overview-inner gh-inner">
-      {{> "service-section" slug="systems" title="Systems & Technical Strategy" intro="When systems grow faster than the structure supporting them, complexity compounds. I help teams clarify their architecture, untangle infrastructure decisions, and design systems that scale intentionally." include1="API design & integration strategy" include2="Infrastructure and tech stack evaluation" include3="Data architecture planning" include4="Performance and analytics audits" ideal="Teams preparing to scale, migrate, or reduce technical debt."}}
+      {{> "service-section" slug="systems" title=@custom.services_sys_title intro=@custom.services_sys_intro include1=@custom.services_sys_1 include2=@custom.services_sys_2 include3=@custom.services_sys_3 include4=@custom.services_sys_4 ideal=@custom.services_sys_ideal}}
 
-      {{> "service-section" slug="software" align="right" title="Custom Software & Web Applications" tagline="Build once. Maintain well." intro="I design and develop custom software and web applications that prioritize stability, clarity, and long-term maintainability over quick patches." include1="Full-stack web application development" include2="Internal tooling" include3="API integrations" include4="E-commerce and system modernization" ideal="Organizations outgrowing plugin stacks or needing custom operational tools."}}
+      {{> "service-section" slug="software" align="right" title=@custom.services_soft_title tagline=@custom.services_soft_tagline intro=@custom.services_soft_intro include1=@custom.services_soft_1 include2=@custom.services_soft_2 include3=@custom.services_soft_3 include4=@custom.services_soft_4 ideal=@custom.services_soft_ideal}}
 
-      {{> "service-section" slug="automation" title="Automation & Applied AI" intro="Practical AI and automation that integrate into real workflows — not prototype theatre." include1="Workflow automation" include2="Data pipelines & reporting systems" include3="Applied AI tooling" include4="AI adoption workshops & training" ideal="Teams ready to implement AI responsibly and sustainably."}}
+      {{> "service-section" slug="automation" title=@custom.services_auto_title intro=@custom.services_auto_intro include1=@custom.services_auto_1 include2=@custom.services_auto_2 include3=@custom.services_auto_3 include4=@custom.services_auto_4 ideal=@custom.services_auto_ideal}}
     </div>
   </section>
 
   {{! 3. Engagement Model — Olive, Cream text }}
   <section class="mrc-engagement section-dark gh-outer" aria-labelledby="mrc-engagement-title">
     <div class="mrc-engagement-inner gh-inner">
-      <h2 id="mrc-engagement-title" class="mrc-engagement-title">How engagement works</h2>
-      <p class="mrc-engagement-intro">Manny Roy Consulting operates as an independent technical partner. Engagements are typically project-based, with options for ongoing advisory or implementation support.</p>
-      <p class="mrc-engagement-intro">I work collaboratively with internal teams, contractors, and stakeholders to ensure clarity, documentation, and smooth handoffs.</p>
+      <h2 id="mrc-engagement-title" class="mrc-engagement-title">{{@custom.services_engage_heading}}</h2>
+      <p class="mrc-engagement-intro">{{@custom.services_engage_p1}}</p>
+      <p class="mrc-engagement-intro">{{@custom.services_engage_p2}}</p>
       <ul class="mrc-engagement-list">
-        <li>Project-based engagements</li>
-        <li>Strategic advisory</li>
-        <li>Implementation & build</li>
-        <li>Optional retainer support</li>
+        <li>{{@custom.services_engage_1}}</li>
+        <li>{{@custom.services_engage_2}}</li>
+        <li>{{@custom.services_engage_3}}</li>
+        <li>{{@custom.services_engage_4}}</li>
       </ul>
     </div>
   </section>
@@ -40,16 +40,16 @@
   {{! 4. Process — Cream, 4 steps }}
   <section class="mrc-process section-light gh-outer" aria-labelledby="mrc-process-title">
     <div class="mrc-process-inner gh-inner">
-      <h2 id="mrc-process-title" class="mrc-process-title">Process</h2>
+      <h2 id="mrc-process-title" class="mrc-process-title">{{@custom.services_process_heading}}</h2>
       <div class="mrc-process-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
-        {{> "process-step" title="Discovery" desc="Understand constraints, goals, and existing systems."}}
-        {{> "process-step" title="Design" desc="Architect solutions grounded in sustainability and data."}}
-        {{> "process-step" title="Build" desc="Implement with clarity and documentation."}}
-        {{> "process-step" title="Evaluate" desc="Measure impact and refine intentionally."}}
+        {{> "process-step" title=@custom.services_process_1_title desc=@custom.services_process_1_desc}}
+        {{> "process-step" title=@custom.services_process_2_title desc=@custom.services_process_2_desc}}
+        {{> "process-step" title=@custom.services_process_3_title desc=@custom.services_process_3_desc}}
+        {{> "process-step" title=@custom.services_process_4_title desc=@custom.services_process_4_desc}}
       </div>
     </div>
   </section>
 
   {{! 5. Final CTA — Maroon }}
-  {{> "cta-section" headline="Let's build something sustainable." subtext="If you're navigating complexity or planning what's next, I'm happy to talk." button_text="Get in touch"}}
+  {{> "cta-section" headline=@custom.services_cta_headline subtext=@custom.services_cta_subtext button_text=@custom.services_cta_button}}
 </main>
