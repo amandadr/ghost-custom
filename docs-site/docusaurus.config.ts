@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Manny Roy Consulting — Docs',
-  tagline: 'Architecture, performance, and operations for the Ghost theme and site.',
+  tagline: 'Architecture, performance, and operations for my custom Ghost theme and application.',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -53,7 +53,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/logo.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -61,7 +61,7 @@ const config: Config = {
       title: 'Docs',
       logo: {
         alt: 'Manny Roy Consulting',
-        src: 'img/logo.svg',
+        src: 'img/logo.jpg',
       },
       items: [
         {
