@@ -15,7 +15,7 @@ Originally forked from [Ghost Dawn](https://github.com/TryGhost/Dawn); customize
 
 ## Development
 
-Built with Gulp and PostCSS. From the theme root:
+Built with Gulp and PostCSS. This project uses **Yarn** only (do not use `npm install` here; keep one lockfile to avoid resolution conflicts). From the theme root:
 
 ```bash
 yarn

@@ -8,7 +8,7 @@ This guide walks through configuring the Manny Roy Consulting theme on a Ghost.o
 
 1. **Build a theme package** (from this repo):
    ```bash
-   npm run zip
+   yarn zip
    ```
    This creates `manny-roy.zip` in the `dist/` folder.
 
@@ -121,7 +121,7 @@ In **Settings** → **Design** → **Theme settings**, configure:
 **Do not set** Publication logo or Publication icon in **Settings** → **General** → **Branding**. The theme uses its own assets and settings to avoid Ghost overrides.
 
 - **Header logo** (theme setting): Upload your logo here. It appears in the header, hero badge, favicon, and social sharing (og:image, twitter:image). Leave empty to use the default theme asset (`assets/images/logo7.png`).
-- **Replace the default logo**: Edit or replace `assets/images/logo7.png` in the theme, then rebuild (`npm run zip`).
+- **Replace the default logo**: Edit or replace `assets/images/logo7.png` in the theme, then rebuild (`yarn zip`).
 - **White logo for dark mode**: Upload a light logo for dark theme (header only)
 
 ### Other optional settings
