@@ -2,6 +2,25 @@
     margin-top: var(--space-7);
 }
 
+/* Static card grid (no carousel); 1.3 Performance */
+.featured-feed {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .featured-feed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .featured-feed {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 .featured-wrapper .u-placeholder {
     margin-bottom: var(--space-5);
 }

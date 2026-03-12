@@ -134,6 +134,9 @@
       "ghost_posts_heading": { "type": "text", "default": "Build logs & technical writing", "group": "ghost" }
     }
   },
+  "resolutions": {
+    "chalk": "4.1.2"
+  },
   "scripts": {
     "dev": "gulp",
     "test": "gscan .",

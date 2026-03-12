@@ -7,7 +7,7 @@
             <h2 class="featured-title">{{@custom.featured_title}}</h2>
         {{/if}}
 
-        <div class="featured-feed owl">
+        <div class="featured-feed">
         {{#foreach featured}}
             <article class="{{post_class}}">
                 <div class="u-placeholder horizontal">
@@ -18,6 +18,7 @@
                             sizes="(min-width: 992px) calc((92vw - 60px) / 3), (min-width: 768px) calc((92vw - 30px) / 2), 92vw"
                             src="{{img_url feature_image size="m"}}"
                             alt="{{title}}"
+                            loading="lazy"
                         >
                     {{/if}}
                 </div>
