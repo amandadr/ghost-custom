@@ -32,19 +32,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
         },
-        blog: {
-          showReadingTime: true,
-          blogTitle: 'Build logs',
-          blogDescription: 'Technical notes and build logs',
-          routeBasePath: 'blog',
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -70,7 +58,6 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
-        {to: '/blog', label: 'Build logs', position: 'left'},
         {
           href: 'https://mannyroy.com',
           label: 'Main site',

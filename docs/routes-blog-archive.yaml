@@ -1,0 +1,27 @@
+# Sample routes: custom homepage (/) + blog archive at /blog/
+# Use this when you want the site root to show home.hbs and all posts at /blog/.
+#
+# How to apply:
+# 1. In Ghost Admin go to Settings → Labs.
+# 2. Under "Routes", download your current routes (backup), then upload this file
+#    or paste its contents into the Routes YAML editor and save.
+# 3. Restart Ghost if you edited the file on disk (content/settings/routes.yaml).
+#
+# Result:
+#   /              → home.hbs (custom homepage)
+#   /blog/         → index.hbs (post listing, cover + featured when enabled)
+#   /blog/{slug}/  → individual posts
+#   /blog/tag/{slug}/  → tag archives
+#   /blog/author/{slug}/ → author archives
+
+routes:
+  /: home
+
+collections:
+  /blog/:
+    permalink: /blog/{slug}/
+    template: index
+
+taxonomies:
+  tag: /blog/tag/{slug}/
+  author: /blog/author/{slug}/

@@ -56,6 +56,20 @@ Then in Ghost Admin → Design, activate the theme **manny-roy**.
 
 ---
 
+## Site structure: homepage + /blog/ archive
+
+The theme supports a **custom homepage** at `/` (using `home.hbs`) and a **blog archive** at `/blog/` (post listing, cover, and featured posts). The homepage stays as-is; all posts live at `/blog/` and `/blog/{slug}/`.
+
+To enable this structure:
+
+1. In Ghost Admin go to **Settings → Labs**.
+2. Under **Routes**, upload or paste the contents of **[docs/routes-blog-archive.yaml](docs/routes-blog-archive.yaml)** (back up your current routes first if you have custom ones).
+3. Add **Blog** (or “Writing”) to your nav in **Settings → Design → Navigation** pointing to `/blog/`.
+
+Result: `/` = custom home, `/blog/` = post listing, `/blog/{slug}/` = posts, `/blog/tag/...` and `/blog/author/...` = archives.
+
+---
+
 ## Ghost Application landing page
 
 The theme includes a dedicated **Ghost Application** landing page at `/ghost-application/` for the Senior Platform Engineer application. (Slug is `ghost-application` because `/ghost/` is the Ghost admin portal.) To use it:
@@ -76,6 +90,7 @@ Full plan and content model: **[docs/plan-ghost-application-page.md](docs/plan-g
 - [Accessible color palette](docs/colurs.md)
 - [Local Ghost setup](docs/local-ghost-setup.md)
 - [Ghost Application page plan](docs/plan-ghost-application-page.md)
+- [Routes for /blog/ archive](docs/routes-blog-archive.yaml) (Settings → Labs → Routes)
 
 ---
 
