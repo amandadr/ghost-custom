@@ -86,6 +86,7 @@ Full plan and content model: **[docs/plan-ghost-application-page.md](docs/plan-g
 ## Project docs
 
 - [Brand foundation & positioning](docs/brand-brainstorming.md)
+- [Brand voice](docs/brand-voice.md) — Tone, personality, and copy guidelines
 - [Development plan (site architecture, layout)](docs/dev-plan-1.md)
 - [Accessible color palette](docs/colurs.md)
 - [Local Ghost setup](docs/local-ghost-setup.md)

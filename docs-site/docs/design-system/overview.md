@@ -30,4 +30,4 @@ The theme uses a **design system** so layout, colour, typography, and spacing st
 | [Responsiveness](./responsiveness) | Breakpoints, mobile-first, fluid sizing, testing. |
 | [Accessibility](./accessibility) | Contrast, focus rings, reduced motion, tap targets. |
 
-Use these docs when you're adding or changing UI so the theme stays coherent and accessible.
+Use these docs when you're adding or changing UI so the theme stays coherent and accessible. For **tone and copy** (brand voice, messaging, do's and don'ts), see the repo `docs/brand-voice.md`.

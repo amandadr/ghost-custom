@@ -24,6 +24,13 @@ Below is an **accessible color set** that stays *very* close to the hues in your
 * **Olive (Brand anchor / dark surface)**: `#706830` *(matches your files)*
 * **Maroon (Links / emphasis / strong CTA)**: `#804050` *(matches your files)*
 
+### Supporting neutrals (borders, dividers, muted UI)
+
+* **Light gray**: `#E8E0D8` — borders, dividers, inputs; sits between Cream and Paper.
+* **Mid gray**: `#8A8578` — muted labels, placeholders, secondary borders.
+
+*(These are defined in the theme as `--mrc-*`-mapped `--light-gray-color` and `--mid-gray-color` in `brand.css`.)*
+
 ---
 
 ## 2) “Safe pairings” (contrast you can trust)
@@ -77,22 +84,27 @@ Use a ring color that hits **3:1** against the adjacent background (SC 1.4.11). 
 
 ## 4) Drop-in CSS tokens (Ghost theme-ready)
 
+The theme implements these in `assets/css/general/brand.css` with the `--mrc-*` prefix and maps them to Ghost/theme variables. Use the variables in code; avoid hardcoding hex.
+
 ```css
-:root{
-  /* neutrals */
-  --bg: #F0E8E0;
-  --surface: #FAF6F0;
-  --text: #2A261A;
-  --text-muted: #4A4322;
+:root {
+  /* Neutrals */
+  --mrc-bg: #F0E8E0;           /* Cream – base background */
+  --mrc-surface: #FAF6F0;       /* Paper – alt background / cards */
+  --mrc-text: #2A261A;         /* Ink – primary text */
+  --mrc-text-muted: #4A4322;   /* Ink 2 – secondary text */
 
-  /* brand */
-  --mustard: #E8C868;
-  --olive: #706830;
-  --maroon: #804050;
+  /* Supporting neutrals (borders, muted UI) */
+  /* --light-gray-color: #E8E0D8; --mid-gray-color: #8A8578; in theme */
 
-  /* interactive */
-  --link: var(--maroon);
-  --focus: var(--maroon); /* swap to --surface on dark sections */
+  /* Brand accents */
+  --mrc-mustard: #E8C868;
+  --mrc-olive: #706830;
+  --mrc-maroon: #804050;
+
+  /* Interactive */
+  --mrc-link: var(--mrc-maroon);
+  --mrc-focus: var(--mrc-maroon); /* use --mrc-surface on Olive/Maroon sections */
 }
 ```
 
