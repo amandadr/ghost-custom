@@ -159,10 +159,11 @@ strong, b {
   font-weight: 600;
 }
 
-/* Content wrapper — long-form reading width, never overflow viewport */
+/* Content wrapper — long-form reading width, never overflow viewport; match global body size */
 .gh-content,
 .mrc-content-width {
   max-width: min(var(--mrc-content-width), 100%);
+  font-size: var(--mrc-body-size);
 }
 
 .gh-content p,

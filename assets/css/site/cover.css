@@ -21,7 +21,7 @@
 }
 
 .cover-description {
-    font-size: 1.7rem;
+    font-size: var(--mrc-lede-size);
 }
 
 .cover-cta {

@@ -6,5 +6,5 @@
 
 .related-title {
     margin-bottom: var(--space-5);
-    font-size: 2.1rem;
+    font-size: var(--mrc-h2-size);
 }

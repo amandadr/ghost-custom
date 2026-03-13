@@ -9,7 +9,7 @@
 
 .single-meta {
     margin-bottom: var(--space-4);
-    font-size: 1.2rem;
+    font-size: var(--mrc-small-size);
     font-weight: 800;
     color: var(--secondary-text-color);
     text-transform: uppercase;
@@ -27,9 +27,9 @@
 
 .single-title {
     margin-bottom: 0;
-    font-size: 4rem;
+    font-size: var(--mrc-h1-size);
     line-height: 1.2;
-    letter-spacing: -0.1rem;
+    letter-spacing: -0.02em;
     word-break: break-word;
 }
 
@@ -39,7 +39,7 @@
 
 .single-excerpt {
     margin-top: var(--space-6);
-    font-size: 1.8rem;
+    font-size: var(--mrc-lede-size);
     word-break: break-word;
 }
 
@@ -69,9 +69,9 @@
 }
 
 .single-cta-footer {
-    font-size: 1.4rem;
+    font-size: var(--mrc-body-size);
     font-weight: 400 !important;
-    letter-spacing: -0.02rem;
+    letter-spacing: 0;
 }
 
 .single-footer {
@@ -103,7 +103,7 @@
 
 .single-footer-title {
     margin-bottom: var(--space-4);
-    font-size: 1.8rem;
+    font-size: var(--mrc-h3-size);
 }
 
 .single-footer-bottom {
@@ -116,11 +116,11 @@
     }
 
     .single-title {
-        font-size: 2.6rem;
+        font-size: var(--mrc-h1-size);
     }
 
     .single-excerpt {
-        font-size: 1.7rem;
+        font-size: var(--mrc-lede-size);
     }
 
     .single-media {

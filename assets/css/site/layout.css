@@ -67,3 +67,16 @@ body {
         --mrc-page-gutter: var(--space-7);
     }
 }
+
+/* Center blog content (index, single post, tag, author) on the page */
+.site-main .gh-canvas,
+.site-main #blog-archive .gh-feed-heading {
+    max-width: min(var(--mrc-container-wide, 1100px), 100%);
+    margin-inline: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.site-main #blog-archive .gh-feed-heading {
+    text-align: center;
+}

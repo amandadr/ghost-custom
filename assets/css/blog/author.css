@@ -16,12 +16,12 @@
 
 .author-name {
     margin-bottom: 0;
-    font-size: 2.4rem;
+    font-size: var(--mrc-h2-size);
 }
 
 .author-meta {
     margin-top: var(--space-2);
-    font-size: 1.2rem;
+    font-size: var(--mrc-body-size);
     font-weight: 800;
     color: var(--secondary-text-color);
     text-transform: uppercase;

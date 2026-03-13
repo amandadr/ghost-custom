@@ -5,7 +5,7 @@
 
 .tag .tag-name {
     margin-bottom: 0;
-    font-size: 3rem;
+    font-size: var(--mrc-h1-size);
     color: var(--brand-color);
 }
 

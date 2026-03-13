@@ -27,7 +27,7 @@
     --font-serif: "IBM Plex Serif", Georgia, Times, serif;
     --font-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
     --navbar-height: 80px;
-    --content-font-size: 1.7rem;
+    --content-font-size: 1rem;
     --header-spacing: var(--space-7);
 }
 
