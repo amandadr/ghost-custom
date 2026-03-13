@@ -1,5 +1,5 @@
-# Netlify build config for Docusaurus docs site.
-# In Netlify: set "Base directory" to docs-site (or run from repo root with build command below).
+# Netlify build config for Docusaurus docs site (docs.mannyroy.com).
+# In Netlify UI: set "Base directory" to docs-site so this file is used.
 
 [build]
   command = "npm run build"
@@ -8,7 +8,5 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# If Netlify base directory is set to "docs-site", the above is enough.
-# If building from repo root instead, use:
-#   command = "cd docs-site && npm run build"
-#   publish = "docs-site/build"
+# Custom domain is set in Netlify: Domain settings → Add custom domain → docs.mannyroy.com
+# DNS: add CNAME record for docs (or docs.mannyroy.com) pointing to the Netlify subdomain (e.g. random-name.netlify.app).

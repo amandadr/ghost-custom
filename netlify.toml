@@ -1,0 +1,13 @@
+# Netlify build for docs site (docs.mannyroy.com).
+# IMPORTANT: In Netlify UI set Base directory to empty and clear Build command / Publish directory
+# overrides so this file is used. Build must run from repo root so docs-site/ exists.
+
+[build]
+  command = "cd docs-site && yarn install --frozen-lockfile && yarn build"
+  publish = "docs-site/build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Custom domain: Netlify → Domain management → Add custom domain → docs.mannyroy.com
+# DNS: CNAME for docs (or docs.mannyroy.com) → your-site.netlify.app

@@ -101,6 +101,7 @@
 .navbar__link {
   text-decoration: none !important;
   font-weight: 400;
+  text-transform: capitalize;
 }
 
 .navbar__link--active {
@@ -116,6 +117,7 @@
 
 .navbar__title {
   color: var(--mrc-surface) !important;
+  text-transform: capitalize;
 }
 
 .navbar__brand:hover {
@@ -179,15 +181,46 @@
   color: var(--mrc-text);
 }
 
+.markdown h1 {
+  text-transform: capitalize;
+}
+
 .markdown a {
   color: var(--mrc-maroon);
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: 0.15em;
   text-decoration-thickness: 1px;
 }
 
 .markdown a:hover {
+  text-decoration: underline;
   text-decoration-thickness: 2px;
+}
+
+/* Pagination (Previous/Next) and breadcrumbs: no underline by default, underline on hover */
+.pagination-nav__link,
+.theme-doc-breadcrumbs a {
+  text-decoration: none !important;
+}
+
+.pagination-nav__link:hover,
+.theme-doc-breadcrumbs a:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+/* Doc card list items (generated index): no underline by default, underline on hover */
+a.card,
+.DocCardList a {
+  text-decoration: none !important;
+}
+
+a.card:hover,
+.DocCardList a:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
 }
 
 /* Emphasis: 600 not 700 (docs/fonts.md) */
@@ -214,15 +247,21 @@
 .menu__link {
   color: var(--mrc-text) !important;
   font-weight: 400;
+  text-decoration: none !important;
+  text-transform: capitalize;
 }
 
 .menu__link--active {
   color: var(--mrc-maroon) !important;
   font-weight: 600;
+  text-decoration: none !important;
 }
 
 .menu__link:hover {
   color: var(--mrc-maroon) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
 }
 
 .menu__list-item-collapsible .menu__link {
@@ -296,6 +335,7 @@
   font-family: var(--mrc-font-serif) !important;
   font-weight: 600 !important;
   color: var(--mrc-text) !important;
+  text-transform: capitalize;
 }
 
 .hero__subtitle {
@@ -341,6 +381,15 @@
   color: var(--mrc-surface);
 }
 
+/* Links in content: mustard on dark for contrast (maroon fails WCAG on dark bg) */
+[data-theme='dark'] .markdown a {
+  color: var(--mrc-mustard);
+}
+
+[data-theme='dark'] .markdown a:hover {
+  color: var(--mrc-surface);
+}
+
 [data-theme='dark'] .theme-doc-sidebar-container {
   background-color: #1f1b14;
   border-right-color: rgba(250, 246, 240, 0.1);
@@ -348,10 +397,18 @@
 
 [data-theme='dark'] .menu__link {
   color: var(--mrc-surface) !important;
+  text-decoration: none !important;
 }
 
 [data-theme='dark'] .menu__link--active {
   color: var(--mrc-mustard) !important;
+  text-decoration: none !important;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
 }
 
 [data-theme='dark'] *:focus-visible {
