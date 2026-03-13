@@ -51,8 +51,20 @@ body {
   color: var(--mrc-text);
 }
 
-a {
-  color: var(--mrc-link);
+/* Align Ghost accent with brand so .gh-content a (content.css) uses maroon */
+.gh-content {
+  --ghost-accent-color: var(--mrc-maroon);
+}
+
+/* Links: maroon for contrast on cream/paper (WCAG AA) */
+a,
+.gh-content a {
+  color: var(--mrc-link) !important;
+}
+
+a:hover,
+.gh-content a:hover {
+  color: var(--mrc-text) !important;
 }
 
 a:focus-visible {
