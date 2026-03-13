@@ -56,7 +56,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Documentation',
+          label: 'Welcome',
         },
         {
           href: 'https://mannyroy.com',

@@ -1,0 +1,8 @@
+{
+  "label": "Design system",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Tokens, CUBE CSS, colours, typography, spacing, and components — how to add or change UI without breaking the system."
+  }
+}

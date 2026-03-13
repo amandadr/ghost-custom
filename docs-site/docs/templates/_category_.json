@@ -1,0 +1,8 @@
+{
+  "label": "Templates & pages",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Page types, custom templates, and Ghost integration — which template runs where and how to add a page type."
+  }
+}
