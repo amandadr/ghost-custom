@@ -635,15 +635,23 @@
   margin: 0 0 var(--space-6);
 }
 
+/* Footer nav: uses Ghost navigation (Settings → Design → Navigation) */
 .mrc-foot-nav {
+  margin-bottom: var(--space-6);
+}
+
+.mrc-foot-nav .nav {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4) var(--space-5);
-  margin-bottom: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .mrc-foot-nav a {
   color: var(--mrc-surface);
+  text-decoration: none;
 }
 
 .mrc-foot-nav a:hover {
@@ -682,6 +690,9 @@
 
   .mrc-foot-nav {
     margin-bottom: var(--space-2);
+  }
+
+  .mrc-foot-nav .nav {
     gap: var(--space-3) var(--space-5);
   }
 
