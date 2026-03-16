@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # DocsGPT implementation plan
 
-Step-by-step plan to deploy [DocsGPT](https://github.com/arc53/DocsGPT) as the sitewide AI assistant on the docs site (Docusaurus) and the main professional site (Ghost). One backend, one knowledge base, one widget embedded on both.
+This document captures the **step‑by‑step plan that was used** to deploy [DocsGPT](https://github.com/arc53/DocsGPT) as the sitewide AI assistant on the docs site (Docusaurus) and the main professional site (Ghost). One backend, one knowledge base, one widget embedded on both. It doubles as a replayable runbook if you want to reproduce the same architecture elsewhere.
 
 **Related:** [AI assistant design](design), [Roadmap](../reference/roadmap).
 

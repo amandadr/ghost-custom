@@ -14,22 +14,22 @@ The BottyGPT documentation is structured as a **narrative DevOps story** rather 
 
 1. **The blueprint** – mental model and high‑level architecture  
    - This page (overview of BottyGPT and DocsGPT).  
-   - AI assistant product design and behaviour: `AI assistant design`.  
+   - AI assistant product design and behaviour: [AI assistant design](design).  
 2. **The stack** – what actually runs and where  
-   - Architecture and infrastructure decisions: `BottyGPT architecture decisions`.  
+   - Architecture and infrastructure decisions: [BottyGPT architecture decisions](docsgpt-architecture-decisions).  
 3. **The pipeline** – how code becomes a running assistant  
-   - DevOps and deployment model: `BottyGPT DevOps and deployment`.  
-   - Testing, health checks, and runtime safeguards: `BottyGPT testing, reliability, and performance`.  
+   - DevOps and deployment model: [BottyGPT DevOps and deployment](docsgpt-devops-and-deploy).  
+   - Testing, health checks, and runtime safeguards: [BottyGPT testing, reliability, and performance](docsgpt-testing-and-operations).  
 4. **The decision log** – why this path was chosen  
    - Key trade‑offs and their impact are captured directly in the architecture and DevOps pages, using clear **Decision → Why → Impact** sections instead of abstract ADR IDs.
 
 If you want the story in order, read:
 
 1. This overview (BottyGPT / DocsGPT).  
-2. `BottyGPT architecture decisions` (what runs where).  
-3. `BottyGPT DevOps and deployment` (how it gets there).  
-4. `BottyGPT testing, reliability, and performance` (how we keep it healthy).  
-5. `DocsGPT implementation plan` (step‑by‑step guide if you want to reproduce the stack).
+2. [BottyGPT architecture decisions](docsgpt-architecture-decisions) (what runs where).  
+3. [BottyGPT DevOps and deployment](docsgpt-devops-and-deploy) (how it gets there).  
+4. [BottyGPT testing, reliability, and performance](docsgpt-testing-and-operations) (how we keep it healthy).  
+5. [DocsGPT implementation plan](docsgpt-implementation-plan) (step‑by‑step guide if you want to reproduce the stack).
 
 ## What DocsGPT is
 
