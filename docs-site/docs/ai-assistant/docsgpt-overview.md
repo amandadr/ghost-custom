@@ -2,11 +2,34 @@
 sidebar_position: 0
 ---
 
-# DocsGPT overview
+# BottyGPT / DocsGPT overview
 
-DocsGPT is an **open‑source AI assistant platform** that powers the sitewide documentation chatbot for this project. It provides a single RAG backend (retrieval‑augmented generation) and an embeddable chat widget that can be reused across multiple sites.
+DocsGPT is the **open‑source AI assistant platform** that powers BottyGPT, the sitewide documentation chatbot for this project. It provides a single RAG backend (retrieval‑augmented generation) and an embeddable chat widget that can be reused across multiple sites.
 
-This page summarizes how DocsGPT works and how it fits into the AI assistant architecture for the docs site and the main Ghost site.
+This page summarizes how BottyGPT works, how it is deployed for this site, and how the rest of the AI assistant docs are structured.
+
+## How the AI assistant docs are organized
+
+The BottyGPT documentation is structured as a **narrative DevOps story** rather than a grab‑bag of how‑tos. It is grouped into four pillars:
+
+1. **The blueprint** – mental model and high‑level architecture  
+   - This page (overview of BottyGPT and DocsGPT).  
+   - AI assistant product design and behaviour: `AI assistant design`.  
+2. **The stack** – what actually runs and where  
+   - Architecture and infrastructure decisions: `BottyGPT architecture decisions`.  
+3. **The pipeline** – how code becomes a running assistant  
+   - DevOps and deployment model: `BottyGPT DevOps and deployment`.  
+   - Testing, health checks, and runtime safeguards: `BottyGPT testing, reliability, and performance`.  
+4. **The decision log** – why this path was chosen  
+   - Key trade‑offs and their impact are captured directly in the architecture and DevOps pages, using clear **Decision → Why → Impact** sections instead of abstract ADR IDs.
+
+If you want the story in order, read:
+
+1. This overview (BottyGPT / DocsGPT).  
+2. `BottyGPT architecture decisions` (what runs where).  
+3. `BottyGPT DevOps and deployment` (how it gets there).  
+4. `BottyGPT testing, reliability, and performance` (how we keep it healthy).  
+5. `DocsGPT implementation plan` (step‑by‑step guide if you want to reproduce the stack).
 
 ## What DocsGPT is
 

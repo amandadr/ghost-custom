@@ -68,6 +68,8 @@ To enable this structure:
 
 Result: `/` = custom home, `/blog/` = post listing, `/blog/{slug}/` = posts, `/blog/tag/...` and `/blog/author/...` = archives.
 
+**If the blog page doesn’t work on production (404 or wrong page):** Apply the same routes in **production** Ghost. In the live site’s Ghost Admin go to **Settings → Labs → Routes**, upload or paste **[docs/routes-blog-archive.yaml](docs/routes-blog-archive.yaml)** (back up current routes first), then save. Ensure **Navigation** includes a link to `/blog/`. See **[docs/troubleshooting-blog.md](docs/troubleshooting-blog.md)** for more.
+
 ---
 
 ## Ghost Application landing page
