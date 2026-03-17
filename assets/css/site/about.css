@@ -130,6 +130,22 @@
   opacity: 0.95;
 }
 
+.mrc-page-about .mrc-two-col-right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.mrc-two-col-img--headshot {
+  margin-top: var(--space-6);
+  width: min(240px, 100%);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 999px;
+  opacity: 1;
+  box-shadow: 0 12px 28px rgba(21, 23, 26, 0.12);
+}
+
 /* ---------- Why This Exists (Olive anchor, 65ch, stacked statements, more white space) ---------- */
 .mrc-about-why-anchor {
   background-color: var(--mrc-olive);

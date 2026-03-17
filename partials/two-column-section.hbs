@@ -10,7 +10,11 @@
     </div>
     {{#if right_img}}
     <div class="mrc-two-col-right">
-      <img class="mrc-two-col-img" src="{{right_img}}" alt="" aria-hidden="true">
+      {{#if right_img_alt}}
+        <img class="mrc-two-col-img mrc-two-col-img--headshot" src="{{right_img}}" alt="{{right_img_alt}}">
+      {{else}}
+        <img class="mrc-two-col-img mrc-two-col-img--headshot" src="{{right_img}}" alt="" aria-hidden="true">
+      {{/if}}
     </div>
     {{else}}
     {{#if right_placeholder}}

@@ -99,10 +99,9 @@
         "default": true,
         "group": "homepage"
       },
-      "featured_title": {
-        "type": "text",
-        "default": "Featured articles",
-        "group": "homepage"
+      "about_headshot": {
+        "type": "image",
+        "group": "about"
       },
       "show_author": {
         "type": "boolean",

@@ -40,6 +40,10 @@
   column-gap: var(--space-6);
   row-gap: var(--space-3);
 }
+.nav a {
+  font-weight: 600;
+  color: var(--mrc-surface) !important;
+}
 
 .mrc-head .gh-head-brand,
 .mrc-head .gh-head-brand-wrapper {
@@ -231,8 +235,6 @@
 
   .is-head-open #gh-head.mrc-head .gh-head-menu .nav a {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--mrc-surface) !important;
   }
 
   .is-head-open #gh-main {
@@ -355,12 +357,13 @@
 
 .mrc-hero .mrc-btn-primary {
   background-color: var(--mrc-maroon);
-  color: var(--mrc-surface);
+  color: var(--mrc-surface) !important;
   border: 2px solid var(--mrc-maroon);
 }
 
 .mrc-hero .mrc-btn-primary:hover {
   opacity: 0.95;
+  color: var(--mrc-text) !important;
 }
 
 .mrc-hero .mrc-btn-secondary {
