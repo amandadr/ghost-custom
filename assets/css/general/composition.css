@@ -21,14 +21,14 @@
 .mrc-stack {
   display: flex;
   flex-direction: column;
-  gap: var(--mrc-stack-gap, var(--space-4));
+  gap: var(--mrc-stack-gap, var(--space-2));
 }
 
 .mrc-stack--s { --mrc-stack-gap: var(--space-2); }
-.mrc-stack--m { --mrc-stack-gap: var(--space-4); }
-.mrc-stack--l { --mrc-stack-gap: var(--space-6); }
-.mrc-stack--xl { --mrc-stack-gap: var(--space-8); }
-.mrc-stack--section { --mrc-stack-gap: var(--space-9); }
+.mrc-stack--m { --mrc-stack-gap: var(--space-3); }
+.mrc-stack--l { --mrc-stack-gap: var(--space-4); }
+.mrc-stack--xl { --mrc-stack-gap: var(--space-6); }
+.mrc-stack--section { --mrc-stack-gap: var(--space-8); }
 
 /* ---- Cluster: horizontal wrapping row (nav, CTAs), gap-controlled ---- */
 .mrc-cluster {

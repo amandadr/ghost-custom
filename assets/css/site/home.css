@@ -232,6 +232,7 @@
   .is-head-open #gh-head.mrc-head .gh-head-menu .nav a {
     font-size: 1.5rem;
     font-weight: 600;
+    color: var(--mrc-surface) !important;
   }
 
   .is-head-open #gh-main {
@@ -650,8 +651,9 @@
 }
 
 .mrc-foot-nav a {
-  color: var(--mrc-surface);
+  color: var(--mrc-mustard) !important;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .mrc-foot-nav a:hover {

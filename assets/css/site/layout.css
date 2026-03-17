@@ -16,7 +16,7 @@ body {
 
 .site-content {
     flex-grow: 1;
-    padding: var(--space-9) 0;
+    padding: var(--space-8) 0;
 }
 
 /* Global container + gutters: keep content inset from viewport edges */

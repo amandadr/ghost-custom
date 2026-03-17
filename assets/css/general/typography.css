@@ -11,7 +11,7 @@ html {
 
 :root {
   /* Base */
-  --mrc-body-size: 17px;
+  --mrc-body-size: 16px;
   --mrc-body-line: 1.72;
   --mrc-body-weight: 400;
 
@@ -23,7 +23,7 @@ html {
   --mrc-h2-size: clamp(1.65rem, 2.8vw + 0.9rem, 2.1rem);
   --mrc-h3-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.35rem);
   --mrc-lede-size: 1.125rem;
-  --mrc-small-size: 14px;
+  --mrc-small-size: 0.75rem;
 
   /* Spacing scale — SOP: 4, 8, 12, 16, 24, 32, 48, 64, 96 (no arbitrary values) */
   --space-1: 0.25rem;   /* 4px */
@@ -164,11 +164,64 @@ strong, b {
 .mrc-content-width {
   max-width: min(var(--mrc-content-width), 100%);
   font-size: var(--mrc-body-size);
+  margin-top: var(--space-3);
 }
 
 .gh-content p,
 .mrc-content-width p {
   max-width: min(var(--mrc-content-width), 100%);
+}
+
+hr {
+  border-color: var(--mrc-olive);
+  border-width: 0.5px;
+  border-style: solid;
+  margin-top: var(--space-6) !important;
+  margin-bottom: var(--space-3) !important;
+}
+
+/* Content spacing: tighten default stack spacing from shared content.css */
+.gh-content > [id]:not(:first-child) {
+  margin-top: calc(1rem * var(--content-spacing-multiplier, 1));
+}
+
+/* Table spacing: tighten default stack spacing from shared content.css */
+.gh-content :not(.kg-card):not(table):not([id])+:is(.kg-card,table) {
+  margin-top: calc(1em * var(--content-spacing-multiplier, 1));
+}
+
+/* Tables: ensure opaque background + legible header (override shared content.css) */
+.gh-content table:not(.gist table) {
+  /* Ghost sets a gradient via `background:` — override with a solid fill */
+  background: var(--mrc-surface);
+  background-image: none !important;
+  /* Prevent right overflow caused by shared content.css defaults */
+  display: table;
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  overflow-x: visible;
+}
+
+.gh-content table:not(.gist table) th,
+.gh-content table:not(.gist table) td {
+  background: var(--mrc-surface);
+  background-image: none !important;
+}
+
+.gh-content table:not(.gist table) tbody td {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.gh-content table:not(.gist table) thead th {
+  background: var(--mrc-olive);
+  color: var(--mrc-surface);
+  font-size: 1rem;
+}
+
+.gh-content table:not(.gist table) thead th a {
+  color: inherit;
 }
 
 /* Lede — intro paragraph slightly larger */
@@ -189,9 +242,11 @@ strong, b {
 /* Small / meta text — never below 14px */
 .mrc-meta,
 small,
-.gh-content figcaption {
+.gh-content figcaption,
+.single-media figcaption {
   font-size: var(--mrc-small-size);
-  line-height: 1.5;
+  line-height: 1;
+  margin-top: var(--space-2);
 }
 
 /* Form inputs: 16px minimum to prevent mobile zoom */
