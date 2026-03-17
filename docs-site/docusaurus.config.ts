@@ -40,6 +40,14 @@ const config: Config = {
     ],
   ],
 
+  scripts: [
+    'https://unpkg.com/docsgpt@0.5.1/dist/legacy/browser.js',
+  ],
+
+  clientModules: [
+    require.resolve('./src/clientModules/docsgpt-widget'),
+  ],
+
   themeConfig: {
     image: 'img/logo.jpg',
     colorMode: {
