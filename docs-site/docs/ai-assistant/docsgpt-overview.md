@@ -23,19 +23,19 @@ The BottyGPT documentation is structured as a **narrative DevOps story** rather 
 4. **The decision log** – why this path was chosen  
    - Key trade‑offs and their impact are captured directly in the architecture and DevOps pages, using clear **Decision → Why → Impact** sections instead of abstract ADR IDs.
 
-If you want the story in order, read:
+Read the story in order:
 
 1. This overview (BottyGPT / DocsGPT).  
 2. [BottyGPT architecture decisions](docsgpt-architecture-decisions) (what runs where).  
 3. [BottyGPT DevOps and deployment](docsgpt-devops-and-deploy) (how it gets there).  
 4. [BottyGPT testing, reliability, and performance](docsgpt-testing-and-operations) (how we keep it healthy).  
-5. [DocsGPT implementation plan](docsgpt-implementation-plan) (step‑by‑step guide if you want to reproduce the stack).
+5. [DocsGPT implementation plan](docsgpt-implementation-plan) (the implementation story behind this assistant).
 
 ## What DocsGPT is
 
 DocsGPT is a self‑hostable (or cloud‑hosted) system for building AI assistants and agents:
 
-- **Private, controllable backend** – you host the API and data, or use the official cloud.
+- **Private, controllable backend** – we host the API and data (self-hosted), or use the official cloud.
 - **Multi‑source ingestion** – supports URLs/sitemaps, uploaded docs (PDF, Office, Markdown, HTML, JSON, etc.), GitHub, and other sources.
 - **RAG pipeline** – turns content into embeddings in a vector database; answers are generated based on retrieved chunks.
 - **Embeddable widgets and integrations** – React widget, plain HTML/JS widget, bots (Slack/Discord/Telegram), and API tooling.
@@ -61,14 +61,14 @@ The AI assistant for this project follows the “**one backend, many frontends**
 
 Both frontends point to the **same `apiHost`** (e.g. `https://assistant-api.mannyroy.com`) and optionally share the same API key, so behaviour and knowledge are consistent everywhere.
 
-For detailed steps, see:
+For deeper context, see:
 
 - [AI assistant design](design)
 - [DocsGPT implementation plan](docsgpt-implementation-plan)
 
 ## High‑level architecture
 
-At a high level, DocsGPT sits between your sites and the underlying LLM provider(s):
+At a high level, DocsGPT sits between our sites and the underlying LLM provider(s):
 
 - **DocsGPT backend**
   - Exposes an HTTP API used by the widget.
@@ -103,5 +103,4 @@ Trade‑offs (captured in more detail in the implementation plan) include runnin
 Use this page as a conceptual introduction. For concrete implementation details and code‑level integration, see:
 
 - [AI assistant design](design) – product/UX design, scope, and how the assistant appears across the sites.
-- [DocsGPT implementation plan](docsgpt-implementation-plan) – step‑by‑step DevOps and integration plan.
-
+- [DocsGPT implementation plan](docsgpt-implementation-plan) – the DevOps and integration story behind the stack.

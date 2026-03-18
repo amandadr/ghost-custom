@@ -57,26 +57,26 @@ The contribution is intentionally minimal: it adds **two routes**, a small **dep
 - **Authentication**: these endpoints are meant to be callable **without authentication**, matching upstream behaviour where requests without a token are not forcibly rejected.
 - **Vector store conditional**: if `VECTOR_STORE` is not `qdrant`, readiness checks only cover **Redis** and **Mongo**.
 
-## How to upstream it (PR-ready bundle)
+## Upstream submission bundle (PR-ready)
 
 The PR bundle lives in this repo at:
 
 - `contrib/upstream-pr` (source-of-truth for the change set prepared for upstream)
 
-It contains:
+It includes:
 
-- `README.md`: step‑by‑step “open the PR” instructions and a ready-to-paste PR description
+- `README.md`: ready-to-paste PR description and context for reviewers
 - `APP_PATCH.md`: the exact `application/app.py` import + route insert points
 - `application/core/service_checks.py`, `application/healthcheck.py`, and `tests/test_health.py`
 
-### Local verification (upstream fork)
+### Verification we ran (upstream fork)
 
-From the upstream DocsGPT repo root, the intended check sequence is:
+From the upstream DocsGPT repo root, our verification sequence was:
 
-- Install requirements: `pip install -r application/requirements.txt -r tests/requirements.txt`
-- Lint/format: `ruff check application/ tests/` and `ruff format application/ tests/`
-- Run tests: `python -m pytest tests/test_health.py tests/test_app.py -v`
+- We installed requirements: `pip install -r application/requirements.txt -r tests/requirements.txt`
+- We ran lint/format: `ruff check application/ tests/` and `ruff format application/ tests/`
+- We ran tests: `python -m pytest tests/test_health.py tests/test_app.py -v`
 
-## PR text (copy/paste)
+## PR description (copy/paste)
 
-The prepared PR title and full description are captured in `contrib/upstream-pr/README.md` so it can be pasted directly into GitHub when opening the upstream PR.
+The prepared PR title and full description are captured in `contrib/upstream-pr/README.md` for a clean copy/paste submission.

@@ -8,19 +8,19 @@ BottyGPT is treated as production infrastructure, not a toy widget. This page su
 
 ## Preflight testing in CI
 
-Before a change is allowed to deploy, the **preflight workflow** enforces four gates:
+Our **preflight workflow** enforces four gates:
 
 - **Dependency graph check**
-  - Installs application and test requirements and runs `pip check`.
-  - Confirms there are no broken or conflicting Python dependencies.
+  - It installs application and test requirements and runs `pip check`.
+  - It confirms there are no broken or conflicting Python dependencies.
 - **Targeted backend tests**
-  - Runs focused tests for the API and Celery worker.
-  - Ensures basic request handling and task execution are stable.
+  - It runs focused tests for the API and Celery worker.
+  - It ensures basic request handling and task execution are stable.
 - **Image‑size guardrail**
-  - Builds the backend image and fails if it exceeds a defined byte limit.
+  - It builds the backend image and fails if it exceeds a defined byte limit.
   - Prevents regressions where model files or build toolchains accidentally bloat the runtime image, which would slow deploys and stress disk.
 - **Compose connectivity smoke test**
-  - Starts a reduced Docker Compose stack.
+  - It starts a reduced Docker Compose stack.
   - Verifies:
     - `GET /api/health`
     - `GET /api/ready`
@@ -41,10 +41,10 @@ At runtime, BottyGPT exposes clear health surfaces:
 
 A dedicated **debugging runbook** captures the first 10 minutes of incident response:
 
-- Inspect container status with `docker compose ps` to identify failing services.
-- Call `/api/health` and `/api/ready` locally on the VM.
-- Execute healthcheck commands inside backend and worker containers.
-- Use structured logs and request IDs to trace failing requests.
+- It starts by inspecting container status with `docker compose ps` to identify failing services.
+- It calls `/api/health` and `/api/ready` locally on the VM.
+- It executes healthcheck commands inside backend and worker containers.
+- It uses structured logs and request IDs to trace failing requests.
 
 **Impact:** When something goes wrong, there is a deterministic path to isolate whether the issue is:
 
@@ -89,4 +89,3 @@ For this Ghost theme and the Docusaurus docs site, these practices translate int
 - Capacity and performance tuning (VM size, vector store configuration, logging volume) are deliberate choices, not accidents.
 
 BottyGPT is intentionally operated like a production service. That posture is part of the story this site tells about how it approaches applied AI, infrastructure, and long‑term maintainability.
-

@@ -3,6 +3,6 @@
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Install, run, build, and validate the theme — so you can develop locally and ship it."
+    "description": "Our local workflow for the theme: iterate quickly and ship with confidence."
   }
 }

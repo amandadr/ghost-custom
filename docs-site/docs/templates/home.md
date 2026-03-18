@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Homepage (home.hbs)
 
-The **homepage** is rendered by `home.hbs` when you set a static homepage in Ghost (Settings → General → Homepage). It follows the design system’s section rhythm: Cream → Paper → Olive → Maroon.
+The **homepage** is rendered by `home.hbs` when a static homepage is set in Ghost (Settings → General → Homepage). It follows the design system’s section rhythm: Cream → Paper → Olive → Maroon.
 
 ## Structure
 
@@ -18,7 +18,7 @@ All section copy except the CTAs is hardcoded in the template. Hero headline and
 ## Theme settings used (homepage group)
 
 | Key | Type | Default | Purpose |
-|-----|------|--------|---------|
+| --- | --- | --- | --- |
 | `hero_headline` | text | "Untangle complex technical and operational problems." | Hero H1 |
 | `hero_subtext` | text | "Sustainable systems rooted in data, collaboration, and measurable impact." | Hero subtext |
 

@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Blog and index (index.hbs)
 
-The **blog archive** (e.g. `/` or `/blog/` depending on your routes) uses `index.hbs` to list posts. The **layout** is controlled by `default.hbs`: when the current context is index and not the homepage, it also renders the cover and (optionally) the featured-posts section above the main content.
+The **blog archive** (e.g. `/` or `/blog/` depending on our routes) uses `index.hbs` to list posts. The **layout** is controlled by `default.hbs`: when the current context is index and not the homepage, it also renders the cover and (optionally) the featured-posts section above the main content.
 
 ## What runs when
 
@@ -21,7 +21,7 @@ No other content blocks; the feed is the only body content from this template.
 ## Theme settings used (homepage group)
 
 | Key | Type | Default | Purpose |
-|-----|------|--------|---------|
+| --- | --- | --- | --- |
 | `show_featured_posts` | boolean | true | Whether to show the featured posts section above the feed on index |
 | `featured_title` | text | "Featured articles" | Heading for the featured section |
 

@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # BottyGPT architecture decisions
 
-BottyGPT is the internal name for the DocsGPT deployment that powers this site’s AI assistant. This page documents the **key architecture decisions**, why they were made for this project, and the impact they have on reliability, performance, and operations. Treat it as the **blueprint** for how the assistant is wired together.
+BottyGPT is the internal name for the DocsGPT deployment that powers this site’s AI assistant. This page documents the **key architecture decisions**, why they were made for this project, and the impact they have on reliability, performance, and operations. This page acts as the **blueprint** for how the assistant is wired together.
 
 ## High‑level architecture (mental model)
 
@@ -96,7 +96,7 @@ This diagram matches the real deployment: a single Canadian VM, Docker Compose, 
 - **Decision:** Use **GitHub Actions** to:
   - Build backend and frontend images for `linux/amd64`.
   - Push them to **Artifact Registry** in the Canadian region.
-  - SSH into the VM and run `docker compose pull && up -d` with an immutable `IMAGE_TAG` (commit SHA).
+  - Connect to the VM over SSH and run `docker compose pull && up -d` with an immutable `IMAGE_TAG` (commit SHA).
 - **Why:** This keeps builds reproducible and traceable:
   - The VM is a runtime host only; it never builds images.
   - Every running version maps directly back to a commit.
@@ -117,4 +117,3 @@ BottyGPT is intentionally **boring in all the right ways**:
 - Pins a **50GB boot disk** on the VM specifically to absorb image layers and vector data without frequent “no space left on device” incidents.
 
 For a single‑VM deployment that backs two public sites, these decisions deliberately favour **operational clarity and predictable performance** over premature horizontal scaling. If traffic or requirements grow, the architecture and tooling already in place make it straightforward to scale out or move to managed services.
-

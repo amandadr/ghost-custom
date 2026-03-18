@@ -56,22 +56,22 @@ Every image deployed to the VM is tagged with `GITHUB_SHA`, not `latest`. This m
 
 ## Fresh VM build and cutover
 
-The Plan 2.0 VM docs define a clear path for provisioning a new host and cutting over safely:
+The Plan 2.0 VM docs capture the cutover workflow we used when bringing up a new host:
 
 - **Provision:**
-  - Create a VM in `northamerica-northeast1-a` with a **50GB boot disk**.
-  - Install Docker and the Docker Compose plugin.
-  - Configure firewall rules so HTTP/HTTPS reach the VM where appropriate.
+  - We created a VM in `northamerica-northeast1-a` with a **50GB boot disk**.
+  - We installed Docker and the Docker Compose plugin.
+  - We configured firewall rules so HTTP/HTTPS reach the VM where appropriate.
 - **Bootstrap:**
-  - Copy `docker-compose.gcp.yaml` and initial `.env` to `/opt/docsgpt`.
-  - Ensure the VM’s service account can pull from Artifact Registry.
+  - We copied `docker-compose.gcp.yaml` and the initial `.env` to `/opt/docsgpt`.
+  - We ensured the VM’s service account can pull from Artifact Registry.
 - **Deploy:**
-  - Set `IMAGE_TAG` in `.env` to a known‑good SHA.
-  - Run `sudo docker compose -f docker-compose.gcp.yaml --env-file .env up -d`.
+  - We set `IMAGE_TAG` in `.env` to a known‑good SHA.
+  - We deployed with `sudo docker compose -f docker-compose.gcp.yaml --env-file .env up -d`.
 - **Validate:**
-  - Hit `/api/health` and `/api/ready` on the backend.
-  - Confirm the frontend responds on port 80 (or via the TLS proxy).
-  - Run smoke tests against key flows (ingestion and Q&A).
+  - We hit `/api/health` and `/api/ready` on the backend.
+  - We confirmed the frontend responds on port 80 (or via the TLS proxy).
+  - We ran smoke tests against key flows (ingestion and Q&A).
 
 This approach mirrors a blue/green mindset without the overhead of a full load‑balancer: a new VM can be built, validated, and then promoted simply by pointing DNS or traffic at it, with a straightforward rollback story.
 
@@ -106,4 +106,3 @@ To keep the VM secure and predictable:
   - Validating connectivity from both the VM and an external client with `curl` and `nc`.
 
 In practice, this means BottyGPT exposes only what the sites and widget need, and nothing more.
-

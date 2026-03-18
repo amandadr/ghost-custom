@@ -15,10 +15,8 @@ The assistant appears on both:
 
 The implemented approach is: **one backend, one embeddable widget.**
 
-| Piece | Role |
-|-------|------|
-| **Single RAG backend** | One API that indexes content from both the docs site and the main site (URLs, crawled pages, or ingested files). All answers come from this knowledge base. |
-| **Embeddable widget** | Same chat UI and behaviour on every page. Integrated once per platform: script/component on Ghost, script or React component on Docusaurus. |
+- **Single RAG backend** — One API that indexes content from both the docs site and the main site (URLs, crawled pages, or ingested files). All answers come from this knowledge base.
+- **Embeddable widget** — Same chat UI and behaviour on every page. Integrated once per platform: script/component on Ghost, script or React component on Docusaurus.
 
 Same `apiHost` (and optional `apiKey`) on both sites so users get a consistent experience and one place to maintain scope, citations, and safeguards.
 
@@ -26,7 +24,7 @@ Same `apiHost` (and optional `apiKey`) on both sites so users get a consistent e
 
 The assistant is powered by **[DocsGPT](https://github.com/arc53/DocsGPT)**, which fits this model well:
 
-- **Self-hosted or cloud** — Run your own instance or use DocsGPT Cloud; one backend URL for both sites.
+- **Self-hosted or cloud** — We run our own instance or use DocsGPT Cloud; one backend URL for both sites.
 - **Single knowledge base** — Ingest from documentation (Markdown, MDX, HTML), URLs (e.g. docs.mannyroy.com and mannyroy.com), or files. One corpus for the whole “application” (docs + main site).
 - **Embeddable widget** — Works on any site:
   - **React**: `<DocsGPTWidget apiHost="..." ... />` — use in Docusaurus (e.g. root layout or a swizzled component).
@@ -34,9 +32,9 @@ The assistant is powered by **[DocsGPT](https://github.com/arc53/DocsGPT)**, whi
 - **Source citations** — `showSources: true` so answers reference docs and pages.
 - **Open source** — [GitHub](https://github.com/arc53/DocsGPT); [widget docs](https://docs.docsgpt.cloud/Extensions/chat-widget); [demo](https://widget.docsgpt.cloud/).
 
-A full step‑by‑step plan is documented in the [DocsGPT implementation plan](docsgpt-implementation-plan), which records how this deployment was put in place.
+A full deployment story is documented in the [DocsGPT implementation plan](docsgpt-implementation-plan), including the key choices that shaped this rollout.
 
-Other options (e.g. generic chat widget + custom RAG API, or [ghost-chat-embed](https://github.com/rscheiwe/ghost-chat-embed) + your own backend) are viable patterns in general; this site specifically showcases the DocsGPT path.
+Other options (e.g. generic chat widget + custom RAG API, or [ghost-chat-embed](https://github.com/rscheiwe/ghost-chat-embed) + our own backend) are viable patterns in general; this site specifically showcases the DocsGPT path.
 
 ## Where the assistant is integrated
 

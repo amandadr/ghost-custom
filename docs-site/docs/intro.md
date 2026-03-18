@@ -6,10 +6,10 @@ sidebar_position: 1
 
 This documentation covers the **custom Ghost theme and site** for [Manny Roy Consulting](https://mannyroy.com): how the theme is built, how to run and change it, and how it fits into the broader application (performance, operations, AI assistant).
 
-## What you'll find
+## What we cover
 
 | Section | Purpose |
-|--------|---------|
+| --- | --- |
 | [Getting started](/docs/getting-started/local-development) | Run the theme locally, build assets, and create the zip |
 | [Architecture](/docs/architecture/overview) | Stack, repo layout, theme system, templates and partials |
 | [Design system](/docs/design-system/overview) | Colours, typography, spacing, composition, responsiveness, accessibility |
