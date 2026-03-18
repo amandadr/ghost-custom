@@ -32,7 +32,7 @@
   <section class="mrc-contact-form-section section-light gh-outer" aria-labelledby="mrc-contact-form-title">
     <div class="mrc-contact-form-inner gh-inner">
       <h2 id="mrc-contact-form-title" class="mrc-contact-section-title">Send a message</h2>
-      <form class="mrc-contact-form" action="{{#if @custom.contact_form_action}}{{@custom.contact_form_action}}{{else}}https://formspree.io/f/YOUR_FORM_ID{{/if}}" method="POST" novalidate>
+      <form class="mrc-contact-form" data-ga-form="contact_form" action="{{#if @custom.contact_form_action}}{{@custom.contact_form_action}}{{else}}https://formspree.io/f/YOUR_FORM_ID{{/if}}" method="POST" novalidate>
         <input type="hidden" name="_subject" value="Contact form submission from mannyroy.com">
         <input type="hidden" name="_next" value="{{@site.url}}/thanks/">
         <div class="mrc-form-field">
@@ -61,7 +61,13 @@
           <label for="mrc-contact-message">Message</label>
           <textarea id="mrc-contact-message" name="message" rows="5" required minlength="1"></textarea>
         </div>
-        <button type="submit" class="button mrc-contact-submit">Send Message</button>
+        <button
+          type="submit"
+          class="button mrc-contact-submit"
+          data-ga-event="generate_lead"
+          data-ga-category="conversion"
+          data-ga-label="contact_form_submit"
+        >Send Message</button>
       </form>
     </div>
   </section>

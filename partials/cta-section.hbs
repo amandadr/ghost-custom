@@ -5,6 +5,12 @@
     {{#if subtext}}
       <p class="mrc-cta-subtext">{{subtext}}</p>
     {{/if}}
-    <a href="{{@site.url}}/contact/" class="button mrc-cta-btn">{{#if button_text}}{{button_text}}{{else}}Get in touch{{/if}}</a>
+    <a
+      href="{{@site.url}}/contact/"
+      class="button mrc-cta-btn"
+      data-ga-event="cta_click"
+      data-ga-category="engagement"
+      data-ga-label="final_cta_get_in_touch"
+    >{{#if button_text}}{{button_text}}{{else}}Get in touch{{/if}}</a>
   </div>
 </section>

@@ -9,8 +9,20 @@
     <h1 class="mrc-hero-headline">{{@custom.hero_headline}}</h1>
     <p class="mrc-hero-subtext">{{@custom.hero_subtext}}</p>
     <div class="mrc-hero-cta">
-      <a href="/contact/" class="button mrc-btn-primary">Get in touch</a>
-      <a href="/services/" class="button button-secondary mrc-btn-secondary">Services</a>
+      <a
+        href="/contact/"
+        class="button mrc-btn-primary"
+        data-ga-event="cta_click"
+        data-ga-category="engagement"
+        data-ga-label="hero_get_in_touch"
+      >Get in touch</a>
+      <a
+        href="/services/"
+        class="button button-secondary mrc-btn-secondary"
+        data-ga-event="cta_click"
+        data-ga-category="engagement"
+        data-ga-label="hero_services"
+      >Services</a>
     </div>
   </div>
 </section>

@@ -1,0 +1,34 @@
+{{!--
+  GA4 base tag (theme-managed).
+
+  Why this approach:
+  - Ghost themes have a limited number of `config.custom` settings.
+  - This theme already uses many custom settings, so we avoid adding another.
+
+  How to configure:
+  - In Ghost Admin → Settings → Code injection → Site Header, add:
+      <meta name="ga4-measurement-id" content="G-XXXXXXXXXX">
+--}}
+
+<script>
+  (function () {
+    var meta = document.querySelector('meta[name="ga4-measurement-id"]');
+    var id = meta && meta.getAttribute('content');
+
+    if (!id || !/^G-[A-Z0-9]+$/i.test(id)) {
+      return;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    window.gtag = window.gtag || gtag;
+
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+    document.head.appendChild(s);
+
+    window.gtag('js', new Date());
+    window.gtag('config', id);
+  })();
+</script>
