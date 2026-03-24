@@ -1,49 +1,9 @@
-/* IBM Plex Sans — body (docs/fonts.md) */
-@font-face {
-    font-family: "IBM Plex Sans";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local("IBM Plex Sans"), url("../fonts/ibm-plex-sans/IBMPlexSans-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "IBM Plex Sans";
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: local("IBM Plex Sans SemiBold"), url("../fonts/ibm-plex-sans/IBMPlexSans-SemiBold.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "IBM Plex Sans";
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: local("IBM Plex Sans Italic"), url("../fonts/ibm-plex-sans/IBMPlexSans-Italic.ttf") format("truetype");
-}
-
-/* IBM Plex Serif — headings (docs/fonts.md) */
-@font-face {
-    font-family: "IBM Plex Serif";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local("IBM Plex Serif"), url("../fonts/ibm-plex-serif/IBMPlexSerif-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "IBM Plex Serif";
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: local("IBM Plex Serif SemiBold"), url("../fonts/ibm-plex-serif/IBMPlexSerif-SemiBold.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "IBM Plex Serif";
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: local("IBM Plex Serif Italic"), url("../fonts/ibm-plex-serif/IBMPlexSerif-Italic.ttf") format("truetype");
-}
+/*
+ * IBM Plex families are loaded in default.hbs via Google Fonts (link + preconnect).
+ * Self-hosted .woff2 under assets/fonts/ was correct in-repo, but some Ghost/host/CDN
+ * paths still produced OTS decode errors in production; loading from fonts.googleapis.com
+ * avoids theme binary delivery for fonts.
+ *
+ * Optional local files: run `gulp fonts` to refresh assets/fonts from @fontsource if you
+ * later switch back to @font-face + url() here.
+ */

@@ -6,6 +6,8 @@ sidebar_position: 1
 
 This section describes the **AI assistant that is already live on this site**. The assistant is a **documentation‑first Q&A chatbot** grounded in site content (docs, key pages, blog), with a chat UI, source‑aware answers, and clearly defined scope and safeguards. The [roadmap](../reference/roadmap) captures how this design was rolled out over time.
 
+**TL;DR:** BottyGPT/DocsGPT is embedded as one widget on both Ghost and Docusaurus, backed by a single knowledge base so answers stay consistent and attributable.
+
 ## Sitewide presence (docs + main site)
 
 The assistant appears on both:
@@ -58,3 +60,11 @@ Out‑of‑scope questions are handled conservatively (for example, by acknowled
 - [DocsGPT implementation plan](docsgpt-implementation-plan)
 - [Architecture overview](../architecture/overview)
 - [Roadmap](../reference/roadmap)
+
+:::info See also
+
+- [BottyGPT testing, reliability, and performance](/docs/ai-assistant/docsgpt-testing-and-operations) — health checks + runbook gates
+- [BottyGPT DevOps and deployment](/docs/ai-assistant/docsgpt-devops-and-deploy) — VM, TLS, and widget `apiHost`
+- [BottyGPT architecture decisions](/docs/ai-assistant/docsgpt-architecture-decisions) — why we picked this stack
+
+:::

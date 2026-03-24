@@ -40,3 +40,11 @@ Interactive elements (buttons, links, form controls) should have a minimum **44p
 - Add ARIA only when needed (e.g. live regions, expanded/collapsed for menus). Don’t overuse ARIA where native HTML is sufficient (e.g. buttons, links, headings).
 
 Accessibility is treated as part of design quality — it’s structural, not an add-on.
+
+## Accessibility checklist (quick verification)
+
+- **Keyboard navigation:** Use `Tab`/`Shift+Tab` and confirm the focus ring is visible on the navbar links and the homepage hero CTA.
+- **Focus order:** The tab sequence should follow reading order (navbar first, then main content, then footer) without “focus traps”.
+- **Reduced motion:** Verify animations respect `prefers-reduced-motion` (no unexpected motion on load).
+- **Contrast:** Ensure text and interactive controls maintain readable contrast in both light and dark sections (see `Colours` for approved pairs).
+- **Tap targets:** On mobile widths, check that primary buttons and links are at least ~44px and that adjacent actions don’t overlap.

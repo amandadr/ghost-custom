@@ -6,6 +6,8 @@ sidebar_position: 1
 
 This page documents our **release workflow** for the theme (build, validate, deploy) and how we ship this docs site.
 
+**TL;DR:** Build assets → run GScan validation → zip → upload + activate. For docs and operational changes, we keep a clear rollback path and an auditable release workflow.
+
 ## Theme deployment (Ghost)
 
 ### 1. Build
@@ -54,6 +56,17 @@ Keep a copy of the previous theme zip. To roll back:
 1. In **Settings → Design**, we upload the previous zip (or switch to a previously installed theme if still present).
 2. We activate it. No database rollback is needed for a theme-only change.
 
+### When things go wrong (quick checklist)
+
+- Theme upload fails or the UI looks broken:
+  - Confirm the zip was produced with `yarn zip` after `yarn test` (GScan).
+  - Re-check that `assets/built/screen.css` and `built/main.min.js` are present in the zip.
+- Validation errors after a Ghost upgrade:
+  - Re-run `yarn test` on your machine (matches the packaging path).
+  - Fix reported compatibility/deprecation items in templates/CSS/JS, then rebuild + re-zip.
+- Docs site deploy fails:
+  - Check the host build logs and confirm the Docusaurus publish directory is `build/`.
+
 ## Docs site deployment (Docusaurus)
 
 This documentation site is separate from the theme:
@@ -64,6 +77,10 @@ This documentation site is separate from the theme:
 
 ## Related
 
+:::info See also
+
 - [Build and validate](/docs/getting-started/build-and-validate) — Detailed build and GScan steps
 - [Observability](./observability) — Monitoring and what to do when something breaks
 - [Architecture overview](/docs/architecture/overview) — Stack and repo layout
+
+:::

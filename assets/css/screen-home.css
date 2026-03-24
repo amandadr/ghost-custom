@@ -1,0 +1,20 @@
+/**
+ * First-paint bundle for the custom home template only (see default.hbs).
+ * Omits blog, per-page site CSS, and the deferred half of home.css (principles, CTA, footer rules).
+ * Full styles still load asynchronously via built/screen.css.
+ */
+@import "@tryghost/shared-theme-assets/assets/css/v1/screen.css";
+@import "general/fonts.css";
+@import "general/basics.css";
+@import "general/brand.css";
+@import "general/typography.css";
+@import "general/composition.css";
+@import "general/button.css";
+@import "general/form.css";
+@import "general/icons.css";
+@import "site/layout.css";
+@import "site/header.css";
+@import "site/home-critical.css";
+@import "misc/utils.css";
+@import "misc/animations.css";
+@import "misc/dark.css";

@@ -47,7 +47,7 @@ cd ghost-local
 ghost install local
 ```
 
-Complete the CLI prompts. Ghost runs at **<http://localhost:2368>** and Admin at **<http://localhost:2368/ghost>**.
+Complete the CLI prompts. Ghost runs at **`http://localhost:2368`** and Admin at **`http://localhost:2368/ghost`**.
 
 ### 2. Link the theme into Ghost
 
@@ -65,7 +65,7 @@ Or from this repo, run the helper script (adjust paths as needed):
 
 ### 3. Activate the theme in Ghost
 
-1. Open **<http://localhost:2368/ghost>**
+1. Open **`http://localhost:2368/ghost`**
 2. Complete setup (owner account, site title) if first run
 3. Go to **Settings → Design**
 4. Under “Installed themes”, select **manny-roy** and click **Activate**
@@ -94,6 +94,23 @@ yarn dev
 ```
 
 This builds CSS/JS to `assets/built/` and watches for changes; livereload refreshes the browser when templates or built assets are edited.
+
+## Local docs-site development (Docusaurus)
+
+The docs site runs outside Ghost, and we use it to preview documentation changes quickly:
+
+1. Use a compatible Node version for the docs site (see `docs-site/package.json`, currently `node >=20`). For quick parity with Ghost tooling, we typically use Node 22+: `nvm use 22`.
+1. From this repo root, we run:
+
+```bash
+cd docs-site
+yarn install
+yarn start
+```
+
+1. We open the local docs in the browser (default Docusaurus URL: `http://localhost:3000`).
+
+When you save changes under `docs-site/docs/`, the dev server reflects them immediately.
 
 ## What the workflow responds to
 

@@ -6,6 +6,23 @@ sidebar_position: 2
 
 This page documents **monitoring**, **health signals**, and **our reliability approach** when something breaks so the theme and site stay dependable.
 
+**TL;DR:** Triage by surface first (theme vs assistant vs host), then use health endpoints + release validation to reach a concrete diagnosis quickly.
+
+## When things go wrong (fast triage)
+
+1. Identify which surface is affected:
+   - Theme/UI (layout, CSS, JS)
+   - Ghost hosting (down/5xx)
+   - Docs site deployment
+   - AI assistant widget (chat loading / answers failing)
+2. Confirm the release artifacts:
+   - Theme zip produced after `yarn test` (GScan)
+   - Docs site build publish directory is `build/`
+3. Confirm service health:
+   - Theme/Docs availability via a simple HTTP check
+   - Assistant readiness via `GET /api/health` and `GET /api/ready`
+4. Only then start deeper debugging (logs, container status, ingestion state).
+
 ## Deployment and rollback
 
 - **Theme:** We deploy by uploading the theme zip in Ghost Admin. We roll back by re-uploading a previous zip or activating a previously installed theme. See [Deployment](./deployment).
@@ -30,6 +47,28 @@ This page documents **monitoring**, **health signals**, and **our reliability ap
 - **Error tracking:** Optionally add a lightweight client-side error tracking script (e.g. for JS errors) and document it in the theme or ops docs. Keep privacy and performance in mind.
 - **Broken links:** We run a broken-link checker (manual or in CI) before or after launch so internal and key external links stay valid.
 
+## Baseline telemetry (Core Web Vitals)
+
+To keep “fast” measurable over time, we track these baseline signals:
+
+- **LCP (Largest Contentful Paint)** — focus on the hero/main content above the fold.
+- **INP (Interaction to Next Paint)** — focus on nav interactions and any chat-widget interactions.
+- **CLS (Cumulative Layout Shift)** — watch for late-loading fonts/images/layout changes.
+
+Suggested schedule:
+
+- Daily: a quick smoke check on the home route (manual Lighthouse quick scan or host-level synthetic checks).
+- Weekly: a deeper Lighthouse run and record the baseline deltas.
+
+Alert thresholds:
+
+- **TBD:** set numeric thresholds after the first baseline capture (and revisit after major theme changes).
+
+How we capture:
+
+- Lighthouse via browser tooling for quick checks.
+- If/when we add CI performance gates, use Lighthouse CI (LHCI) or a similar automation so every release can be compared against the baseline.
+
 ## What we document
 
 - **Deployment and rollback** — How to ship and revert (theme zip, docs deploy). See [Deployment](./deployment).
@@ -38,5 +77,9 @@ This page documents **monitoring**, **health signals**, and **our reliability ap
 
 ## Related
 
+:::info See also
+
 - [Deployment](./deployment) — Build, test, zip, upload, and docs deploy
 - [Roadmap](/docs/reference/roadmap) — Planned work, including observability improvements
+
+:::

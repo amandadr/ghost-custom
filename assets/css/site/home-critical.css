@@ -1,0 +1,451 @@
+/**
+ * Homepage — first paint (see screen-home.css): header, hero, “What I do” + service cards.
+ * Boundaries: desktop fold ends at #mrc-pillars-title; mobile fold includes first .mrc-service-card.
+ */
+
+/* ---------- Section utility classes (colurs.md) ---------- */
+.section-light {
+  background-color: var(--mrc-bg);
+}
+
+.section-surface {
+  background-color: var(--mrc-surface);
+}
+
+.section-dark {
+  background-color: var(--mrc-olive);
+}
+
+.section-cta {
+  background-color: var(--mrc-maroon);
+}
+
+/* ---------- Header: 2-zone grid, Olive, mustard divider, refined states ---------- */
+.mrc-head {
+  background-color: var(--mrc-olive);
+  border-bottom: 1px solid var(--mrc-mustard);
+}
+
+/* 2-zone layout: logo left edge, nav right; full width inner so logo justified left */
+.mrc-head .gh-head-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  min-height: 56px;
+  padding: var(--space-3) 0;
+  column-gap: var(--space-6);
+  row-gap: var(--space-3);
+}
+.nav a {
+  font-weight: 600;
+  color: var(--mrc-surface) !important;
+}
+
+.mrc-head .gh-head-brand,
+.mrc-head .gh-head-brand-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.mrc-head .gh-head-brand {
+  flex-shrink: 0;
+}
+
+.mrc-head .gh-head-menu {
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-right: 0;
+  justify-content: flex-end;
+  /* Keep nav as inline links: reserve space so theme dropdown script doesn’t collapse to “More” */
+  min-width: 520px;
+}
+
+/* Always show nav links (theme hides until is-dropdown-loaded); no dropdown in header */
+.mrc-head .gh-head-menu .nav > li {
+  opacity: 1;
+}
+.mrc-head .nav-more-toggle,
+.mrc-head .gh-dropdown {
+  display: none !important;
+}
+
+/* Wordmark color */
+.mrc-head .gh-head-logo,
+.mrc-head .gh-head-logo img,
+.mrc-head .gh-head-logo .mrc-logo-serif,
+.mrc-head .gh-head-logo .mrc-logo-sans {
+  color: var(--mrc-surface);
+}
+
+.mrc-head .gh-head-logo {
+  margin-right: 0;
+}
+
+/* Nav links: no underline default; lighter weight; AA contrast */
+.mrc-head .gh-head-menu a {
+  color: var(--mrc-surface);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease, letter-spacing 0.15s ease, transform 0.15s ease;
+}
+
+.mrc-head .gh-head-menu a:hover {
+  color: var(--mrc-surface);
+  text-decoration: none;
+  border-bottom-color: var(--mrc-mustard);
+  letter-spacing: 0.045em;
+  transform: translateY(-1px);
+}
+
+/* Active: persistent mustard bar (no weight change to avoid jitter) */
+.mrc-head .gh-head-menu .nav-current a {
+  border-bottom-color: var(--mrc-mustard);
+  border-bottom-width: 2px;
+  text-decoration: none;
+}
+
+/* Nav links: tighter gaps; Contact pushed to far right */
+.mrc-head .gh-head-menu .nav,
+.mrc-head .gh-head-menu {
+  gap: var(--space-6);
+}
+
+.mrc-head .gh-head-menu .nav li:has(a[href*="/contact/"]) {
+  margin-left: auto;
+}
+
+/* Contact CTA: outlined, calmer padding, hover fill mustard + ink, focus ring */
+.mrc-head .gh-head-menu a[href*="/contact/"] {
+  padding: var(--space-1) var(--space-3);
+  border: 1.5px solid var(--mrc-mustard);
+  border-radius: 3px;
+  margin-bottom: 0;
+}
+
+.mrc-head .gh-head-menu a[href*="/contact/"]:hover {
+  background-color: var(--mrc-mustard);
+  color: var(--mrc-text);
+  border-color: var(--mrc-mustard);
+  transform: translateY(-1px);
+}
+
+.mrc-head .gh-head-menu a[href*="/contact/"]:focus-visible {
+  outline: 2px solid var(--mrc-mustard);
+  outline-offset: 2px;
+}
+
+.mrc-head .gh-head-menu .nav-current a[href*="/contact/"] {
+  border: 1.5px solid var(--mrc-mustard);
+  background-color: rgba(232, 200, 104, 0.12);
+}
+
+.mrc-head-actions-hidden {
+  display: none;
+}
+
+/* Tablet/mid: use hamburger menu so Contact link stays visible (avoids overflow at ~991px) */
+@media (max-width: 991px) {
+  #gh-head.mrc-head {
+    min-height: 64px;
+    height: auto;
+    padding-bottom: var(--space-2);
+  }
+
+  #gh-head.mrc-head .gh-head-inner {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    display: grid;
+  }
+
+  /* Menu closed: no grid gap so we only show logo row + modest padding (SOP 6: header must not overpower hero) */
+  #gh-head.mrc-head:not(.is-head-open) .gh-head-inner {
+    gap: 0;
+  }
+
+  #gh-head.mrc-head .gh-head-brand {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-column-start: 1;
+    align-items: center;
+    height: 64px;
+  }
+
+  .mrc-head .gh-burger {
+    display: block;
+  }
+
+  #gh-head.mrc-head .gh-head-menu,
+  #gh-head.mrc-head .gh-head-actions {
+    position: fixed;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  #gh-head.mrc-head .gh-head-menu .nav {
+    gap: 20px;
+    align-items: center;
+    line-height: 1.4;
+  }
+
+  #gh-head.mrc-head .nav li {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  .is-head-open #gh-head.mrc-head .nav li {
+    opacity: 1;
+    transition: transform 0.2s, opacity 0.2s;
+    transform: translateY(0);
+  }
+
+  .is-head-open #gh-head.mrc-head {
+    position: fixed;
+    inset: 0;
+    z-index: 3999999;
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .is-head-open #gh-head.mrc-head .gh-head-menu,
+  .is-head-open #gh-head.mrc-head .gh-head-actions {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .is-head-open #gh-head.mrc-head .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .is-head-open #gh-head.mrc-head {
+    background-color: var(--mrc-olive);
+  }
+
+  .is-head-open #gh-head.mrc-head .gh-head-menu .nav a {
+    font-size: 1.5rem;
+  }
+
+  .is-head-open #gh-main {
+    opacity: 0;
+  }
+}
+
+/* Mobile: additional refinements; logo fits */
+@media (max-width: 767px) {
+  .mrc-head .gh-head-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Allow header row to share space so logo + burger both visible (override desktop min-width) */
+  .mrc-head .gh-head-menu {
+    min-width: 0;
+  }
+
+  /* Logo: ensure it doesn’t overflow; theme sets 2.2rem at 767px — keep smaller so “Manny Roy Consulting” fits */
+  .mrc-head .gh-head-brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .mrc-head .gh-head-brand-wrapper {
+    min-width: 0;
+    overflow: hidden;
+  }
+  #gh-head.mrc-head .gh-head-logo {
+    font-size: min(1.35rem, 4.5vw + 1rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  #gh-head.mrc-head .gh-head-logo img {
+    max-height: 32px;
+  }
+
+  /* Open menu: align nav to the right to match desktop intent */
+  .is-head-open #gh-head .gh-head-menu,
+  .is-head-open #gh-head .gh-head-menu .nav {
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .is-head-open #gh-head .nav {
+    gap: 1.25rem;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  /* Contact stays prominent in mobile menu */
+  .is-head-open #gh-head .nav a[href*="/contact/"] {
+    padding: 0.4rem 0.75rem;
+    border: 1.5px solid var(--mrc-mustard);
+    border-radius: 3px;
+  }
+}
+
+/* ---------- Hero (Cream, Ink, Maroon/Olive buttons, bigger headline) ---------- */
+.mrc-hero {
+  background-color: var(--mrc-bg);
+}
+
+.mrc-hero-inner {
+  text-align: center;
+  width: 100%;
+  max-width: min(75ch, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .mrc-hero-inner {
+    max-width: min(var(--mrc-content-width), 100%);
+  }
+}
+
+.mrc-hero-badge {
+  margin-bottom: var(--space-5);
+}
+
+.mrc-hero-badge-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mrc-hero-headline,
+.mrc-about-hero-title,
+.mrc-services-hero-title,
+.mrc-contact-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--mrc-text);
+  margin: 0 0 var(--mrc-heading-margin-below);
+  overflow-wrap: break-word;
+}
+
+.mrc-hero-subtext,
+.mrc-about-hero-subtext,
+.mrc-services-hero-subtext,
+.mrc-contact-hero-subtext {
+  font-size: 1.15rem;
+  color: var(--mrc-text-muted);
+  margin: 0 0 var(--space-6);
+  line-height: 1.6;
+}
+
+/* .mrc-hero-cta uses .mrc-cluster .mrc-cluster--center (composition) */
+.mrc-hero-cta {
+  --mrc-cluster-gap: var(--space-4);
+}
+
+.mrc-hero .mrc-btn-primary {
+  background-color: var(--mrc-maroon);
+  color: var(--mrc-surface) !important;
+  border: 2px solid var(--mrc-maroon);
+}
+
+.mrc-hero .mrc-btn-primary:hover {
+  opacity: 0.95;
+  color: var(--mrc-text) !important;
+}
+
+.mrc-hero .mrc-btn-secondary {
+  background-color: transparent;
+  color: var(--mrc-olive);
+  border: 2px solid var(--mrc-olive);
+}
+
+.mrc-hero .mrc-btn-secondary:hover {
+  background-color: rgba(112, 104, 48, 0.08);
+}
+
+/* ---------- Section blocks: spacing (breathing room) ---------- */
+.mrc-section {
+  padding-block: var(--mrc-section-padding-block);
+}
+
+.mrc-section-inner {
+  width: 100%;
+  max-width: min(var(--mrc-container-wide), 100%);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.mrc-section-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  margin: 0 0 var(--space-7);
+  text-align: center;
+}
+
+/* ---------- What I do: Paper, mustard divider above heading, olive accent on cards ---------- */
+.mrc-pillars-section {
+  background-color: var(--mrc-surface);
+}
+
+.mrc-pillars-section .mrc-section-title {
+  color: var(--mrc-text);
+  border-top: 2px solid var(--mrc-mustard);
+  padding-top: var(--space-6);
+  margin-top: 0;
+}
+
+/* .mrc-pillars uses .mrc-grid .mrc-grid--auto (composition) */
+.mrc-pillars {
+  --mrc-grid-min: 280px;
+  --mrc-grid-gap: var(--space-8);
+}
+
+.mrc-service-card {
+  padding: 0;
+  padding-left: var(--space-4);
+  border-left: 4px solid var(--mrc-olive);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.mrc-service-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-service-card-desc {
+  font-size: 1rem;
+  color: var(--mrc-text-muted);
+  margin: 0 0 var(--space-3);
+  line-height: 1.55;
+}
+
+.mrc-service-card-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mrc-maroon);
+}
+
+.mrc-service-card-link:hover {
+  text-decoration: underline;
+}

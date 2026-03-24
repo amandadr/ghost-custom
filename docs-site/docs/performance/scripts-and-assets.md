@@ -12,6 +12,41 @@ This page describes how the theme loads JavaScript and manages the critical path
 - **No inline blocking JS:** Critical behaviour (e.g. burger menu) should work with DOM-ready logic that is compatible with deferred execution.
 - **Ghost injection:** `{{ghost_foot}}` is output after the theme script so Ghost can inject its own assets (e.g. member scripts) without blocking our bundle.
 
+## Build and wiring snippets (for fast reproduction)
+
+### Theme template: load the built assets (`default.hbs`)
+
+```text
+<link rel="stylesheet" href="{{asset "built/screen.css"}}">
+...
+<script src="{{asset "built/main.min.js"}}" defer></script>
+```
+
+### Theme build: CSS pipeline (`gulpfile.js`)
+
+```js
+function css(done) {
+    pump([
+        src('assets/css/screen.css', {sourcemaps: true}),
+        postcss([
+            easyimport,
+            autoprefixer(),
+            cssnano()
+        ]),
+        dest('assets/built/', {sourcemaps: '.'}),
+        livereload()
+    ], handleError(done));
+}
+```
+
+### Theme config: image sizes (`package.json`)
+
+```json
+"image_sizes": {
+  "xs": { "width": 150 }
+}
+```
+
 ## What the theme JS does
 
 The concatenated and minified bundle in `assets/built/main.min.js` is built from `assets/js/*.js` (Gulp: concat + uglify). It typically includes:

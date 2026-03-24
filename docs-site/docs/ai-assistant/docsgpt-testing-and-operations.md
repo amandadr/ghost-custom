@@ -54,6 +54,31 @@ A dedicated **debugging runbook** captures the first 10 minutes of incident resp
 
 This turns a vague “the AI assistant feels broken” into a concrete, actionable diagnosis.
 
+## Troubleshooting the widget (quick path)
+
+When the chat widget fails to load or answers feel wrong, we isolate issues in this order:
+
+### 1) Confirm the assistant surfaces are healthy
+
+- Call `GET /api/health` and `GET /api/ready` on the backend host (same network path the VM uses).
+- If `ready` fails, focus on Redis/Mongo/vector store connectivity before changing widget configuration.
+
+### 2) Verify widget configuration and HTTPS
+
+- Ensure the widget `apiHost` points to the HTTPS backend hostname used in production.
+- If the widget is on `https://` but `apiHost` is `http://`, browsers will block requests.
+- Confirm the reverse proxy (Nginx/Caddy) forwards `/api` correctly.
+
+### 3) Check CORS and origin mismatch
+
+- Confirm `CORS_ALLOWED_ORIGINS` includes both `https://mannyroy.com` and `https://docs.mannyroy.com` (no trailing slashes).
+- If you change domain(s) or hosting, update CORS and redeploy/restart the stack.
+
+### 4) If health is fine, inspect ingestion scope
+
+- If answers are “empty” or irrelevant, run ingestion and verify the sources were indexed.
+- Re-trigger indexing after significant docs content changes so the vector store matches the current site.
+
 ## Secret rotation and configuration safety
 
 Secrets for BottyGPT are stored in **GCP Secret Manager** (`docsgpt-env`), not hard‑coded on the VM:

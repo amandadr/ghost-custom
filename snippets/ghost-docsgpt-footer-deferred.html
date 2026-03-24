@@ -1,0 +1,125 @@
+<!--
+  Ghost Admin → Settings → Code injection → Site footer
+
+  Replaces a blocking <script src="https://unpkg.com/..."> with:
+  - async dynamic injection (does not block HTML parsing)
+  - requestIdleCallback when available (timeout 4s), else after window load
+  - dedupe via data-docsgpt-widget-src if the footer runs more than once
+  - short retry loop if the global appears late after onload
+-->
+<div id="docsgpt-widget-root"></div>
+<script>
+(function () {
+  'use strict';
+  var SRC = 'https://unpkg.com/docsgpt@0.5.1/dist/legacy/browser.js';
+  var ROOT_ID = 'docsgpt-widget-root';
+  var MOUNT_RETRY_MS = 200;
+  var MOUNT_RETRY_MAX = 50;
+  var mountAttempts = 0;
+
+  function loadScript() {
+    return new Promise(function (resolve, reject) {
+      if (typeof window.renderDocsGPTWidget === 'function') {
+        resolve();
+        return;
+      }
+      var existing = document.querySelector('script[data-docsgpt-widget-src]');
+      if (existing) {
+        if (typeof window.renderDocsGPTWidget === 'function') {
+          resolve();
+          return;
+        }
+        existing.addEventListener('load', function () { resolve(); }, { once: true });
+        existing.addEventListener('error', function () { reject(new Error('DocsGPT script load error')); }, {
+          once: true,
+        });
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = SRC;
+      s.async = true;
+      s.setAttribute('data-docsgpt-widget-src', SRC);
+      s.onload = function () { resolve(); };
+      s.onerror = function () { reject(new Error('DocsGPT CDN script failed')); };
+      document.body.appendChild(s);
+    });
+  }
+
+  function ensureRoot() {
+    if (document.getElementById(ROOT_ID)) return;
+    var el = document.createElement('div');
+    el.id = ROOT_ID;
+    document.body.appendChild(el);
+  }
+
+  function ensureDocsGptImagesHaveAlt() {
+    var root = document.getElementById(ROOT_ID);
+    if (!root) return;
+    function setAlts() {
+      root.querySelectorAll('img').forEach(function (img) {
+        var a = img.getAttribute('alt');
+        if (!a || !String(a).trim()) {
+          img.setAttribute('alt', 'Botty assistant');
+        }
+      });
+    }
+    setAlts();
+    new MutationObserver(setAlts).observe(root, { childList: true, subtree: true });
+  }
+
+  function mount() {
+    ensureRoot();
+    if (typeof window.renderDocsGPTWidget !== 'function') {
+      mountAttempts += 1;
+      if (mountAttempts >= MOUNT_RETRY_MAX) return;
+      window.setTimeout(mount, MOUNT_RETRY_MS);
+      return;
+    }
+    window.renderDocsGPTWidget(ROOT_ID, {
+      apiHost: 'https://assistant-api.mannyroy.com',
+      apiKey: 'dd39c6e5-6298-4b87-82a8-22528453df58',
+      theme: 'dark',
+      title: 'Ask BottyGPT anything about Manny Roy Consulting',
+      description: 'Get answers grounded in site posts and documentation.',
+      heroTitle: 'Hi — what can I help with?',
+      heroDescription:
+        'I’ll answer questions about MRC using site content and show sources when available.',
+      showSources: true,
+      size: 'medium',
+      avatar:
+        'https://assistant-api.mannyroy.com/api/images/inputs/local/attachments/89431c36-c8b3-4dfe-b888-ad6863fe0f65_Botty_Avatar.png',
+      buttonBg: '#804050',
+      buttonIcon:
+        'https://assistant-api.mannyroy.com/api/images/inputs/local/attachments/89431c36-c8b3-4dfe-b888-ad6863fe0f65_Botty_Avatar.png',
+    });
+    ensureDocsGptImagesHaveAlt();
+  }
+
+  function kickoff() {
+    mountAttempts = 0;
+    loadScript()
+      .then(function () {
+        mountAttempts = 0;
+        mount();
+      })
+      .catch(function () {
+        /* CDN blocked / offline — no widget */
+      });
+  }
+
+  function schedule() {
+    var w = window;
+    if (typeof w.requestIdleCallback === 'function') {
+      w.requestIdleCallback(kickoff, { timeout: 4000 });
+    } else {
+      w.addEventListener('load', function () { w.setTimeout(kickoff, 0); }, { once: true });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', schedule);
+  } else {
+    schedule();
+  }
+})();
+</script>

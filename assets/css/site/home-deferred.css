@@ -1,0 +1,288 @@
+/**
+ * Homepage — below first paint: principles, work preview, CTA, footer, contact extras.
+ * Loaded with full screen.css after screen-home.css on the home route only.
+ */
+
+/* ---------- How I work: Olive, Cream text, Mustard dividers, more vertical spacing ---------- */
+.mrc-principles-section {
+  background-color: var(--mrc-olive);
+  color: var(--mrc-surface);
+}
+
+.mrc-principles-section .mrc-section-title {
+  color: var(--mrc-surface);
+  margin-bottom: var(--space-7);
+}
+
+/* .mrc-principles uses .mrc-grid .mrc-grid--auto (composition) */
+.mrc-principles {
+  --mrc-grid-min: 260px;
+  --mrc-grid-gap: var(--space-8);
+}
+
+/* Force 2x2 from tablet up to desktop; avoid 3+1 or misaligned stacking */
+@media (min-width: 480px) and (max-width: 1100px) {
+  .mrc-principles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1101px) {
+  .mrc-principles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.mrc-principles-section .mrc-principle {
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--mrc-mustard);
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.mrc-principles-section .mrc-principle-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--mrc-surface);
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-principles-section .mrc-principle-body {
+  font-size: 1rem;
+  color: var(--mrc-surface);
+  opacity: 0.95;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ---------- Selected work: Cream, no heavy cards ---------- */
+.mrc-work-preview {
+  padding-block: var(--mrc-section-padding-block);
+  background-color: var(--mrc-bg);
+}
+
+.mrc-work-preview .mrc-section-title {
+  color: var(--mrc-text);
+}
+
+.mrc-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  margin-top: 0;
+}
+
+.mrc-project-card {
+  padding: var(--space-5) 0;
+  background: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid var(--light-gray-color);
+}
+
+.mrc-project-card:last-child {
+  border-bottom: 0;
+}
+
+.mrc-project-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-project-card-title a {
+  color: var(--mrc-text);
+}
+
+.mrc-project-card-title a:hover {
+  color: var(--mrc-maroon);
+}
+
+.mrc-project-card-excerpt {
+  font-size: 1rem;
+  color: var(--mrc-text-muted);
+  margin: 0 0 var(--space-3);
+  line-height: 1.55;
+}
+
+.mrc-project-card-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mrc-maroon);
+}
+
+.mrc-work-more {
+  margin: var(--space-7) 0 0;
+  text-align: center;
+}
+
+.mrc-work-more a {
+  font-weight: 600;
+  color: var(--mrc-maroon);
+}
+
+/* ---------- Final CTA: Maroon, Cream text, Mustard button + Ink ---------- */
+.mrc-cta-section {
+  padding-block: var(--mrc-section-padding-block);
+  background-color: var(--mrc-maroon);
+  color: var(--mrc-surface);
+}
+
+.mrc-cta-section .mrc-cta-headline,
+.mrc-cta-section .mrc-cta-subtext {
+  color: var(--mrc-surface);
+}
+
+.mrc-cta-inner {
+  text-align: center;
+  max-width: min(var(--mrc-content-width), 100%);
+  margin: 0 auto;
+}
+
+.mrc-cta-headline {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  margin: 0 0 var(--space-5);
+}
+
+/* When subtext is present (Services, Home), use smaller headline margin; subtext provides the gap to the button */
+.mrc-cta-inner:has(.mrc-cta-subtext) .mrc-cta-headline {
+  margin-bottom: var(--space-2);
+}
+
+.mrc-cta-subtext {
+  margin: 0 0 var(--space-5);
+  opacity: 0.95;
+}
+
+.mrc-cta-section .mrc-cta-btn {
+  background-color: var(--mrc-mustard);
+  color: var(--mrc-text);
+  border: 2px solid var(--mrc-mustard);
+}
+
+.mrc-cta-section .mrc-cta-btn:hover {
+  opacity: 0.95;
+}
+
+/* ---------- Footer (unchanged: olive) ---------- */
+.mrc-foot {
+  background-color: var(--mrc-olive);
+  color: var(--mrc-surface);
+  padding-block: var(--space-7) var(--space-6);
+}
+
+.mrc-foot-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.mrc-foot-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 var(--space-2);
+  max-width: 480px;
+}
+
+.mrc-foot-location {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin: 0 0 var(--space-6);
+}
+
+/* Footer nav: uses Ghost navigation (Settings → Design → Navigation) */
+.mrc-foot-nav {
+  margin-bottom: var(--space-6);
+}
+
+.mrc-foot-nav .nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mrc-foot-nav a {
+  color: var(--mrc-surface) !important;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mrc-foot-nav a:hover {
+  text-decoration: underline;
+}
+
+.mrc-foot-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+}
+
+.mrc-foot-copy {
+  opacity: 0.9;
+}
+
+/* Footer: responsive on small screens; hide bio, shorten height */
+@media (max-width: 767px) {
+  .mrc-foot {
+    padding-block: var(--space-5) var(--space-4);
+  }
+
+  .mrc-foot-inner {
+    padding: 0;
+    --mrc-stack-gap: var(--space-3);
+  }
+
+  .mrc-foot-bio {
+    display: none;
+  }
+
+  .mrc-foot-nav {
+    margin-bottom: var(--space-2);
+  }
+
+  .mrc-foot-nav .nav {
+    gap: var(--space-3) var(--space-5);
+  }
+
+  .mrc-foot-nav a {
+    font-size: 0.95rem;
+  }
+
+  .mrc-foot-bottom {
+    padding-top: var(--space-3);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+}
+
+.mrc-foot-ghost {
+  color: var(--mrc-surface);
+  opacity: 0.8;
+}
+
+.mrc-foot-ghost:hover {
+  opacity: 1;
+}
+
+/* ---------- Contact page extra ---------- */
+.mrc-contact-extra {
+  padding-top: 0;
+  margin-top: var(--space-4);
+  font-size: 1rem;
+  color: var(--mrc-text-muted);
+}
+
+.mrc-contact-extra a {
+  color: var(--mrc-maroon);
+}

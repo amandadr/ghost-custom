@@ -18,19 +18,8 @@
         // Here we only wire up low-noise interaction events.
 
         document.addEventListener('click', function (event) {
-            var el = event.target && event.target.closest ? event.target.closest('[data-ga-event], [data-portal]') : null;
+            var el = event.target && event.target.closest ? event.target.closest('[data-ga-event]') : null;
             if (!el) {
-                return;
-            }
-
-            // Ghost Portal intent tracking (signup/signin/account upgrade)
-            if (el.hasAttribute('data-portal')) {
-                var portalAction = el.getAttribute('data-portal') || '';
-                track('sign_up', {
-                    method: 'ghost_portal',
-                    event_category: 'intent',
-                    event_label: portalAction
-                });
                 return;
             }
 

@@ -7,6 +7,6 @@
     <p class="mrc-service-card-desc">{{description}}</p>
   {{/if}}
   {{#if link_url}}
-    <a href="{{link_url}}" class="mrc-service-card-link">Learn more</a>
+    <a href="{{link_url}}" class="mrc-service-card-link">{{#if title}}Learn more about {{title}}{{else}}Learn more about this service{{/if}}</a>
   {{/if}}
 </article>

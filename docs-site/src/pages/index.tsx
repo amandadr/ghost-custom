@@ -14,14 +14,18 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+          Manny Roy Consulting — Docs, systems, and a friendly AI assistant
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">
+          Clear documentation and reproducible tooling for a Ghost-backed site, a
+          DocsGPT-powered assistant, and a custom theme. Pick a path below to get
+          started.
+        </p>
         <div className={styles.buttons}>
           <Link
             className="button button--primary button--lg"
-            to="/docs/intro">
-            Welcome
+            to="/docs/how-to-use-these-docs">
+            Which path is for me?
           </Link>
         </div>
       </div>
@@ -34,36 +38,29 @@ function HomepageIntro() {
     <section className="container padding-vert--lg">
       <div className="row">
         <div className="col col--8 col--offset-2">
-          <h2>What this site is for</h2>
+          <h2>Docs organized for three audiences</h2>
           <p>
-            These docs describe the <strong>custom Ghost theme and site</strong>{' '}
-            for Manny Roy Consulting: how it’s built, how it’s run, and how to
-            work with it. They’re the single place for architecture decisions,
-            performance approach, operations runbooks, and the AI assistant
-            design.
+            We tell the story of the <strong>custom Ghost theme and site</strong>{' '}
+            in a way that’s easy to follow for different roles: developers building
+            and extending, operators running reliably, and readers understanding
+            outcomes and safeguards.
           </p>
-          <h3>What you’ll find</h3>
+          <h3>Start here</h3>
           <ul>
             <li>
-              <strong>Architecture</strong> — Theme system, stack, and structure
+              <strong>Developer</strong> — Build & extend (recommended start: Quick
+              start — Developer)
             </li>
             <li>
-              <strong>Performance</strong> — Strategy, metrics, and asset approach
+              <strong>Operator</strong> — Run & maintain (recommended start: Quick
+              start — Operator)
             </li>
             <li>
-              <strong>Operations</strong> — Deployment, observability, and rollback
-            </li>
-            <li>
-              <strong>AI assistant</strong> — Design, scope, and safeguards
-            </li>
-            <li>
-              <strong>Reference</strong> — Roadmap and future improvements
+              <strong>Reader</strong> — What it does (recommended start: What it
+              does)
             </li>
           </ul>
-          <p>
-            Use the <strong>Welcome</strong> link above or the button below to
-            open the introduction and start browsing.
-          </p>
+          <p>Use the button above to pick the right path in seconds.</p>
         </div>
       </div>
     </section>

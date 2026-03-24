@@ -6,6 +6,18 @@ sidebar_position: 1
 
 This documentation covers the **custom Ghost theme and site** for [Manny Roy Consulting](https://mannyroy.com): how the theme is built, how to run and change it, and how it fits into the broader application (performance, operations, AI assistant).
 
+:::info How to use these docs
+
+This site is organised for three core audiences. Start with the path that matches your goal:
+
+- Developer (build & extend): [Quick start — Developer](/docs/quick-start/quick-start-developer)
+- Operator (run & maintain): [Quick start — Operator](/docs/quick-start/quick-start-operator)
+- Non-technical reader (what it does): [Quick start — Reader](/docs/quick-start/quick-start-reader)
+
+If you’re unsure, start with Reader and follow the links only where you need technical depth.
+
+:::
+
 ## What we cover
 
 | Section | Purpose |

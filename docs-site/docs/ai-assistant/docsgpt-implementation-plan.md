@@ -435,7 +435,7 @@ This phase ties together [§3 Self-hosted infrastructure](#3-self-hosted-infrast
 
 ### Re-ingestion
 
-- When we add or change docs or main-site content, we re-run ingestion in the DocsGPT UI (or via API) for the affected source. We optionally automate this on a schedule (e.g. cron + script or CI) and document it in our ops runbook.
+- When we add or change docs or main-site content, we re-run ingestion in the DocsGPT UI (or via API) for the affected source. We treat re-ingestion as a content-sync step: we run it after meaningful publishing/deploy events, and we optionally automate a periodic cadence (e.g. cron + script or CI) so the assistant stays aligned with what’s live.
 
 ### Monitoring
 

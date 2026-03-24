@@ -40,9 +40,7 @@ const config: Config = {
     ],
   ],
 
-  scripts: [
-    'https://unpkg.com/docsgpt@0.5.1/dist/legacy/browser.js',
-  ],
+  /* DocsGPT unpkg is injected from clientModules after idle/load (non-blocking). */
 
   clientModules: [
     require.resolve('./src/clientModules/docsgpt-widget'),
@@ -64,7 +62,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Welcome',
+          label: 'Introduction',
         },
         {
           href: 'https://mannyroy.com',
@@ -93,7 +91,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {label: 'Introduction', to: '/docs/intro'},
-            {label: 'Architecture', to: '/docs/architecture/overview'},
+            {label: 'Quick start — Developer', to: '/docs/quick-start/quick-start-developer'},
+            {label: 'Contributing', to: '/docs/contributing/contributor-guide'},
           ],
         },
       ],

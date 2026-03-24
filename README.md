@@ -30,7 +30,7 @@ Edit files under `assets/css/`; they compile to `assets/built/`. Handlebars (`.h
 yarn zip
 ```
 
-This creates `dist/manny-roy.zip`, which you can upload in Ghost Admin → Design.
+This creates `dist/manny-roy.zip`, which you can upload in Ghost Admin → Design. The zip step shells out to the system `zip` command so binary assets (images, etc.) stay intact. IBM Plex is loaded from Google Fonts in `default.hbs` so font files are not served from the theme (avoids OTS errors if a host/CDN mishandles theme assets).
 
 ### Validate theme
 

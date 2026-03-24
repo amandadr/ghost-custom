@@ -6,12 +6,29 @@ sidebar_position: 1
 
 The theme is built with performance in mind: restrained JavaScript, a clear critical path, and measurable goals. This page summarizes the approach and what’s in scope.
 
+**TL;DR:** We treat performance as a build/release gate: baseline Lighthouse/Core Web Vitals first, then small, measurable changes with explicit before/after checks.
+
 ## Goals
 
 - **Strong Lighthouse and Core Web Vitals** — LCP, FID/INP, CLS within target ranges; document baseline and track over time.
 - **Restrained JS** — No jQuery where avoidable; scripts loaded with `defer`; avoid heavy libraries for a single feature (e.g. replace Owl Carousel with CSS or minimal vanilla).
 - **Improved font loading** — woff2 where possible, preload for critical above-the-fold fonts, `font-display: swap`.
 - **Image optimization** — Responsive images (srcset/sizes), lazy loading for below-the-fold images, defined image sizes in `package.json`.
+
+## Baseline & measurement plan
+
+Before we change anything meaningful, we capture a baseline and record it here:
+
+- **LCP:** TBD (from a consistent route + device profile)
+- **INP:** TBD
+- **CLS:** TBD
+- **Transfer size for critical assets:** TBD (CSS/JS, and any hero/banner images)
+
+For each proposed change, we do a quick before/after loop:
+
+1. Run a local or staging build and load the same “representative” page (home is the usual baseline).
+2. Capture Lighthouse results (same browser + similar conditions).
+3. Update this page with the deltas and whether we moved toward the targets.
 
 ## What the theme does today
 
@@ -34,3 +51,10 @@ The theme is built with performance in mind: restrained JavaScript, a clear crit
 - [Fonts and images](./fonts-and-images) — Font loading and image sizes
 - [Deployment](/docs/operations/deployment) — Build and zip before upload
 - [Theme system](/docs/architecture/theme-system) — Where assets are built and loaded
+
+:::info See also
+
+- [Local development & build](/docs/getting-started/local-development) — the exact workflow we use to test performance changes quickly
+- [Accessibility](/docs/design-system/accessibility) — keyboard/focus details that also affect real-world UX metrics
+
+:::

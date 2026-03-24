@@ -1,0 +1,5 @@
+# Prevent line-ending / encoding corruption of font binaries (invalid woff2 → OTS errors).
+*.woff2 binary
+*.woff binary
+*.ttf binary
+*.otf binary

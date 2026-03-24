@@ -4,12 +4,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <title>{{meta_title}}</title>
-    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
+    {{#is "home"}}
+        {{! First paint: header + hero + “What I do” / first service card; full theme loads async }}
+        <link rel="stylesheet" href="{{asset "built/screen-home.css"}}">
+        <link rel="stylesheet" href="{{asset "built/screen.css"}}" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="{{asset "built/screen.css"}}"></noscript>
+    {{else}}
+        <link rel="stylesheet" href="{{asset "built/screen.css"}}">
+    {{/is}}
 
     {{> "ga4"}}
 
-    {{ghost_head}}
+    {{! Ghost ≥5.99: omit Portal, Sodo Search, announcement bar, member CTA styles. }}
+    {{! card_assets only needed where Koenig post/page body runs (cards.min.css/js). }}
+    {{#is "post, page"}}
+        {{ghost_head exclude="search,portal,announcement,cta_styles"}}
+    {{else}}
+        {{ghost_head exclude="search,portal,announcement,cta_styles,card_assets"}}
+    {{/is}}
 
     {{! Favicon, og:image, twitter:image — only when Header logo is set (otherwise Ghost/defaults apply) }}
     {{#if @custom.header_logo}}
@@ -71,7 +87,12 @@
     {{> "pswp"}}
 {{/is}}
 
-<script src="{{asset "built/main.min.js"}}" defer></script>
+{{! Full bundle (lightbox, reframe, PhotoSwipe) only where .gh-content may have cards/embeds }}
+{{#is "post, page"}}
+    <script src="{{asset "built/main.min.js"}}" defer></script>
+{{else}}
+    <script src="{{asset "built/main-lite.min.js"}}" defer></script>
+{{/is}}
 
 {{ghost_foot}}
 

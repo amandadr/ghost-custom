@@ -13,35 +13,36 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Architecture',
-    to: '/docs/architecture/overview',
+    title: 'Developer — Build & extend',
+    to: '/docs/quick-start/quick-start-developer',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Theme system, stack, and structure — how the Ghost theme and site are
-        organized and how pieces fit together.
+        Dive into the architecture, theme code, and Botty integration. Includes
+        recommended deep-dives, local dev commands, and runnable snippets.
       </>
     ),
   },
   {
-    title: 'Performance & operations',
-    to: '/docs/performance/strategy',
+    title: 'Operator — Run & maintain',
+    to: '/docs/quick-start/quick-start-operator',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Performance strategy and metrics, plus operations: deployment,
-        observability, and rollback.
+        Deploy, monitor, and troubleshoot the theme and assistant. Includes
+        deployment checklists, rollback guidance, runbooks, and reliability
+        practices.
       </>
     ),
   },
   {
-    title: 'AI assistant & reference',
-    to: '/docs/ai-assistant/design',
+    title: 'Reader — What it does',
+    to: '/docs/what-it-does',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        AI assistant design, scope, and safeguards; roadmap and future
-        improvements.
+        Plain-language overview of the system, outcomes, and privacy/data
+        handling. A quick tour for stakeholders and potential clients.
       </>
     ),
   },
