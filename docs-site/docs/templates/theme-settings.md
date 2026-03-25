@@ -49,7 +49,7 @@ All theme-specific settings are defined in `package.json` under `config.custom`.
 | `ghost_hero_subtext` | text | (one sentence about the application) | Ghost application page hero subtext |
 | `ghost_cta_headline` | text | "Questions or want to connect?" | CTA section headline |
 | `ghost_cta_button` | text | "Get in touch" | CTA button label |
-| `ghost_posts_heading` | text | "Build logs & technical writing" | Heading above tagged posts on Ghost application page |
+| `ghost_posts_heading` | text | "Technical writing" | Heading above tagged posts on Ghost application page |
 
 ---
 

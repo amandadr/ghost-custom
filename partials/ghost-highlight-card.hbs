@@ -1,8 +1,8 @@
-{{! Implementation highlight: title, description, optional link }}
+{{! Use doc_href — not "url" — or Ghost resolves href to page.url (current page). }}
 <div class="mrc-ghost-highlight">
   <h3 class="mrc-ghost-highlight-title">{{title}}</h3>
   <p class="mrc-ghost-highlight-desc">{{description}}</p>
-  {{#if url}}
-    <a href="{{url}}" class="mrc-ghost-highlight-link">Learn more: {{title}}</a>
+  {{#if doc_href}}
+    <a href="{{doc_href}}" class="mrc-ghost-highlight-link">{{#if link_label}}{{link_label}}{{else}}Open documentation: {{title}}{{/if}}</a>
   {{/if}}
 </div>

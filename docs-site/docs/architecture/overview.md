@@ -12,7 +12,8 @@ This page describes the **stack**, **repo layout**, and how the custom theme fit
 
 At a glance: Ghost renders the theme; Gulp builds CSS/JS into `assets/built/`; and a separate Docusaurus `docs-site/` explains the stack, operations, and the DocsGPT widget integration.
 
-:::details Layer-by-layer stack (technical view)
+<details>
+<summary>Layer-by-layer stack (technical view)</summary>
 
 | Layer | Technology |
 | --- | --- |
@@ -21,7 +22,7 @@ At a glance: Ghost renders the theme; Gulp builds CSS/JS into `assets/built/`; a
 | **Build** | Gulp: CSS via PostCSS (easy-import, autoprefixer, cssnano); JS via concat + uglify. Output in `assets/built/`. |
 | **Docs** | Docusaurus in `docs-site/`, deployed to **docs.mannyroy.com** (Netlify). Separate from the theme. |
 
-:::
+</details>
 
 The live site (mannyroy.com) runs on Ghost with this theme. The docs site explains the theme and related systems; it does not run inside Ghost.
 
@@ -29,7 +30,8 @@ The live site (mannyroy.com) runs on Ghost with this theme. The docs site explai
 
 Ghost loads templates/partials plus the built assets from this structure:
 
-:::details Theme directory map
+<details>
+<summary>Theme directory map</summary>
 
 ```text
 ghost-custom/
@@ -51,7 +53,7 @@ ghost-custom/
 └── docs/              # Planning and reference (not the Docusaurus docs-site)
 ```
 
-:::
+</details>
 
 Theme assets are built into `assets/built/`. Ghost loads `built/screen.css` and `built/main.min.js` via `default.hbs`.
 

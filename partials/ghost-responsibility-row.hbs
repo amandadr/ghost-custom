@@ -1,5 +1,5 @@
-{{! Responsibility-to-proof matrix row: heading + proof (comma-separated from settings) }}
+{{! Responsibility-to-proof matrix row: heading, proof, optional doc_url + doc_label for a related docs link }}
 <div class="mrc-ghost-matrix-row">
   <h3 class="mrc-ghost-matrix-heading">{{heading}}</h3>
-  <p class="mrc-ghost-matrix-proof">{{proof}}</p>
+  <p class="mrc-ghost-matrix-proof">{{proof}}{{#if doc_url}} <a href="{{doc_url}}" class="mrc-ghost-matrix-doc-link">{{#if doc_label}}{{doc_label}}{{else}}See related documentation{{/if}}</a>{{/if}}</p>
 </div>

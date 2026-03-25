@@ -54,6 +54,28 @@
   margin: 0;
 }
 
+.mrc-ghost-hero-meta {
+  font-size: 0.9375rem;
+  margin: var(--space-5) 0 0;
+  color: var(--mrc-text-muted);
+}
+
+.mrc-ghost-hero-meta a {
+  color: var(--mrc-link);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mrc-ghost-hero-meta a:hover {
+  color: var(--mrc-text);
+}
+
+.mrc-ghost-hero-meta-sep {
+  margin-inline: var(--space-2);
+  opacity: 0.6;
+}
+
 /* ---------- Section titles ---------- */
 .mrc-ghost-section-title {
   font-family: var(--font-serif);
@@ -124,6 +146,22 @@
   margin: 0;
 }
 
+.mrc-ghost-matrix-doc-link {
+  font-weight: 600;
+  color: var(--mrc-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mrc-ghost-matrix-doc-link:hover {
+  color: var(--mrc-text);
+}
+
+.mrc-ghost-matrix-doc-link:focus-visible {
+  outline: 2px solid var(--mrc-link);
+  outline-offset: 2px;
+}
+
 /* ---------- Implementation highlights (Olive) — cards ---------- */
 .mrc-ghost-highlights-grid {
   margin-top: var(--space-4);
@@ -150,17 +188,20 @@
   margin: 0 0 var(--space-3);
 }
 
-.mrc-ghost-highlight-link {
+/* brand.css sets `a { color: var(--mrc-link) !important }` — must win for olive cards */
+.mrc-page-ghost .mrc-ghost-highlights .mrc-ghost-highlight-link {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--mrc-mustard);
+  color: var(--mrc-surface) !important;
+  text-decoration: none;
 }
 
-.mrc-ghost-highlight-link:hover {
+.mrc-page-ghost .mrc-ghost-highlights .mrc-ghost-highlight-link:hover {
+  color: var(--mrc-mustard) !important;
   text-decoration: underline;
 }
 
-.mrc-ghost-highlight-link:focus-visible {
+.mrc-page-ghost .mrc-ghost-highlights .mrc-ghost-highlight-link:focus-visible {
   outline: 2px solid var(--mrc-surface);
   outline-offset: 2px;
 }
@@ -175,6 +216,36 @@
   margin-bottom: var(--space-8);
   flex-wrap: wrap;
   gap: var(--space-3);
+}
+
+/* Explore: dark buttons — surface text (overrides brand.css `a` !important) */
+.mrc-page-ghost .mrc-ghost-links a.button.mrc-btn-secondary {
+  background-color: var(--mrc-text);
+  border: 2px solid var(--mrc-text);
+  color: var(--mrc-surface) !important;
+  text-decoration: none;
+}
+
+.mrc-page-ghost .mrc-ghost-links a.button.mrc-btn-secondary:hover {
+  opacity: 0.92;
+  color: var(--mrc-surface) !important;
+}
+
+.mrc-page-ghost .mrc-ghost-links a.button.mrc-btn-primary {
+  background-color: var(--mrc-maroon);
+  border: 2px solid var(--mrc-maroon);
+  color: var(--mrc-surface) !important;
+  text-decoration: none;
+}
+
+.mrc-page-ghost .mrc-ghost-links a.button.mrc-btn-primary:hover {
+  opacity: 0.95;
+  color: var(--mrc-surface) !important;
+}
+
+.mrc-page-ghost .mrc-ghost-links a.button:focus-visible {
+  outline: 2px solid var(--mrc-maroon);
+  outline-offset: 2px;
 }
 
 .mrc-ghost-posts {

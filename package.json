@@ -148,7 +148,7 @@
       },
       "ghost_posts_heading": {
         "type": "text",
-        "default": "Selected posts (tagged for this page)",
+        "default": "Technical writing",
         "group": "ghost"
       }
     }

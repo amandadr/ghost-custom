@@ -66,7 +66,7 @@ Ghost limits themes to **20 custom settings total**. The application page uses 5
 | `ghost_hero_subtext` | Hero subtext (one sentence) |
 | `ghost_cta_headline` | CTA section headline |
 | `ghost_cta_button` | CTA button label (e.g. “Get in touch”) |
-| `ghost_posts_heading` | Heading above related posts (e.g. “Build logs & technical writing”) |
+| `ghost_posts_heading` | Heading above related posts (e.g. “Technical writing”) |
 
 Responsibility matrix (5 rows), implementation highlights (4 cards), and Explore links (Documentation, Blog, Contact) are fixed in the template. To change that copy, edit `page-ghost-application.hbs`.
 
