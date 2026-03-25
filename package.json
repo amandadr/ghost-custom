@@ -128,17 +128,17 @@
       },
       "ghost_hero_title": {
         "type": "text",
-        "default": "Applying to Ghost",
+        "default": "A guided tour of how I build",
         "group": "ghost"
       },
       "ghost_hero_subtext": {
         "type": "text",
-        "default": "This site and custom theme are the application: a live platform artifact with docs, performance work, and transparent process.",
+        "default": "This page is for recruiters and technical reviewers: a single map from this live site to documentation, writing, and implementation detail—so you can judge depth and craft without hunting through menus.",
         "group": "ghost"
       },
       "ghost_cta_headline": {
         "type": "text",
-        "default": "Questions or want to connect?",
+        "default": "Want to go deeper or start a conversation?",
         "group": "ghost"
       },
       "ghost_cta_button": {
@@ -148,7 +148,7 @@
       },
       "ghost_posts_heading": {
         "type": "text",
-        "default": "Build logs & technical writing",
+        "default": "Selected posts (tagged for this page)",
         "group": "ghost"
       }
     }

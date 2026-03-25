@@ -13,6 +13,7 @@
   'use strict';
   var SRC = 'https://unpkg.com/docsgpt@0.5.1/dist/legacy/browser.js';
   var ROOT_ID = 'docsgpt-widget-root';
+  var HOOK_KEY = '__mrcDocsGptAltHook';
   var MOUNT_RETRY_MS = 200;
   var MOUNT_RETRY_MAX = 50;
   var mountAttempts = 0;
@@ -52,20 +53,89 @@
     document.body.appendChild(el);
   }
 
-  function ensureDocsGptImagesHaveAlt() {
-    var root = document.getElementById(ROOT_ID);
+  /**
+   * Launcher is React <img width src> with no alt; commits are async after
+   * createRoot().render(), and later re-renders drop a DOM-only alt. Watch all
+   * attribute mutations (no attributeFilter), set property + attribute, and sweep
+   * on an interval so we always win after React settles.
+   */
+  function ensureDocsGptImagesHaveAlt(optRootId) {
+    var rootId = optRootId || ROOT_ID;
+    var root = document.getElementById(rootId);
     if (!root) return;
+    var ALT = 'Botty assistant';
     function setAlts() {
       root.querySelectorAll('img').forEach(function (img) {
         var a = img.getAttribute('alt');
         if (!a || !String(a).trim()) {
-          img.setAttribute('alt', 'Botty assistant');
+          img.alt = ALT;
+          img.setAttribute('alt', ALT);
         }
       });
     }
+    if (!root.getAttribute('data-mrc-alt-watch')) {
+      root.setAttribute('data-mrc-alt-watch', '1');
+      new MutationObserver(setAlts).observe(root, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+      });
+    }
     setAlts();
-    new MutationObserver(setAlts).observe(root, { childList: true, subtree: true });
+    if (typeof queueMicrotask === 'function') {
+      queueMicrotask(setAlts);
+    } else if (typeof Promise !== 'undefined') {
+      Promise.resolve().then(setAlts);
+    }
+    if (typeof requestAnimationFrame === 'function') {
+      requestAnimationFrame(function () {
+        setAlts();
+        requestAnimationFrame(setAlts);
+      });
+    }
+    [0, 10, 40, 100, 280, 600, 1200, 2500].forEach(function (ms) {
+      setTimeout(setAlts, ms);
+    });
+    if (!root.__mrcAltInterval) {
+      var n = 0;
+      root.__mrcAltInterval = setInterval(function () {
+        n += 1;
+        setAlts();
+        if (n >= 40) {
+          clearInterval(root.__mrcAltInterval);
+          root.__mrcAltInterval = null;
+        }
+      }, 200);
+    }
   }
+
+  /** Wrap ASAP: unpkg assigns window.renderDocsGPTWidget after load; mount() can run same tick. */
+  function installRenderHook() {
+    var fn = window.renderDocsGPTWidget;
+    if (typeof fn !== 'function' || fn[HOOK_KEY]) return;
+    var orig = fn;
+    window.renderDocsGPTWidget = function (rootId, props) {
+      var ret = orig.apply(this, arguments);
+      ensureDocsGptImagesHaveAlt(rootId);
+      return ret;
+    };
+    window.renderDocsGPTWidget[HOOK_KEY] = true;
+    ensureDocsGptImagesHaveAlt(ROOT_ID);
+  }
+
+  function pollInstallHook() {
+    installRenderHook();
+    if (window.renderDocsGPTWidget && window.renderDocsGPTWidget[HOOK_KEY]) return;
+    var tries = 0;
+    var iv = setInterval(function () {
+      tries += 1;
+      installRenderHook();
+      if ((window.renderDocsGPTWidget && window.renderDocsGPTWidget[HOOK_KEY]) || tries > 400) {
+        clearInterval(iv);
+      }
+    }, 25);
+  }
+  pollInstallHook();
 
   function mount() {
     ensureRoot();
@@ -99,6 +169,7 @@
     mountAttempts = 0;
     loadScript()
       .then(function () {
+        installRenderHook();
         mountAttempts = 0;
         mount();
       })

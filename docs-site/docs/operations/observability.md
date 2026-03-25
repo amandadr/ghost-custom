@@ -52,7 +52,7 @@ This page documents **monitoring**, **health signals**, and **our reliability ap
 To keep “fast” measurable over time, we track these baseline signals:
 
 - **LCP (Largest Contentful Paint)** — focus on the hero/main content above the fold.
-- **INP (Interaction to Next Paint)** — focus on nav interactions and any chat-widget interactions.
+- **INP (Interaction to Next Paint)** — focus on nav interactions and any chat-widget interactions (field data / RUM; lab reports use **TBT** and **max potential delay** as rough proxies only).
 - **CLS (Cumulative Layout Shift)** — watch for late-loading fonts/images/layout changes.
 
 Suggested schedule:
@@ -60,9 +60,45 @@ Suggested schedule:
 - Daily: a quick smoke check on the home route (manual Lighthouse quick scan or host-level synthetic checks).
 - Weekly: a deeper Lighthouse run and record the baseline deltas.
 
-Alert thresholds:
+### Recorded baseline (lab)
 
-- **TBD:** set numeric thresholds after the first baseline capture (and revisit after major theme changes).
+Source: PageSpeed Insights export `data/pagespeed_mannyroy.com_20260324_172249.json` — URL `https://www.mannyroy.com/`, fetch `2026-03-24T20:22:22.285Z`, Lighthouse 13.0.1.
+
+| Metric | Mobile (simulated) | Desktop |
+| --- | --- | --- |
+| **LCP** | ~4.5 s (numeric ~4533 ms) | ~0.74 s (~735 ms) |
+| **FCP** | ~3.1 s (~3140 ms) | ~0.69 s (~694 ms) |
+| **CLS** | 0 | ~0.007 |
+| **TBT** | ~133 ms | ~28 ms |
+| **TTI** (lab) | ~4.5 s | — |
+
+Revisit this table after major theme, third-party, or home-template changes.
+
+### Alert thresholds
+
+Use these for synthetic checks, LHCI budgets, or manual “red / yellow” triage. They combine **Google’s CWV “good” cutoffs** with **regression guardrails** vs. the lab baseline above.
+
+**Long-term targets (good CWV):**
+
+- **LCP** ≤ 2.5 s · **CLS** ≤ 0.1 · **INP** ≤ 200 ms (field)
+
+**Lab / synthetic — mobile (primary; home is slowest on mobile in our baseline):**
+
+| Signal | Warning | Critical | Notes |
+| --- | --- | --- | --- |
+| **LCP** | > 4.0 s | > 5.0 s | Baseline ~4.5 s; warn before large regressions; critical if clearly worse than baseline |
+| **FCP** | > 3.5 s | > 4.5 s | Baseline ~3.1 s |
+| **CLS** | > 0.05 | > 0.10 | Baseline ~0; desktop ~0.007 |
+| **TBT** | > 200 ms | > 300 ms | Baseline ~133 ms; proxy for main-thread pain, not INP |
+
+**Lab / synthetic — desktop:**
+
+| Signal | Warning | Critical | Notes |
+| --- | --- | --- | --- |
+| **LCP** | > 1.2 s | > 2.5 s | Baseline ~0.74 s; 2.5 s aligns with “good” LCP |
+| **CLS** | > 0.05 | > 0.10 | Same as mobile |
+
+**INP:** Lab Lighthouse does not measure INP. When CrUX or RUM is available, use **warning** if INP p75 > 200 ms and **critical** if > 500 ms until field data proves otherwise.
 
 How we capture:
 

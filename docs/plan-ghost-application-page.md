@@ -1,6 +1,6 @@
-# Plan: Ghost Application Landing Page
+# Plan: Ghost Application / scout landing page
 
-This document defines the content model, posts strategy, and supporting infrastructure for the **Ghost Application Landing Page** at `/ghost-application/`, as part of the [site overhaul](site%20overhaul.md) and [opportunities](site-opportunities-improvement.md).
+This document defines the content model, posts strategy, and supporting infrastructure for the **scout and reviewer landing page** at `/ghost-application/`, as part of the [site overhaul](site%20overhaul.md) and [opportunities](site-opportunities-improvement.md).
 
 **Note:** The page uses slug **ghost-application** (not `ghost`) because `/ghost/` is reserved for the Ghost admin portal.
 
@@ -9,8 +9,8 @@ This document defines the content model, posts strategy, and supporting infrastr
 ## 1. Purpose and audience
 
 - **URL:** `/ghost-application/` (one Ghost page with slug `ghost-application`, using template `page-ghost-application.hbs`).
-- **Audience:** Ghost hiring team and technical reviewers.
-- **Goals:** Present the application as a live platform artifact; map role responsibilities to proof (theme, docs, performance, AI, ops, communication); surface links to docs, blog, and key features.
+- **Audience:** Recruiters, hiring managers, and technical reviewers (“scouts”) exploring the site to gauge depth of work; also useful for anyone who wants a guided map before reading docs or posts.
+- **Goals:** Act as a professional entry point: map capabilities to evidence (theme, docs, performance, AI, ops, communication); link directly to the docs hub, blog, about, and contact; optionally list posts tagged for this page.
 
 ---
 

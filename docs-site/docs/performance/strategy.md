@@ -17,12 +17,20 @@ The theme is built with performance in mind: restrained JavaScript, a clear crit
 
 ## Baseline & measurement plan
 
-Before we change anything meaningful, we capture a baseline and record it here:
+Before we change anything meaningful, we capture a baseline and record it here.
 
-- **LCP:** TBD (from a consistent route + device profile)
-- **INP:** TBD
-- **CLS:** TBD
-- **Transfer size for critical assets:** TBD (CSS/JS, and any hero/banner images)
+**Latest lab baseline (home, `https://www.mannyroy.com/`):** PageSpeed Insights export `data/pagespeed_mannyroy.com_20260324_172249.json` (2026-03-24), Lighthouse 13.0.1.
+
+| Metric | Mobile (simulated) | Desktop |
+| --- | --- | --- |
+| **LCP** | ~4.5 s | ~0.74 s |
+| **FCP** | ~3.1 s | ~0.69 s |
+| **CLS** | 0 | ~0.007 |
+| **TBT** | ~133 ms | ~28 ms |
+
+**INP:** Not in lab; track via field/CrUX when available. **Transfer size (same run, top requests):** main document ~5–7 KiB; combined CSS/JS and third parties dominate; largest single asset in the report was a ~301 KiB avatar image loaded by the DocsGPT widget (optimize separately).
+
+Alert and regression thresholds are documented under [Alert thresholds](/docs/operations/observability#alert-thresholds) on the Observability page.
 
 For each proposed change, we do a quick before/after loop:
 

@@ -1,12 +1,19 @@
 declare global {
   interface Window {
-    renderDocsGPTWidget?: (rootId: string, props: Record<string, unknown>) => void;
+    renderDocsGPTWidget?:
+      | ((rootId: string, props: Record<string, unknown>) => unknown)
+      | undefined;
   }
 }
 
 const DOCSGPT_LEGACY_SCRIPT = 'https://unpkg.com/docsgpt@0.5.1/dist/legacy/browser.js';
+const RENDER_HOOK_KEY = '__mrcDocsGptAltHook';
 const MOUNT_RETRY_MS = 200;
 const MOUNT_RETRY_MAX = 50;
+
+type PatchedRenderFn = NonNullable<Window['renderDocsGPTWidget']> & {[RENDER_HOOK_KEY]?: boolean};
+
+const rootsWithAltObserver = new WeakSet<Element>();
 
 function ensureRoot(rootId: string) {
   if (document.getElementById(rootId)) return;
@@ -15,20 +22,86 @@ function ensureRoot(rootId: string) {
   document.body.appendChild(el);
 }
 
-/** DocsGPT legacy bundle omits `<img alt>` on the launcher; set a short label for SEO/alt audit. */
+/** DocsGPT launcher `<img>` has no alt; createRoot().render() is async and later commits strip DOM alt. */
 function ensureDocsGptImagesHaveAlt(rootId: string) {
   const root = document.getElementById(rootId);
   if (!root) return;
+  const altText = 'Botty assistant';
   const setAlts = () => {
     root.querySelectorAll('img').forEach((img) => {
       if (!img.hasAttribute('alt') || img.getAttribute('alt')?.trim() === '') {
-        img.setAttribute('alt', 'Botty assistant');
+        img.alt = altText;
+        img.setAttribute('alt', altText);
       }
     });
   };
+
+  if (!rootsWithAltObserver.has(root)) {
+    rootsWithAltObserver.add(root);
+    new MutationObserver(setAlts).observe(root, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+    });
+  }
+
   setAlts();
-  const obs = new MutationObserver(setAlts);
-  obs.observe(root, {childList: true, subtree: true});
+  queueMicrotask(setAlts);
+  if (typeof requestAnimationFrame === 'function') {
+    requestAnimationFrame(() => {
+      setAlts();
+      requestAnimationFrame(setAlts);
+    });
+  }
+  [0, 10, 40, 100, 280, 600, 1200, 2500].forEach((ms) => {
+    window.setTimeout(setAlts, ms);
+  });
+
+  const host = root as HTMLElement & {__mrcAltSweep?: number};
+  if (host.__mrcAltSweep === undefined) {
+    let n = 0;
+    host.__mrcAltSweep = window.setInterval(() => {
+      n += 1;
+      setAlts();
+      if (n >= 40) {
+        window.clearInterval(host.__mrcAltSweep);
+        host.__mrcAltSweep = undefined;
+      }
+    }, 200) as unknown as number;
+  }
+}
+
+function installRenderDocsGptAltPatrol(rootIdFallback: string) {
+  const fn = window.renderDocsGPTWidget as PatchedRenderFn | undefined;
+  if (typeof fn !== 'function' || fn[RENDER_HOOK_KEY]) {
+    return;
+  }
+  const original = fn;
+  const wrapped: PatchedRenderFn = (id: string, props: Record<string, unknown>) => {
+    const ret = original(id, props);
+    ensureDocsGptImagesHaveAlt(id);
+    return ret;
+  };
+  wrapped[RENDER_HOOK_KEY] = true;
+  window.renderDocsGPTWidget = wrapped;
+  ensureDocsGptImagesHaveAlt(rootIdFallback);
+}
+
+function pollInstallRenderPatrol(rootIdFallback: string) {
+  installRenderDocsGptAltPatrol(rootIdFallback);
+  const w = window.renderDocsGPTWidget as PatchedRenderFn | undefined;
+  if (w?.[RENDER_HOOK_KEY]) {
+    return;
+  }
+  let tries = 0;
+  const id = window.setInterval(() => {
+    tries += 1;
+    installRenderDocsGptAltPatrol(rootIdFallback);
+    const f = window.renderDocsGPTWidget as PatchedRenderFn | undefined;
+    if (f?.[RENDER_HOOK_KEY] || tries > 400) {
+      window.clearInterval(id);
+    }
+  }, 25);
 }
 
 /**
@@ -80,7 +153,7 @@ function mount() {
     return;
   }
 
-  window.renderDocsGPTWidget(rootId, {
+  window.renderDocsGPTWidget!(rootId, {
     apiHost: 'https://assistant-api.mannyroy.com',
     apiKey: 'dd39c6e5-6298-4b87-82a8-22528453df58',
 
@@ -106,6 +179,7 @@ function kickoff() {
   mountAttempts = 0;
   loadDocsGPTScript()
     .then(() => {
+      installRenderDocsGptAltPatrol('docsgpt-widget-root');
       mountAttempts = 0;
       mount();
     })
@@ -130,6 +204,7 @@ function scheduleDocsGPT() {
 }
 
 if (typeof window !== 'undefined') {
+  pollInstallRenderPatrol('docsgpt-widget-root');
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', scheduleDocsGPT);
   } else {

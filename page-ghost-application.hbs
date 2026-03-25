@@ -1,53 +1,63 @@
 {{!< default}}
-{{! Ghost Application Landing Page — slug "ghost-application" (avoid /ghost/ admin path). See docs/plan-ghost-application-page.md }}
+{{! Scout / reviewer landing page — Ghost Admin: Page slug "ghost-application", template "Ghost application". Avoid slug "ghost" (admin path). }}
 
 <main class="site-main mrc-page mrc-page-ghost">
   {{! 1. Hero — Cream }}
   <section class="mrc-ghost-hero section-light gh-outer" aria-labelledby="mrc-ghost-hero-title">
     <div class="mrc-ghost-hero-inner gh-inner mrc-stack mrc-stack--m">
+      <p class="mrc-ghost-hero-kicker">Portfolio guide</p>
       <h1 id="mrc-ghost-hero-title" class="mrc-ghost-hero-title">{{@custom.ghost_hero_title}}</h1>
       <p class="mrc-ghost-hero-subtext">{{@custom.ghost_hero_subtext}}</p>
     </div>
   </section>
 
-  {{! 2. Responsibility-to-proof matrix — Paper (hardcoded; theme settings limit) }}
+  {{! 2. Capability → evidence matrix — Paper }}
   <section class="mrc-ghost-matrix section-surface gh-outer" aria-labelledby="mrc-ghost-matrix-title">
     <div class="mrc-ghost-matrix-inner gh-inner">
-      <h2 id="mrc-ghost-matrix-title" class="mrc-ghost-section-title">Role → proof</h2>
+      <h2 id="mrc-ghost-matrix-title" class="mrc-ghost-section-title">What to look for → where it shows up</h2>
+      <p class="mrc-ghost-matrix-lede">
+        Use this as a checklist while you click through. Everything here is production code, public docs, or published writing—not slide decks.
+      </p>
       <div class="mrc-ghost-matrix-rows">
-        {{> "ghost-responsibility-row" heading="Build and improve platform systems" proof="Custom Ghost theme architecture, Structured docs capability, Reusable components and content patterns, AI assistant integrated into site exploration"}}
-        {{> "ghost-responsibility-row" heading="Improve performance and reliability" proof="Measurable performance improvements, Asset and rendering optimization, Monitoring and error tracking basics, Deployment and rollback thinking"}}
-        {{> "ghost-responsibility-row" heading="Enable internal users / improve DX" proof="Public documentation system, Architecture guides and implementation notes, Process transparency, Clear conventions and maintainability"}}
-        {{> "ghost-responsibility-row" heading="Operational excellence" proof="Build and release workflow, Validation and QA discipline, Observability layer, Structured backlog and execution model"}}
-        {{> "ghost-responsibility-row" heading="Communication and technical leadership" proof="Public architecture writing, Tradeoff documentation, Build log transparency, Concise role-to-feature mapping"}}
+        {{> "ghost-responsibility-row" heading="Systems & platform work" proof="Custom Ghost theme and asset pipeline, structured documentation site, reusable partials and conventions, AI assistant integrated for site exploration"}}
+        {{> "ghost-responsibility-row" heading="Performance & reliability" proof="Core Web Vitals–oriented CSS/JS strategy, measurement notes in docs, deployment and rollback thinking"}}
+        {{> "ghost-responsibility-row" heading="Documentation & DX" proof="Public docs hub (architecture, ops, AI design), onboarding and build docs, clear boundaries between theme vs content"}}
+        {{> "ghost-responsibility-row" heading="Operations" proof="Observability and deployment narrative, validation workflow, transparent tradeoffs in writing"}}
+        {{> "ghost-responsibility-row" heading="Communication" proof="Blog and tagged posts, technical tone in docs, this page as a deliberate entry point for reviewers"}}
       </div>
     </div>
   </section>
 
-  {{! 3. Implementation highlights — Olive (hardcoded) }}
+  {{! 3. Implementation highlights — Olive }}
   <section class="mrc-ghost-highlights section-dark gh-outer" aria-labelledby="mrc-ghost-highlights-title">
     <div class="mrc-ghost-highlights-inner gh-inner">
-      <h2 id="mrc-ghost-highlights-title" class="mrc-ghost-section-title">Implementation highlights</h2>
+      <h2 id="mrc-ghost-highlights-title" class="mrc-ghost-section-title">Start with these links</h2>
+      <p class="mrc-ghost-highlights-lede">Each block opens a concrete artifact—good for a quick skim before a call.</p>
       <div class="mrc-ghost-highlights-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
-        {{> "ghost-highlight-card" title="Custom theme & design system" description="CUBE CSS, design tokens, accessible palette, and reusable partials." url=""}}
-        {{> "ghost-highlight-card" title="Documentation system" description="Docs hub, architecture notes, and technical writing conventions." url=""}}
-        {{> "ghost-highlight-card" title="Performance and reliability" description="Core Web Vitals focus, asset strategy, and measurement." url=""}}
-        {{> "ghost-highlight-card" title="AI-assisted delivery" description="Site-native assistant and transparent build process." url=""}}
+        {{> "ghost-highlight-card" title="Theme & design system" description="CUBE CSS, tokens, accessibility-minded palette, and how the theme is organized." url="https://docs.mannyroy.com/docs/architecture/overview"}}
+        {{> "ghost-highlight-card" title="Documentation hub" description="Architecture, operations, performance, and AI assistant design—written for maintainers and reviewers." url="https://docs.mannyroy.com/docs/intro"}}
+        {{> "ghost-highlight-card" title="Performance strategy" description="How assets, fonts, and critical path are handled; ties to real build output." url="https://docs.mannyroy.com/docs/performance/strategy"}}
+        {{> "ghost-highlight-card" title="AI on the site" description="DocsGPT / assistant integration: privacy, UX, and implementation notes." url="https://docs.mannyroy.com/docs/ai-assistant/design"}}
       </div>
     </div>
   </section>
 
-  {{! 4. Links + related posts — Paper }}
+  {{! 4. Explore + related posts — Paper }}
   <section class="mrc-ghost-links-section section-surface gh-outer" aria-labelledby="mrc-ghost-links-title">
     <div class="mrc-ghost-links-inner gh-inner">
-      <h2 id="mrc-ghost-links-title" class="mrc-ghost-section-title">Explore</h2>
-      <nav class="mrc-ghost-links mrc-cluster mrc-cluster--center" aria-label="Application links">
-        <a href="{{@site.url}}/docs/" class="button mrc-btn-secondary">Documentation</a>
-        <a href="{{@site.url}}/" class="button mrc-btn-secondary">Blog</a>
+      <h2 id="mrc-ghost-links-title" class="mrc-ghost-section-title">Explore the site</h2>
+      <p class="mrc-ghost-links-lede">
+        The <strong>blog</strong> is for narrative and updates; the <strong>docs</strong> are for specifications and runbooks. Use both to triangulate how I work.
+      </p>
+      <nav class="mrc-ghost-links mrc-cluster mrc-cluster--center" aria-label="Main destinations">
+        <a href="https://docs.mannyroy.com/docs/intro" class="button mrc-btn-secondary">Documentation</a>
+        <a href="{{@site.url}}/blog/" class="button mrc-btn-secondary">Blog</a>
+        <a href="{{@site.url}}/about/" class="button mrc-btn-secondary">About</a>
         <a href="{{@site.url}}/contact/" class="button mrc-btn-primary">Contact</a>
       </nav>
+      {{! If your Ghost routes omit /blog/, change the Blog link above to {{@site.url}} or your collection URL. }}
 
-      {{! Related posts: tag ghost-application }}
+      {{! Related posts: tag ghost-application (create in Admin → Tags) }}
       <div class="mrc-ghost-posts">
         <h3 class="mrc-ghost-posts-heading">{{@custom.ghost_posts_heading}}</h3>
         {{#get "posts" filter="tag:ghost-application" limit="5"}}
@@ -55,7 +65,7 @@
             {{#foreach posts}}
               <li><a href="{{url}}">{{title}}</a></li>
             {{else}}
-              <li class="mrc-ghost-posts-empty-wrap"><p class="mrc-ghost-posts-empty">Posts tagged Ghost Application will appear here.</p></li>
+              <li class="mrc-ghost-posts-empty-wrap"><p class="mrc-ghost-posts-empty">No posts yet. In Ghost Admin, create a tag with slug <code>ghost-application</code> and add it to posts you want featured here.</p></li>
             {{/foreach}}
           </ul>
         {{/get}}

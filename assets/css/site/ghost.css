@@ -1,5 +1,5 @@
 /**
- * Ghost Application Landing Page — page-ghost.hbs
+ * Ghost Application / scout landing page — page-ghost-application.hbs
  * Rhythm: Cream (hero) → Paper (matrix) → Olive (highlights) → Paper (links + posts) → Maroon (CTA)
  * See docs/plan-ghost-application-page.md
  */
@@ -30,6 +30,15 @@
   text-align: center;
 }
 
+.mrc-ghost-hero-kicker {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mrc-text-muted);
+  margin: 0 0 var(--space-3);
+}
+
 .mrc-ghost-hero-title {
   font-family: var(--font-serif);
   font-size: var(--mrc-h1-size, clamp(1.75rem, 4vw, 2.25rem));
@@ -51,13 +60,36 @@
   font-size: var(--mrc-h2-size, 1.5rem);
   font-weight: 600;
   color: var(--mrc-text);
-  margin: 0 0 var(--space-6);
+  margin: 0 0 var(--space-3);
+  text-align: center;
+}
+
+.mrc-ghost-matrix-lede,
+.mrc-ghost-links-lede {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line, 1.6);
+  color: var(--mrc-text-muted);
+  margin: 0 auto var(--space-6);
+  max-width: min(62ch, 100%);
+  text-align: center;
+}
+
+.mrc-ghost-highlights-lede {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line, 1.6);
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 auto var(--space-6);
+  max-width: min(62ch, 100%);
   text-align: center;
 }
 
 .mrc-ghost-highlights .mrc-ghost-section-title,
 .section-dark .mrc-ghost-section-title {
   color: var(--mrc-surface);
+}
+
+.mrc-ghost-highlights .mrc-ghost-section-title {
+  margin-bottom: var(--space-3);
 }
 
 /* ---------- Responsibility matrix (Paper) ---------- */
@@ -134,8 +166,15 @@
 }
 
 /* ---------- Explore links + related posts (Paper) ---------- */
+.mrc-ghost-links-lede strong {
+  color: var(--mrc-text);
+  font-weight: 600;
+}
+
 .mrc-ghost-links {
   margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-3);
 }
 
 .mrc-ghost-posts {
