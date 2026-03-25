@@ -56,12 +56,15 @@
 }
 
 .mrc-head .gh-head-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   flex-shrink: 0;
   margin-left: auto;
   margin-right: 0;
   justify-content: flex-end;
   /* Keep nav as inline links: reserve space so theme dropdown script doesn’t collapse to “More” */
-  min-width: 520px;
+  min-width: 560px;
 }
 
 /* Always show nav links (theme hides until is-dropdown-loaded); no dropdown in header */
@@ -221,6 +224,13 @@
     position: static;
     visibility: visible;
     opacity: 1;
+  }
+
+  /* Docs link + Ghost primary nav: stack as one menu */
+  .is-head-open #gh-head.mrc-head .gh-head-menu {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-4);
   }
 
   .is-head-open #gh-head.mrc-head .nav {
