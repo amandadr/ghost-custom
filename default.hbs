@@ -19,13 +19,8 @@
 
     {{> "ga4"}}
 
-    {{! Ghost ≥5.99: omit Portal, Sodo Search, announcement bar, member CTA styles. }}
-    {{! card_assets only needed where Koenig post/page body runs (cards.min.css/js). }}
-    {{#is "post, page"}}
-        {{ghost_head exclude="search,portal,announcement,cta_styles"}}
-    {{else}}
-        {{ghost_head exclude="search,portal,announcement,cta_styles,card_assets"}}
-    {{/is}}
+    {{! Note: some Ghost versions don't support ghost_head "exclude". Keep this compatible. }}
+    {{ghost_head}}
 
     {{! Favicon, og:image, twitter:image — only when Header logo is set (otherwise Ghost/defaults apply) }}
     {{#if @custom.header_logo}}

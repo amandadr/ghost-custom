@@ -275,6 +275,8 @@
   }
   #gh-head.mrc-head .gh-head-logo {
     font-size: min(1.35rem, 4.5vw + 1rem);
+    line-height: 1.25;
+    padding-bottom: 0.08em; /* prevent descenders clipping when overflow hidden */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

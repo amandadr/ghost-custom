@@ -14,7 +14,9 @@
 @import "site/services.css";
 @import "site/about.css";
 @import "site/contact.css";
+@import "site/error.css";
 @import "site/ghost.css";
+@import "site/resources.css";
 @import "blog/feed.css";
 @import "blog/featured.css";
 @import "blog/pagination.css";

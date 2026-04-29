@@ -51,6 +51,22 @@
     margin-top: var(--space-8);
 }
 
+/*
+  Feature image: show the full image (no cropping).
+  We override the shared `.u-placeholder`/`.u-object-fit` utility pattern here only for the post's feature image.
+*/
+.single-media .u-placeholder::before {
+    display: none;
+    content: none;
+}
+
+.single-media .u-object-fit {
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 .single-cta {
     padding: var(--space-7);
     margin-top: var(--space-8) !important;

@@ -170,6 +170,7 @@ strong, b {
 .gh-content p,
 .mrc-content-width p {
   max-width: min(var(--mrc-content-width), 100%);
+  margin-block-start: var(--space-4);
 }
 
 hr {
@@ -180,9 +181,19 @@ hr {
   margin-bottom: var(--space-3) !important;
 }
 
+/* Figures: increase the (shared) extra spacing above */
+.gh-content > figure {
+  margin-block-start: var(--space-4) !important;
+}
+
+/* Blockquotes: reduce the (shared) extra spacing above by ~50% */
+.gh-content > blockquote {
+  margin-block-start: var(--space-1);
+}
+
 /* Content spacing: tighten default stack spacing from shared content.css */
 .gh-content > [id]:not(:first-child) {
-  margin-top: calc(1rem * var(--content-spacing-multiplier, 1));
+  margin-top: calc(1.5rem * var(--content-spacing-multiplier, 1));
 }
 
 /* Table spacing: tighten default stack spacing from shared content.css */

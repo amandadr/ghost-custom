@@ -1,0 +1,29 @@
+{{!< default}}
+
+<main class="site-main mrc-page mrc-error-page">
+  <section class="mrc-hero mrc-error section-light gh-outer" aria-labelledby="mrc-error-title">
+    <div class="mrc-hero-inner mrc-error-inner gh-inner mrc-stack mrc-stack--m">
+      {{#if statusCode}}
+        <p class="mrc-error-code" aria-hidden="true">{{statusCode}}</p>
+      {{/if}}
+      <h1 id="mrc-error-title" class="mrc-hero-headline mrc-error-title">
+        {{#if message}}{{message}}{{else}}Something went wrong{{/if}}
+      </h1>
+      <p class="mrc-error-subtext">If this keeps happening, please reach out and include what you were trying to do.</p>
+
+      <div class="mrc-error-card mrc-stack mrc-stack--m">
+        <h2 class="mrc-section-heading mrc-error-card-title">Next steps</h2>
+        <ul class="mrc-error-links mrc-stack mrc-stack--s">
+          <li><a href="{{@site.url}}">Go to the homepage</a></li>
+          <li><a href="{{@site.url}}/contact/">Contact</a></li>
+        </ul>
+
+        <div class="mrc-error-actions mrc-cluster mrc-cluster--center">
+          <a class="button mrc-btn-primary" href="{{@site.url}}">Back to home</a>
+          <a class="button mrc-btn-secondary" href="{{@site.url}}/contact/">Get help</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+

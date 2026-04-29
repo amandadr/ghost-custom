@@ -1,0 +1,20 @@
+<article class="single single--case-study {{post_class}}">
+  <header class="single-header gh-canvas">
+    <h1 class="single-title">{{title}}</h1>
+    {{#if custom_excerpt}}
+      <div class="single-excerpt">{{custom_excerpt}}</div>
+    {{/if}}
+  </header>
+
+  {{!-- The post body is used only as a storage field for the PDF link/card. --}}
+  <div class="mrc-pdf-source gh-content" hidden>
+    {{content}}
+  </div>
+
+  <div class="gh-canvas">
+    <section class="mrc-pdf-viewer" data-pdf-viewer>
+      <div class="mrc-pdf-viewer__frame" data-pdf-frame hidden></div>
+    </section>
+  </div>
+</article>
+

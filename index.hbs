@@ -4,11 +4,17 @@
 <main class="site-main" id="blog-archive">
     <h1 class="gh-outer gh-feed-heading">Blog</h1>
     <div class="post-feed gh-feed gh-canvas">
-        {{#foreach posts}}
-            {{> "loop"}}
-        {{/foreach}}
+        {{#if posts}}
+            {{#foreach posts}}
+                {{> "loop"}}
+            {{/foreach}}
+        {{else}}
+            <p class="gh-outer">No posts yet.</p>
+        {{/if}}
     </div>
 
-    {{pagination}}
+    {{#if pagination.pages}}
+        {{pagination}}
+    {{/if}}
 
 </main>

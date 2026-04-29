@@ -1,0 +1,27 @@
+{{!< default}}
+
+<main class="site-main mrc-page mrc-error-page">
+  <section class="mrc-hero mrc-error section-light gh-outer" aria-labelledby="mrc-404-title">
+    <div class="mrc-hero-inner mrc-error-inner gh-inner mrc-stack mrc-stack--m">
+      <p class="mrc-error-code" aria-hidden="true">404</p>
+      <h1 id="mrc-404-title" class="mrc-hero-headline mrc-error-title">Page not found</h1>
+      <p class="mrc-error-subtext">That URL doesn’t map to anything here. If you followed a link from the site, it might be outdated.</p>
+
+      <div class="mrc-error-card mrc-stack mrc-stack--m">
+        <h2 class="mrc-section-heading mrc-error-card-title">Try one of these instead</h2>
+        <ul class="mrc-error-links mrc-stack mrc-stack--s">
+          <li><a href="{{@site.url}}">Go to the homepage</a></li>
+          <li><a href="{{@site.url}}/services/">See services</a></li>
+          <li><a href="{{@site.url}}/about/">Read about Manny</a></li>
+          <li><a href="{{@site.url}}/contact/">Contact</a></li>
+        </ul>
+
+        <div class="mrc-error-actions mrc-cluster mrc-cluster--center">
+          <a class="button mrc-btn-primary" href="{{@site.url}}">Back to home</a>
+          <a class="button mrc-btn-secondary" href="{{@site.url}}/contact/">Report a broken link</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+

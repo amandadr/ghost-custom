@@ -1,0 +1,111 @@
+.mrc-archive__header {
+    padding: clamp(24px, 4vw, 48px) 0 16px;
+}
+
+.mrc-archive__title {
+    margin: 0 0 8px;
+}
+
+.mrc-archive__subtitle {
+    margin: 0;
+    max-width: 70ch;
+    opacity: 0.85;
+}
+
+.single-cta-subtitle {
+    margin: 6px 0 14px;
+    opacity: 0.85;
+}
+
+.single-cta-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    margin: 12px 0 10px;
+}
+
+.single-cta-field input {
+    width: 100%;
+}
+
+.single-cta-message {
+    grid-column: 1 / -1;
+    margin: 8px 0 0;
+    font-size: 0.95em;
+}
+
+.single-cta-message--success {
+    display: none;
+    opacity: 0.9;
+}
+
+.single-cta-form.success .single-cta-message--success {
+    display: block;
+}
+
+.mrc-pdf-viewer {
+    margin-top: 28px;
+}
+
+.mrc-pdf-source[hidden] {
+    display: none;
+}
+
+.mrc-pdf-viewer__iframe {
+    width: 100%;
+    height: min(85vh, 900px);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.mrc-glossary {
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mrc-glossary__title {
+    margin: 0 0 12px;
+}
+
+.mrc-glossary__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 18px;
+}
+
+.mrc-glossary__nav-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    text-decoration: none;
+}
+
+.mrc-glossary__group {
+    margin: 18px 0 0;
+}
+
+.mrc-glossary__letter {
+    margin: 0 0 10px;
+}
+
+.mrc-glossary__list {
+    margin: 0;
+}
+
+.mrc-glossary__term {
+    font-weight: 600;
+}
+
+.mrc-glossary__def {
+    margin: 6px 0 14px;
+    opacity: 0.9;
+}
+

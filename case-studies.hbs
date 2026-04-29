@@ -1,0 +1,23 @@
+{{!< default}}
+
+<main class="site-main">
+
+  <section class="mrc-archive mrc-archive--case-studies">
+    <div class="gh-canvas">
+      <header class="mrc-archive__header">
+        <h1 class="mrc-archive__title">Case studies</h1>
+        <p class="mrc-archive__subtitle">Real projects, real outcomes. Browse the narrative first, then view the full PDF.</p>
+      </header>
+    </div>
+
+    <div class="post-feed gh-feed gh-canvas">
+      {{#foreach posts}}
+        {{> "loop"}}
+      {{/foreach}}
+    </div>
+
+    {{pagination}}
+  </section>
+
+</main>
+

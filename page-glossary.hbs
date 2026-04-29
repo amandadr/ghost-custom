@@ -1,0 +1,21 @@
+{{!< default}}
+
+<main class="site-main">
+  {{#page}}
+    <article class="single single--glossary {{post_class}}">
+      <header class="single-header gh-canvas">
+        <h1 class="single-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+          <div class="single-excerpt">{{custom_excerpt}}</div>
+        {{/if}}
+      </header>
+
+      <div class="single-content gh-content gh-canvas">
+        {{content}}
+      </div>
+
+      {{> "glossary-terms"}}
+    </article>
+  {{/page}}
+</main>
+

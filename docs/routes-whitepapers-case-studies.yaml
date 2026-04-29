@@ -1,0 +1,36 @@
+# Routes: custom homepage (/) + blog archive at /blog/ + resources collections
+#
+# Apply in Ghost Admin:
+# Settings → Labs → Routes → Upload this YAML
+#
+# Result:
+#   /                    → home.hbs
+#   /blog/               → index.hbs (standard post listing)
+#   /blog/{slug}/        → individual blog posts
+#   /whitepapers/        → whitepapers.hbs (tag:whitepaper)
+#   /whitepapers/{slug}/ → single post (tag:whitepaper)
+#   /case-studies/       → case-studies.hbs (tag:case-study)
+#   /case-studies/{slug}/→ single post (tag:case-study)
+
+routes:
+  /: home
+
+collections:
+  /blog/:
+    permalink: /blog/{slug}/
+    template: index
+
+  /whitepapers/:
+    permalink: /whitepapers/{slug}/
+    template: whitepapers
+    filter: tag:whitepaper
+
+  /case-studies/:
+    permalink: /case-studies/{slug}/
+    template: case-studies
+    filter: tag:case-study
+
+taxonomies:
+  tag: /blog/tag/{slug}/
+  author: /blog/author/{slug}/
+

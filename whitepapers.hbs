@@ -1,0 +1,23 @@
+{{!< default}}
+
+<main class="site-main">
+
+  <section class="mrc-archive mrc-archive--whitepapers">
+    <div class="gh-canvas">
+      <header class="mrc-archive__header">
+        <h1 class="mrc-archive__title">Whitepapers</h1>
+        <p class="mrc-archive__subtitle">Deep dives and practical guides. Get instant access by joining as a member.</p>
+      </header>
+    </div>
+
+    <div class="post-feed gh-feed gh-canvas">
+      {{#foreach posts}}
+        {{> "loop"}}
+      {{/foreach}}
+    </div>
+
+    {{pagination}}
+  </section>
+
+</main>
+

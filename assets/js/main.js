@@ -1,6 +1,51 @@
 (function () {
     'use strict';
 
+    function buildPdfJsViewerUrl(pdfUrl) {
+        if (!pdfUrl) {
+            return null;
+        }
+        // Hosted PDF.js viewer (CDN). The PDF URL must be publicly fetchable (CORS-compatible).
+        // Using hash params keeps the viewer stable and avoids query encoding issues.
+        var viewerBase = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/web/viewer.html';
+        return viewerBase + '?file=' + encodeURIComponent(pdfUrl);
+    }
+
+    function initPdfViewers() {
+        var roots = document.querySelectorAll('[data-pdf-viewer]');
+        if (!roots || !roots.length) {
+            return;
+        }
+
+        roots.forEach(function (root) {
+            // Convention: store a PDF link in the post body (hidden by the template).
+            // We’ll detect the first PDF link and render it in a PDF.js viewer iframe.
+            var article = root.closest('article');
+            var scope = article || document;
+            var pdfLink =
+                scope.querySelector('a[href$=".pdf"]') ||
+                scope.querySelector('a[href*=".pdf"]');
+
+            var pdfUrl = pdfLink && pdfLink.getAttribute('href');
+            if (!pdfUrl) {
+                return;
+            }
+
+            var frame = root.querySelector('[data-pdf-frame]');
+            if (!frame) {
+                return;
+            }
+
+            var viewerUrl = buildPdfJsViewerUrl(pdfUrl);
+            if (!viewerUrl) {
+                return;
+            }
+
+            frame.hidden = false;
+            frame.innerHTML = '<iframe class="mrc-pdf-viewer__iframe" title="PDF viewer" loading="lazy" referrerpolicy="no-referrer" src="' + viewerUrl + '"></iframe>';
+        });
+    }
+
     function hasGtag() {
         return typeof window.gtag === 'function';
     }
@@ -58,6 +103,7 @@
 
     function init() {
         initAnalytics();
+        initPdfViewers();
         pagination(false);
     }
 

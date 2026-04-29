@@ -3,7 +3,15 @@
 <main class="site-main">
 
     {{#post}}
-        {{> "content" width="wide"}}
+        {{#has tag="whitepaper"}}
+            {{> "post-whitepaper"}}
+        {{else}}
+            {{#has tag="case-study"}}
+                {{> "post-case-study"}}
+            {{else}}
+                {{> "content" width="wide"}}
+            {{/has}}
+        {{/has}}
     {{/post}}
 
     {{#if @custom.show_related_posts}}

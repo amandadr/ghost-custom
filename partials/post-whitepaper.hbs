@@ -1,0 +1,42 @@
+<article class="single single--whitepaper {{post_class}}">
+  <header class="single-header gh-canvas">
+    <h1 class="single-title">{{title}}</h1>
+    {{#if custom_excerpt}}
+      <div class="single-excerpt">{{custom_excerpt}}</div>
+    {{/if}}
+  </header>
+
+  {{#if access}}
+    {{!-- The post body is used only as a storage field for the PDF link/card. --}}
+    <div class="mrc-pdf-source gh-content" hidden>
+      {{content}}
+    </div>
+
+    <div class="gh-canvas">
+      <section class="mrc-pdf-viewer" data-pdf-viewer>
+        <div class="mrc-pdf-viewer__frame" data-pdf-frame hidden></div>
+      </section>
+    </div>
+  {{else}}
+    <div class="gh-canvas">
+      <section class="single-cta">
+        <h2 class="single-cta-title">Get the full whitepaper</h2>
+        <p class="single-cta-subtitle">Enter your email to get access.</p>
+
+        <form class="single-cta-form" data-members-form="signup" data-members-autoredirect="true">
+          <input data-members-label type="hidden" value="whitepaper:{{slug}}" />
+          <label class="single-cta-field">
+            <span class="sr-only">Email</span>
+            <input data-members-email type="email" required="true" placeholder="you@company.com" autocomplete="email" />
+          </label>
+          <button class="button single-cta-button" type="submit">Continue</button>
+          <p class="single-cta-message single-cta-message--error" data-members-error></p>
+          <p class="single-cta-message single-cta-message--success">Check your inbox for a sign-in link, then you’ll be brought back here.</p>
+        </form>
+
+        <button class="button-text single-cta-footer" data-portal="signin" type="button">Already have an account? Sign in</button>
+      </section>
+    </div>
+  {{/if}}
+</article>
+

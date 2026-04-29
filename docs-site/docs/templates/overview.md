@@ -35,5 +35,6 @@ The slug is set on the page in Ghost; the template name corresponds to the templ
 - [Home](./home) — Homepage structure and theme settings
 - [Blog and index](./blog-and-index) — Blog archive, cover, featured posts
 - [Post and page](./post-and-page) — Single post/page, content partial, custom post templates
+- [Whitepapers + case studies (PDF-first)](./resources-pdfs) — Add a PDF resource to Ghost and serve it via your CDN
 - [Ghost application page](./ghost-application-page) — Role-to-proof page and ghost_* settings
 - [Theme settings](./theme-settings) — Full reference of `@custom.*` keys

@@ -45,6 +45,13 @@ fi
 echo "Running ghost install local (follow the prompts)..."
 cd "$GHOST_DIR"
 echo "22" > .nvmrc
+
+# Ensure Ghost-CLI is new enough for the Ghost version we’ll install.
+# (If you previously installed ghost-cli under a different Node version, nvm can “hide” that global install.)
+echo "Ensuring Ghost-CLI is up to date..."
+npm install -g ghost-cli@latest
+echo "Ghost-CLI: $(ghost --version 2>/dev/null || echo 'ghost not found in PATH')"
+
 ghost install local
 
 echo ""

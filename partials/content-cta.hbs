@@ -5,7 +5,28 @@
         <h2 class="single-cta-title">This post is for paying subscribers only</h2>
     {{/has}}
     {{#has visibility="members"}}
-        <h2 class="single-cta-title">This post is for subscribers only</h2>
+        {{#has tag="whitepaper"}}
+            <h2 class="single-cta-title">Get the full whitepaper</h2>
+            <p class="single-cta-subtitle">Enter your email to get access.</p>
+
+            <form class="single-cta-form" data-members-form="signup" data-members-autoredirect="true">
+                <input data-members-label type="hidden" value="whitepaper:{{slug}}" />
+
+                <label class="single-cta-field">
+                    <span class="sr-only">Email</span>
+                    <input data-members-email type="email" required="true" placeholder="you@company.com" autocomplete="email" />
+                </label>
+
+                <button class="button single-cta-button" type="submit">Continue</button>
+
+                <p class="single-cta-message single-cta-message--error" data-members-error></p>
+                <p class="single-cta-message single-cta-message--success">Check your inbox for a sign-in link, then you’ll be brought back here.</p>
+            </form>
+
+            <button class="button-text single-cta-footer" data-portal="signin" type="button">Already have an account? Sign in</button>
+        {{else}}
+            <h2 class="single-cta-title">This post is for subscribers only</h2>
+        {{/has}}
     {{/has}}
     {{#has visibility="filter"}}
         <h2 class="single-cta-title">This post is for subscribers on the {{tiers}} only</h2>
@@ -13,8 +34,18 @@
     {{#if @member}}
         <button class="button single-cta-button" data-portal="account/plans">Upgrade now</button>
     {{else}}
-        <button class="button single-cta-button" data-portal="signup">Subscribe now</button>
-        <br>
-        <button class="button-text single-cta-footer" data-portal="signin">Already have an account? Sign in</button>
+        {{#has visibility="members"}}
+            {{#has tag="whitepaper"}}
+                {{!-- Whitepaper CTA handled above --}}
+            {{else}}
+                <button class="button single-cta-button" data-portal="signup">Subscribe now</button>
+                <br>
+                <button class="button-text single-cta-footer" data-portal="signin">Already have an account? Sign in</button>
+            {{/has}}
+        {{else}}
+            <button class="button single-cta-button" data-portal="signup">Subscribe now</button>
+            <br>
+            <button class="button-text single-cta-footer" data-portal="signin">Already have an account? Sign in</button>
+        {{/has}}
     {{/if}}
 </section>

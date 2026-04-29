@@ -4,7 +4,37 @@
     background-color: var(--lighter-gray-color);
 }
 
+/* Use primary text token so headings stay readable when this band is dark (OS / theme dark). */
+.related-wrapper .related-title,
+.related-wrapper .feed-title {
+    color: var(--primary-text-color);
+}
+
 .related-title {
     margin-bottom: var(--space-5);
     font-size: var(--mrc-h2-size);
+}
+
+.related-wrapper .feed-length,
+.related-wrapper .feed-icon {
+    color: var(--secondary-text-color);
+}
+
+/* Dark band: brighter date accent + row dividers */
+@media (prefers-color-scheme: dark) {
+    html:not(.theme-light) .related-wrapper .feed-calendar {
+        color: var(--mrc-mustard);
+    }
+
+    html:not(.theme-light) .related-wrapper .feed + .feed {
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+}
+
+.theme-dark .related-wrapper .feed-calendar {
+    color: var(--mrc-mustard);
+}
+
+.theme-dark .related-wrapper .feed + .feed {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
